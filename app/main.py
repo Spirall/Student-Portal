@@ -4,8 +4,20 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
-    return render_static("helloWorld")
+def home():
+    return render_static("index")
+	
+@app.route("/")
+def contact_us():
+    return render_static("contact_us")
+
+@app.route("/")
+def accommodations():
+    return render_static("accommodations")
+
+@app.route("/")
+def residence_students():
+    return render_static("residence_students")
 
 
 @app.route("/<string:page_name>/")
