@@ -1,0 +1,8 @@
+.progress {
+  background-color: #ed6400;
+  margin: 0px;
+  border-radius: 0px; }
+  .progress .indeterminate {
+    background-color: #ebeaf7; }
+
+/*# sourceMappingURL=preloader.component.css.map */

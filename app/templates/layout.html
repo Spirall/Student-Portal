@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!--<meta charset="utf-8">-->
+  
+ <!---- This code block is used to render the title accordingly -->
+  {% if title %}
+  <title>UJ Residence - {{title}}</title>
+  {% else %}
+  <title>UJ Residence</title>
+  {% endif %}
+  
+ <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <link rel="icon" type="image/x-icon" href="http://ujres.marvinebamba.com/assets/img/uj_logo_3.png">
+<!---->
+ <meta property="og:url" content="http://ujres.marvinebamba.com" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="UJ Residence Project"/>
+  <meta property="og:description" content="UJ Residence Project Thrive mentoring program" />
+  <meta property="og:image" content="http://ujres.marvinebamba.com/assets/img/uj_logo_3.png" />
+  <meta property="fb:app_id" content="472153453142140" />
+  <!---->
+<!---->
+  <link
+    href="http://fonts.googleapis.com/icon?family=Material+Icons|Courgette|Play|Raleway|Open+Sans|ABeeZee|Patua+One|Baloo+Bhaina"
+        rel="stylesheet">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+<!---->
+<!---->
+<script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '472153453142140',
+        xfbml      : true,
+        version    : 'v2.10'
+      });
+      FB.AppEvents.logPageView();
+    };
+
+    (function(d, s, id){
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {return;}
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  
+  <script src="https://cdn.ckeditor.com/4.5.11/full/ckeditor.js"></script>
+<!---->
+</head>
+<body>
+{% block content %}
+  <app-root></app-root>
+{% endblock %}
+</body>
+</html>
