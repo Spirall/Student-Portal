@@ -9,15 +9,15 @@ def home():
 	
 @app.route("/")
 def contact_us():
-    return render_static("contact_us")
+    return render_static("contact_us", title='Contact us')
 
 @app.route("/")
 def accommodations():
-    return render_static("accommodations")
+    return render_static("accommodations", title='Accommodations')
 
 @app.route("/")
 def residence_students():
-    return render_static("residence_students")
+    return render_static("residence_students", title='Residence Rtudents')
 
 
 @app.route("/<string:page_name>/")
