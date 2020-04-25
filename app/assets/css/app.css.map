@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,UAIC;EAHG,WAAW,EAAE,kBAAkB;EAE/B,GAAG,EAAE,2EAA2E;AAEpF,UAIC;EAHG,WAAW,EAAE,qBAAqB;EAElC,GAAG,EAAE,iCAAiC;AAG1C,UAeC;EAdG,WAAW,EAAE,mBAAmB;EAChC,GAAG,EAAE,wkBAKwG",
-"sources": ["fonts.scss"],
-"names": [],
-"file": "app.css"
-}
