@@ -1,0 +1,75 @@
+<nav class="grey lighten-2 z-depth-1">
+  <div class="nav-wrapper">
+    <div class="row" style="margin: 0px;">
+      <div class="col l3 m6 s6 no-padding">
+        <div class="site-title">
+          <a href="/" class="uppercase">
+            <img src="assets/img/uj_logo_3.png" class="site-logo"/>
+          </a>
+        </div>
+      </div>
+      <!--On Desktop-->
+      <section class="col l6 no-padding show-on-large hide-on-med-and-down center btn-option-section">
+        <ul class="show-on-large hide-on-med-and-down">
+          <li>
+            <a routerLink="/accommodations" routerLinkActive="active"
+               class="waves-effect waves-black upper-case btn-option">Accommodation</a>
+          </li>
+          <li>
+            <a routerLink="/resident-student" routerLinkActive="active"
+               class="waves-effect waves-black upper-case btn-option">Resident Students</a>
+          </li>
+          <li>
+            <a routerLink="/contact-us" routerLinkActive="active"
+                class="waves-effect waves-black upper-case btn-option">Contact us</a>
+          </li>
+        </ul>
+      </section>
+      <div class="col l3 no-padding show-on-large hide-on-med-and-down right-align">
+        <a routerLink="/apply-now" class="waves-effect waves-light btn btn-apply z-depth-0">Apply Now</a>
+      </div>
+      <!--On Tabs and Mobile-->
+      <div class="col offset-m4 offset-s3 m2 s3 no-padding hide-on-large-only show-on-medium-and-down right-align btn-menu-section">
+        <a class="waves-effect waves-black btn btn-menu z-depth-0"
+           materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions"
+           data-activates="sideNavMenu">
+          <i class="material-icons">menu</i>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<ul id="sideNavMenu" class="side-nav">
+  <li>
+    <div class="user-view">
+      <div>
+        <img src="../assets/img/uj_logo_4.png" style="width: 100%">
+      </div>
+    </div>
+  </li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Menu Options</a></li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a href="/apply-now" class="waves-effect nav-item">
+      <i class="material-icons nav-item-icon">play_arrow</i>Apply Now
+    </a>
+  </li>
+  <li>
+    <a href="/accommodations" class="waves-effect nav-item">
+      <i class="material-icons nav-item-icon">play_arrow</i>Accommodation
+    </a>
+  </li>
+  <li>
+    <a href="/resident-student" class="waves-effect nav-item">
+      <i class="material-icons nav-item-icon">play_arrow</i>Resident Students
+    </a>
+  </li>
+  <li>
+    <a href="/contact-us" class="waves-effect nav-item">
+      <i class="material-icons nav-item-icon">play_arrow</i>Contact us
+    </a>
+  </li>
+</ul>

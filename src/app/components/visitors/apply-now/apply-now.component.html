@@ -1,0 +1,152 @@
+<!-- Header -->
+<app-main-header></app-main-header>
+<!--End  Header -->
+
+<section class="applyNow-form-section">
+  <div class="row" *ngIf="!residences_loading">
+    <div class="col offset-l1 offset-m1 l10 m10 s12">
+      <div class="card grey lighten-5">
+          <div class="card-content white-text grey lighten-3">
+            <span class="card-title">Apply for residence</span>
+          </div>
+           <div class="card-inputs">
+             <form name="student_application" [formGroup]="application_form" (ngSubmit)="onSubmitApplication(application_form.value, application_form)">
+              <div class="row margin-0">
+
+                <div class="input-field col l4 m6 s12">
+                  <input type="text" name="fname" id="fname"  formControlName="fname" class="validate" placeholder="" autocomplete="false" required minlength="3" maxlength="100">
+                  <label for="fname" class="active">First Name</label>
+                </div>
+
+                <div class="input-field col  l4 m6 s12">
+                  <input type="text" name="lname" id="lname" formControlName="lname" class="validate" placeholder="" autocomplete="false" required minlength="3" maxlength="100">
+                  <label for="lname" class="active">Last Name</label>
+                </div>
+
+                <div class="input-field col l4 m6 s12">
+                  <input type="text" name="id_passport" id="id_passport" formControlName="id_passport" class="validate" placeholder="" autocomplete="false" required minlength="6" maxlength="20">
+                  <label for="id_passport" class="active">ID / Passport No</label>
+                </div>
+
+                <div class="input-field col l4 m6 s12">
+                  <input type="number" name="st_no" id="st_no" formControlName="st_no" class="validate" placeholder="" autocomplete="false" required min="6" max="12">
+                  <label for="st_no" class="active">Student Number</label>
+                </div>
+
+                <div class="input-field col l4 m6 s12">
+                  <input type="tel"  name="st_cel" id="st_cel" formControlName="st_cel" class="validate" placeholder="" autocomplete="false" required minlength="10" maxlength="15">
+                  <label for="st_cel" class="active">Cell number</label>
+                </div>
+
+                <div class="input-field col l4 m6 s12">
+                  <input type="email"  name="st_email" id="st_email" formControlName="st_email" class="validate" placeholder="" autocomplete="false" required>
+                  <label for="st_email" class="active">Email Address</label>
+                </div>
+
+                <div class="col l3 m6 s12 radio-btn-group">
+                  <span class="radio-1">
+                     <input materialize class="with-gap" name="st_gender" formControlName="st_gender" type="radio" id="st_female" [value]="'F'" checked (change)="genderChanged('F')"/>
+                     <label for="st_female">Female</label>
+                  </span>
+                  <span class="radio-2">
+                     <input materialize class="with-gap" name="st_gender" formControlName="st_gender" type="radio" id="st_male" [value]="'M'" (change)="genderChanged('M')"/>
+                     <label for="st_male">Male</label>
+                  </span>
+                </div>
+
+                <div class="input-field col l3 m6 s12">
+                  <select name="st_year" formControlName="st_year" formControlName="st_year" (ngModelChange)="stYearHasChanged($event)" #st_year class="default-select-dropdown">
+                    <option value="" disabled selected>Which year are you doing ?</option>
+                      <option value="1">1st / 2nd Year</option>
+                      <option value="2">3rd / 4th Year</option>
+                      <option value="3">Honors</option>
+                      <option value="4">Master</option>
+                      <option value="5">Doctorate</option>
+                  </select>
+                </div>
+
+                <div class="input-field col l3 m6 s12">
+                  <select name="room_type" id="room_type"  formControlName="room_type" #room_type class="default-select-dropdown">
+                    <option value="" disabled selected>Choose type of room</option>
+                    <optgroup #select_disable_1  label="1st and 2nd Year">
+                      <option value="2">Double Room</option>
+                    </optgroup>
+                    <optgroup #select_disable_2 label="3rd year to up">
+                      <option  class="disabled" value="1">Single Room</option>
+                    </optgroup>
+                    <optgroup label="Master to up">
+                      <option #select_disable_3 value="3">Flat</option>
+                    </optgroup>
+                  </select>
+                </div>
+
+                <div class="input-field col l3 m6 s12">
+                  <select name="res_name" formControlName="res_name" #res_id class="default-select-dropdown">
+                      <option value="" disabled selected>Choose your residence</option>
+                        <optgroup label="APK Campus">
+                          <option *ngFor="let res of grouped_res['APK']" value="{{res.acc_id}}">{{res.acc_name}}</option>
+                        </optgroup>
+                        <optgroup label="APB Campus">
+                          <option *ngFor="let res of grouped_res['APB']" value="{{res.acc_id}}">{{res.acc_name}}</option>
+                        </optgroup>
+                        <optgroup label="DFC Campus">
+                          <option *ngFor="let res of grouped_res['DFC']" value="{{res.acc_id}}">{{res.acc_name}}</option>
+                        </optgroup>
+                        <optgroup label="Soweto Campus">
+                          <option *ngFor="let res of grouped_res['SWC']" value="{{res.acc_id}}">{{res.acc_name}}</option>
+                        </optgroup>
+                  </select>
+                </div>
+
+                <div class="file-field input-field col l4 m6 s12">
+                  <div class="btn">
+                    <i class="material-icons">attach_file</i>
+                    <input type="file" name="st_proof" #st_proof_of_Res accept="image/jpeg, image/png, application/pdf">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="UJ Proof of Registration" #st_proof_of_Res_copy>
+                  </div>
+                </div>
+
+                <div class="input-field fullAddrInput col l8 m12 s12">
+                  <input type="text" name="st_addr" id="st_addr"
+                         formControlName="st_addr" class="validate" placeholder="" required id="googleAutoComplete"
+                         googleAutoComplete (fullAddressEvent)="callFullAddress($event)" >
+                  <label for="st_addr" class="active">Your Full Address</label>
+                </div>
+            </div>
+
+            <div class="row center margin-0">
+                <div class="row btn-signIn-section">
+                  <button type="submit" class="waves-effect waves-light btn btn-signIn">Send Application</button>
+                </div>
+            </div>
+           </form>
+          </div>
+          <app-preloader-intermediate *ngIf="is_submitting"></app-preloader-intermediate>
+      </div>
+    </div>
+  </div>
+
+  <div class="residence_loader_section" *ngIf="residences_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>
+
+
+
+<!-- This is the delete ress modal -->
+<div id="modal1" class="modal application-res-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="application_modalActions">
+  <div class="modal-content">
+    <h4 class="modal-title">Residence Application</h4>
+    <p class="message">
+        Your Application has been sent with success. Once it has been processed,
+        an email will be sent to you about your application status.<br/><br/>
+        Thank you for choosing UJ as your home.
+    </p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.application_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Close</a>
+  </div>
+</div>
+<!-- End delete room modal -->

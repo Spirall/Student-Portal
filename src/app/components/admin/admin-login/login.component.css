@@ -1,0 +1,18 @@
+.admin-login {
+  position: relative;
+  margin-top: 5%;
+  padding-bottom: 60px; }
+  .admin-login .card .card-content .card-title {
+    color: #ed6400 !important;
+    text-align: center;
+    text-transform: uppercase; }
+  .admin-login .card .card-inputs {
+    padding: 45px 20px 0px 20px; }
+    .admin-login .card .card-inputs .btn-signIn-section .btn-signIn {
+      width: 200px;
+      background-color: #ed6400 !important; }
+    .admin-login .card .card-inputs .btn-forgotPassword-section .btn-forgotPassword {
+      color: #ed6400 !important;
+      text-decoration: underline; }
+
+/*# sourceMappingURL=login.component.css.map */

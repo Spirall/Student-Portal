@@ -1,0 +1,74 @@
+<section class="admin-articles">
+  <div class="articles-header grey lighten-2">
+    <p class="page-title">Articles</p>
+  </div>
+  <section class="article-contain" *ngIf="!article_loading">
+<!--<editor-fold Description="Search articles input section"> -->
+    <div class="row search-input">
+      <div class="input-field col offset-l3 l6 offset-m3 m6 s12">
+        <i class="material-icons prefix">search</i>
+        <input [(ngModel)]="search_art" name="search_art" id="search_art" class="validate" placeholder="" autofocus/>
+        <label class="active" for="search_art">Search Article</label>
+      </div>
+    </div>
+<!--</editor-fold> -->
+
+<!--<editor-fold Description="list card of articles section"> -->
+    <div class="row">
+      <div class="col s12 m6 l4" *ngFor="let art of article_data | filter:search_art:['article_title']">
+        <div class="card">
+          <div class="card-image">
+            <img src="{{(art.article_img) ? img_src + art.article_img : 'http://via.placeholder.com/350x150'}}">
+            <p class="card-title">
+              <span class="art-date">{{art.article_dateTime | date}}</span>
+              <br />
+              {{art.article_title}}
+            </p>
+          </div>
+          <div class="card-content" [innerHTML]="art.article_msg"></div>
+          <div class="card-action">
+            <div class="row margin-0">
+              <div class="col l6 m6 s6">
+                <a (click)="openDeleteArticleModal(art)" class="waves-effect waves-light btn delete-art-btn">Delete</a>
+              </div>
+              <div class="col l6 m6 s6 right-align">
+
+                <a (click)="goToArticle(art)" class="waves-effect waves-light btn view-art-btn">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+<!--</editor-fold> -->
+
+<!--<editor-fold Description="Add new article section"> -->
+    <div class="fixed-action-btn top">
+      <a [routerLink]="['./new-article']" class="btn-floating btn-large menu-btn waves-effect wave-black"
+         materialize="tooltip"
+         data-position="left" data-delay="20" style="margin-top: 4px;margin-right: 17px;"
+         data-tooltip="Add new article">
+        <i class="large material-icons">add</i>
+      </a>
+    </div>
+<!--</editor-fold> -->
+  </section>
+  <div class="article_loader_section" *ngIf="article_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>
+
+
+<!-- This is the delete residence modal -->
+<div id="modal1" class="modal delete-art-modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="delete_article_modalActions">
+  <app-preloader-intermediate *ngIf="is_deletingArticle"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Delete Article</h4>
+    <p class="delete-message">Are you sure to delete article <b>{{delete_article?.article_title}}</b>?</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.delete_article_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="deleteArtData(delete_article)" class="waves-effect waves-black btn-flat save-btn">Yes</a>
+  </div>
+</div>
+<!-- End delete room modal -->

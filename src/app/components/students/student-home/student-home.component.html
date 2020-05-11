@@ -1,0 +1,114 @@
+<app-preloader-intermediate *ngIf="is_downloading"></app-preloader-intermediate>
+<section class="student-home row">
+<!--<editor-fold Description="Get Proof of residence">-->
+    <div (click)="downloadProofReg()" class="col s12 m4 l4 options">
+      <div class="card">
+        <div class="card-content white-text">
+          <div class="option-icon">
+            <i class="material-icons">insert_drive_file</i>
+          </div>
+          <p></p>
+        </div>
+        <div class="card-action">
+          <a class="waves-effect waves-light btn option-btn z-depth-0">Get Proof of Residence</a>
+        </div>
+      </div>
+    </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold Description="Report Issue">-->
+  <div [routerLink]=" ['./issues']" class="col s12 m4 l4 options">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="option-icon">
+          <i class="material-icons">report_problem</i>
+        </div>
+        <p></p>
+      </div>
+      <div class="card-action">
+        <a [routerLink]=" ['./issues']" class="waves-effect waves-light btn option-btn z-depth-0">Report Issue</a>
+      </div>
+    </div>
+  </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold Description="Track buses">-->
+  <div [routerLink]=" ['./track-bus']" class="col s12 m4 l4 options">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="option-icon">
+          <i class="material-icons">directions_bus</i>
+        </div>
+        <p></p>
+      </div>
+      <div class="card-action">
+        <a [routerLink]=" ['./track-bus']" class="waves-effect waves-light btn option-btn z-depth-0">Track Buses</a>
+      </div>
+    </div>
+  </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold Description="Article and News">-->
+  <div [routerLink]=" ['./chat-room']" class="col s12 m4 l4 options">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="option-icon">
+          <i class="material-icons">chat</i>
+        </div>
+        <p></p>
+      </div>
+      <div class="card-action">
+        <a [routerLink]=" ['./chat-room']" class="waves-effect waves-light btn option-btn z-depth-0">Chat room</a>
+      </div>
+    </div>
+  </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold Description="Article and News">-->
+  <div [routerLink]=" ['./articles-news']" class="col s12 m4 l4 options">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="option-icon">
+          <i class="material-icons">description</i>
+        </div>
+        <p></p>
+      </div>
+      <div class="card-action">
+        <a [routerLink]=" ['./articles-news']" class="waves-effect waves-light btn option-btn z-depth-0">Article And News</a>
+      </div>
+    </div>
+  </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold Description="Article and News">-->
+  <div (click)="openEmergencyModal()" class="col s12 m4 l4 options">
+    <div class="card">
+      <div class="card-content white-text">
+        <div class="option-icon">
+          <i class="material-icons">security</i>
+        </div>
+        <p></p>
+      </div>
+      <div class="card-action">
+        <a  class="waves-effect waves-light btn option-btn z-depth-0">EMERGENCY</a>
+      </div>
+    </div>
+  </div>
+<!--</editor-fold>-->
+</section>
+
+<!--<editor-fold Description="emergency confirmed modal"> -->
+<div id="modal1" class="modal emergency-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="emergency_modalActions">
+  <app-preloader-intermediate *ngIf="emergency_loading"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Emergency Alert</h4>
+    <p class="emergency-message" *ngIf="!emergency_loading">Are you sure to send this signal? </p>
+    <p class="emergency-message" *ngIf="!emergency_loading">Emergency will be automatically send in {{this.emergency_timer}} </p>
+    <p class="emergency-message" *ngIf="emergency_loading">Emergency sent, waiting for response...</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="cancelEmergency()" [disabled]="emergency_loading" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Cancel</button>
+    <button (click)="sendEmergency()" [disabled]="emergency_loading" class="waves-effect waves-black btn-flat save-btn">Send it Now</button>
+  </div>
+</div>
+<!-- </editor-fold>-->

@@ -1,0 +1,94 @@
+<section class="admin-issues">
+  <div class="residence-header grey lighten-2">
+    <p class="page-title">Issues</p>
+  </div>
+
+  <section class="row table-content" *ngIf="!issue_loading">
+<!-- Search issue type -->
+    <section class="row select-and-search-block">
+      <div class="input-field col l4 m4 s12">
+        <select materialize="material_select" name="message_type" [(ngModel)]="issue_type">
+          <option value="" selected>All</option>
+          <option value="0">Pending</option>
+          <option value="1">Fixed</option>
+        </select>
+        <label>Issue Status</label>
+      </div>
+    </section>
+<!-- End Search issue-->
+
+<!-- Table of issues -->
+    <table class="responsive-table bordered striped">
+      <thead>
+      <tr>
+        <th>Full Name</th>
+        <th>Cell number</th>
+        <th>Campus Name</th>
+        <th>Residence Name</th>
+        <th>Room Number</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let issue of issues_data|filter:issue_type:['si_status'] " (click)="openMobile(issue)">
+        <td>{{issue.app_stFname + ' ' + issue.app_stLname}}</td>
+        <td>{{issue.app_stCellno}}</td>
+        <td>{{issue.campus_name_alias}}</td>
+        <td>{{issue.acc_name}}</td>
+        <td>{{issue.room_no}}</td>
+        <td>{{issue.si_dateTime | date}}</td>
+        <td>{{(issue.si_status == 0) ? 'Pending': 'Fixed'}}</td>
+      </tr>
+      </tbody>
+    </table>
+<!-- End table of issues -->
+    <div *ngIf="issues_data.length == 0" class="no-issue-found">
+      No Issue Found
+    </div>
+  </section>
+
+  <div class="issue_loader_section" *ngIf="issue_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>
+
+
+<!-- This is the show issue modal -->
+<div  class="modal modal-fixed-footer read-issue-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="show_issue_modalActions">
+  <app-preloader-intermediate *ngIf="is_sendingResponse"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Issue</h4>
+
+    <div class="row details">
+      <div class="col l6 m6 s12 first">
+        From: {{clicked_issue?.app_stFname + ' ' + clicked_issue?.app_stLname}} <br />
+        Res Name: {{clicked_issue?.acc_name}} <br />
+        Room Number: {{clicked_issue?.room_no}}
+      </div>
+      <div class="col l6 m6 s12 last">
+        {{clicked_issue?.si_dateTime | date}} <br />
+        Cell No: {{clicked_issue?.app_stCellno}}
+      </div>
+    </div>
+    <p class="message">
+      {{clicked_issue?.si_description}}
+    </p>
+    <div class="img-block">
+      <img src="{{ (clicked_issue?.si_image) ? img_root + clicked_issue?.si_image : 'http://via.placeholder.com/350x350' }}"
+           class="img">
+    </div>
+    <div class="reply-box">
+        <textarea [disabled]="clicked_issue?.si_status === 1"
+                  class="message-text-area browser-default" name="reply_messageText"
+                  [(ngModel)]="reply_messageText"></textarea>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.show_issue_modalActions.emit({action: 'modal' , params:['close']})"
+       class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+
+    <a (click)="issueFixed(clicked_issue)" *ngIf="clicked_issue?.si_status != 1"
+       class="waves-effect waves-black btn-flat submit-btn">Fixed</a>
+  </div>
+</div>

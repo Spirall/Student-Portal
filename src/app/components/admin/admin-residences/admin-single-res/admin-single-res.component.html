@@ -1,0 +1,501 @@
+<!-- ########  <editor-fold description="Single Residence body page">  ######## --->
+<section class="admin-single-residence">
+  <!-- ## <editor-fold description="Page title and back button">  ## --->
+  <div class="residence-header grey lighten-2">
+    <a  [routerLink]="['../']" class="waves-effect waves-black btn back-btn z-depth-0">
+      <i class="material-icons">arrow_back</i>
+    </a>
+    <p class="page-title">{{res_data.acc_name}}</p>
+  </div>
+  <!-- ## </editor-fold> ## -->
+
+  <app-preloader-intermediate *ngIf="is_updating"></app-preloader-intermediate>
+
+<!-- ## <editor-fold description="Page Main content">  ## --->
+    <section class="row single-residence-content">
+      <!-- ## <editor-fold description="Residence Main Upper Content Section">  ## --->
+        <div class="col l8 m12 s12 row res-contain-section">
+        <div class="col l5 m6 s12">
+          <ngx-charts-pie-chart
+            [view]="view" [scheme]="colorScheme"
+            [results]="chart_data" [legend]="false"
+            [explodeSlices]="true" [labels]="false"
+            [doughnut]="false" [gradient]="false"></ngx-charts-pie-chart>
+        </div>
+        <div class="col l7 m6 s12 chart-details">
+          <div class="row">
+              <div class="col l4 m4 s4">
+                <div class="chart-label-1">
+                  <div class="capacity-title">Capacity:</div>
+                  <div class='capacity z-depth-1'>{{ res_capacity }}</div>
+                </div>
+              </div>
+              <div class="col l4 m4 s4">
+                <div class="chart-label-2">
+                  <div class="avail-title">Available:</div>
+                  <div class='avail z-depth-1 waves-effect waves-black'>{{ room_available }}</div>
+                </div>
+              </div>
+              <div class="col l4 m4 s4">
+                <div class="chart-label-3">
+                  <div class="taken-title">Taken:</div>
+                  <div class='taken z-depth-1 waves-effect waves-black'>{{ room_taken }}</div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col l12 m12 s12">
+          <div class="row">
+            <div class="input-field col s12 m6 l6">
+              <input placeholder="" [(ngModel)]="res_data.acc_name" name="res_name" id="res_name" type="text" class="validate">
+              <label class="active" for="res_name">Residence name</label>
+            </div>
+            <div class="input-field col s12 m6 l6 campus-select">
+              <select materialize="material_select" name="campus_id" #Acc_Type [(ngModel)]="res_data.acc_type" >
+                <option value="mixed">Mixed</option>
+                <option value="M">Male Only</option>
+                <option value="F">Female Only</option>
+              </select>
+              <label>Residence Type</label>
+            </div>
+            <div class="input-field col s12 m12 l12">
+              <textarea placeholder="" [(ngModel)]="res_data.acc_descr" name="res_descr" id="res_descr" class="materialize-textarea" rows="1" maxlength="500"></textarea>
+              <label class="active" for="res_descr">Residence description</label>
+            </div>
+          </div>
+        </div>
+        <div class="col l12 m12 s12">
+          <div class="row">
+            <div class="col s12 save-res-btn-section">
+               <a class="waves-effect waves-light btn save-res-btn" (click)="saveTitleAndDescrData()"><i class="material-icons left">save</i>Save details</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ## </editor-fold> ## -->
+
+      <!-- ## <editor-fold description="Residence Rooms details Section">  ## --->
+       <div class="col l4 m12 s12 no-padding room-list-section">
+         <!-- ## <editor-fold description="Rooms details for large screens only">  ## --->
+         <div class="card white margin-top-0 main-card-large-screen hide-on-med-and-down">
+             <div class="card-content main-card-content">
+                <div class="row room-search-section margin-0">
+                  <div class="input-field col s12">
+                    <input placeholder="" [(ngModel)]="search_room" name="search_room" id="search_room" type="text" class="validate">
+                    <label class="active" for="search_room">Search room</label>
+                  </div>
+                </div>
+                <div *ngIf="res_data.rooms_data.length > 0; else emptyRoom">
+                  <div  class="card white room-card" *ngFor="let rooms  of res_data.rooms_data | filter:search_room:['room_no', 'r_type_name']">
+                    <div class="card-content" [style.background]="(rooms.room_status ==='available') ? '' : '#f18b8b'">
+                      <p class="room-details-block">
+                        <span class="room-no">{{rooms.room_no}}-</span>
+                        <span class="room-type">{{rooms.r_type_name}}</span>
+                        <i *ngIf="user_data.admin_level == 1" class="material-icons right waves-effect waves-black"
+                           (click)="openDeleteRoomModal(rooms.room_no, rooms.room_id )">delete_forever</i>
+                        <i class="material-icons right waves-effect waves-black" (click)="openSelectedRoomModal(rooms)">visibility</i>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                 <ng-template #emptyRoom>
+                   <div class="card white room-card">
+                     <div class="card-content">
+                       <p><span class="room-title">No room found!</span>
+                         <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                            data-position="left" data-delay="20"
+                            data-tooltip="Add new room" (click)="openAddRoomModal()">add</i>
+                       </p>
+                     </div>
+                   </div>
+                 </ng-template>
+             </div>
+         </div>
+         <!-- ## </editor-fold> ## -->
+
+         <!-- ## <editor-fold description="Rooms details for medium to small screens only">  ## --->
+         <div class="card white margin-top-0 main-card-md-sm-screen hide-on-large-only z-depth-0">
+           <div class="card-content main-card-content">
+             <div class="row room-search-section margin-0">
+               <div class="input-field col s12">
+                 <input placeholder="" [(ngModel)]="search_room" name="search_room" id="search_room_2" type="text" class="validate">
+                 <label class="active" for="search_room_2">Search room</label>
+               </div>
+             </div>
+             <div class="row" *ngIf="res_data.rooms_data.length > 0; else emptyRoom2">
+                <div class="col m6 s12" *ngFor="let rooms  of res_data.rooms_data | filter:search_room:['room_no', 'r_type_name']">
+                  <div  class="card white room-card">
+                    <div class="card-content" [style.background]="(rooms.room_status ==='available') ? '' : '#f18b8b'">
+                      <p class="room-details-block">
+                        <span class="room-no">{{rooms.room_no}}-</span>
+                        <span class="room-type">{{rooms.r_type_name}}</span>
+                        <i *ngIf="user_data.admin_level == 1" class="material-icons right waves-effect waves-black"
+                           (click)="openDeleteRoomModal(rooms.room_no, rooms.room_id )">delete_forever</i>
+                        <i class="material-icons right waves-effect waves-black" (click)="openSelectedRoomModal(rooms)">visibility</i>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+             </div>
+             <ng-template #emptyRoom2>
+               <div class="card white room-card">
+                 <div class="card-content">
+                   <p><span class="room-title">No room found!</span>
+                     <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                        data-position="left" data-delay="20"
+                        data-tooltip="Add new room" (click)="openAddRoomModal()">add</i>
+                   </p>
+                 </div>
+               </div>
+             </ng-template>
+           </div>
+         </div>
+         <!-- ## </editor-fold> ## -->
+       </div>
+      <!-- ## </editor-fold> ## -->
+
+      <!-- ## <editor-fold description="Residence Images Section">  ## --->
+        <div class="col l12 m12 s12 no-padding residence-images">
+        <div class="card white margin-top-0 first-card">
+          <div class="card-content main-card-content no-padding">
+
+              <div  class="card white res-images-cart-title z-depth-1">
+                <div class="card-content">
+                  <p class="img-cart-title">
+                    <span>RESIDENCE IMAGES</span>
+                    <i class="material-icons right waves-effect waves-black"
+                       materialize="tooltip" data-position="left" data-delay="20"
+                       data-tooltip="Add new image" (click)="openAddImgModal()">add</i>
+                  </p>
+                </div>
+              </div>
+              <!-- ## <editor-fold description="Loop Images">  ## --->
+              <div *ngIf="res_data.res_imgs.length > 0; else emptyImg">
+                  <div class="row">
+                      <div class="col l4 m6 s12" *ngFor="let img  of res_data.res_imgs | filter:search_room:['room_no', 'r_type_name']">
+                          <div class="card white images-card">
+                              <div class="card-image">
+                                  <img src="{{res_imgs_url + img.img_src}}" class="materialboxed" materialize="materialbox">
+                              </div>
+                              <div class="card-action">
+                                  <a (click)="openDeleteImgModal(img)" class="waves-effect waves-light btn">Delete This image</a>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+             <!-- ## </editor-fold> ## -->
+            <!-- ## <editor-fold description="Images Not Found">  ## --->
+            <ng-template #emptyImg>
+              <div class="card white no-img-found">
+                <div class="card-content">
+                  <p><span class="room-title">No image found!</span>
+                  </p>
+                </div>
+              </div>
+            </ng-template>
+           <!-- ## </editor-fold> ## -->
+          </div>
+        </div>
+      </div>
+      <!-- ## </editor-fold> ## -->
+  </section>
+<!-- ## </editor-fold> ## -->
+
+<!-- <editor-fold description="floating button">-->
+    <div class="fixed-action-btn top">
+    <a class="btn-floating btn-large menu-btn">
+      <i class="large material-icons">menu</i>
+    </a>
+    <ul>
+      <li>
+        <a (click)="showDownloadResModal()" class="btn-floating red" materialize="tooltip" data-position="left" data-delay="20" data-tooltip="Download this residence">
+          <i class="material-icons">file_download</i>
+        </a>
+      </li>
+      <li>
+        <a (click)="openAddRoomModal()" class="btn-floating grey darken-1" materialize="tooltip" data-position="left" data-delay="20" data-tooltip="Add new room">
+          <i class="material-icons">add</i>
+        </a>
+      </li>
+      <li>
+        <a (click)="openEditResidenceModal()" class="btn-floating orange" materialize="tooltip" data-position="left" data-delay="20" data-tooltip="Edit Residence">
+          <i class="material-icons">mode_edit</i>
+        </a>
+      </li>
+    </ul>
+  </div>
+<!--</editor-fold>-->
+</section>
+<!-- ######## </editor-fold>  ######## -->
+
+
+<!-- ########  <editor-fold description="This is the add new room modal">  ######## -->
+<div class="modal modal-fixed-footer add-room-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="add_room_modalActions">
+  <app-preloader-intermediate *ngIf="is_addingNewRoomOrImage"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Add New Room</h4>
+    <div class="row">
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="room_no" id="room_no"  [(ngModel)]="new_room.room_no" type="text" class="validate"  required>
+        <label class="active" for="room_no">Room No</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="room_price" id="room_price" [(ngModel)]="new_room.room_price" type="number" class="validate" required>
+        <label class="active" for="room_price">Room Price</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6 room-type-select">
+        <select materialize="material_select" name="room_type" #RoomType>
+          <option value="1" selected>Single Room</option>
+          <option value="2">Double Room</option>
+          <option value="3">Flat</option>
+        </select>
+        <label>Room Type</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.add_room_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="submitNewRoom()" class="waves-effect waves-black btn-flat save-btn">Save</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="This is the delete room modal">  ######## -->
+<div id="modal1" class="modal delete-room-modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="delete_room_modalActions">
+  <div class="modal-content">
+    <h4 class="modal-title">Delete Room</h4>
+    <p class="delete-message">Are you sure to delete room number <b>{{delete_room_no}}</b>?</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.delete_room_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="deleteRoomData(delete_room_no, delete_room_id)" class="waves-effect waves-black btn-flat save-btn">Yes</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="This is the edit res other details modal">  ########  -->
+<div class="modal modal-fixed-footer edit-res-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="edit_res_modalActions">
+  <app-preloader-intermediate *ngIf="is_editingResidence"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Edit Residence</h4>
+    <div class="row margin-0">
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="acc_capacity" id="acc_capacity" [(ngModel)]="res_data.acc_capacity" type="number" class="validate" required>
+        <label class="active" for="acc_capacity">Residence Capacity</label>
+      </div>
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="acc_no_rooms" id="acc_no_rooms"  [(ngModel)]="res_data.acc_no_rooms" type="number" class="validate"  required>
+        <label class="active" for="acc_no_rooms">Number of rooms</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="acc_lat" id="acc_lat"  [(ngModel)]="res_data.acc_lat" type="number" step="any" class="validate"  required>
+        <label class="active" for="acc_lat">Residence latitude</label>
+      </div>
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="acc_long" id="acc_long" [(ngModel)]="res_data.acc_long" type="number"  step="any" class="validate" required>
+        <label class="active" for="acc_long">Residence longitude</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6 campus-select">
+        <select materialize="material_select" name="campus_id" #CampusID [(ngModel)]="res_data.acc_campus_id" >
+          <option value="1" selected>APK</option>
+          <option value="2">APB</option>
+          <option value="3">SWC</option>
+          <option value="4">DFC</option>
+        </select>
+        <label>Campus Name</label>
+      </div>
+
+      <div class="file-field input-field col s12 m6 l6 image-upload-input">
+        <div class="btn">
+          <span><i class="material-icons">add_a_photo</i></span>
+          <input type="file" accept="image/*" #ResImage>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" #NewResImageNameCopy>
+        </div>
+      </div>
+      <div class="input-field col s12 m12 l12 chips-input">
+        <div materialize="material_chip"
+             (chip.add)="updateResFeature($event.detail.tag, 'add')"
+             (chip.delete)="updateResFeature($event.detail.tag, 'delete')"
+             [materializeParams]="[{ data: ResFeatureChips, placeholder: 'Enter Residence features',
+             autocompleteOptions: resFeaturesAutoComplete_data }]"
+             [materializeActions]="chipsActions">
+             class="chips chips-placeholder chips-autocomplete"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.edit_res_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="submitEditResDetails()" class="waves-effect waves-black btn-flat save-btn">Save</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="This is the add residence-other-image modal">  ########  -->
+<div class="modal modal-fixed-footer add-img-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="add_img_modalActions">
+  <app-preloader-intermediate *ngIf="is_addingNewRoomOrImage"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Add New Image</h4>
+    <div class="row">
+      <div class="file-field input-field col s12 m12 l12 image-upload-input">
+        <div class="btn">
+          <span><i class="material-icons">add_a_photo</i></span>
+          <input type="file" accept="image/*" #NewResImage>
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" #NewResImageText>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.add_img_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="submitNewImg()" class="waves-effect waves-black btn-flat save-btn">Save</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="This is the delete Residence image modal">  ######## -->
+<div class="modal delete-room-modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="delete_img_modalActions">
+  <app-preloader-intermediate *ngIf="is_updating"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Delete Image</h4>
+    <p class="delete-message">Are you sure to delete this image?</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.delete_img_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="deleteResImgData(delete_img)" class="waves-effect waves-black btn-flat save-btn">Yes</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="This is the show room details modal">  ######## -->
+<div class="modal modal-fixed-footer show-room-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="showRoom_modalActions">
+  <app-preloader-intermediate *ngIf="is_updatingRoom"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">ROOM NUMBER {{selected_room?.room_no}}</h4>
+    <div class="row">
+      <div *ngIf="!is_loadingRoomDetails" class="student-details">
+        <table class="responsive-table bordered striped">
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>Student Number</th>
+              <th>Cell Number</th>
+              <th>Email Address</th>
+              <th>Gender</th>
+              <th>Is leaving</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let student of fetched_roomStudents">
+            <td>{{student?.app_stFname + ' ' + student?.app_stLname}}</td>
+            <td>{{student?.app_stNo}}</td>
+            <td>{{student?.app_stCellno}}</td>
+            <td>{{student?.app_stEmail}}</td>
+            <td>{{(student?.app_stGender === 'M') ? 'Male': 'Female'}}</td>
+            <th>
+              <a (click)="updatedSelectedRoom(student)" class="waves-effect waves-green btn-flat btn">leaving ?</a>
+            </th>
+          </tr>
+          </tbody>
+        </table>
+        <div *ngIf="fetched_roomStudents?.length == 0" class="no-student-found">
+          No Student Found in this room
+        </div>
+      </div>
+      <div class="show-room-loader" *ngIf="is_loadingRoomDetails">
+        <app-preloader-circle [size]="'big'" [width]="'80px'" [border]="'3px'" ></app-preloader-circle>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.showRoom_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!--<editor-fold Description="This is the add new residence modal"> -->
+<div class="modal modal-fixed-footer download-res-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="download_res_modalActions">
+  <app-preloader-intermediate *ngIf="is_downloading"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Download Residence</h4>
+    <div class="row margin-0">
+
+      <div class="input-field col s12 m6 l6 type-select">
+        <select materialize="material_select" name="campus_id" #show_descr>
+          <option value="show" selected>Show Description</option>
+          <option value="hide">Hide Description</option>
+        </select>
+        <label>Description</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6 type-select">
+        <select materialize="material_select" name="campus_id" #show_feature>
+          <option value="show" selected>Show Features</option>
+          <option value="hide">Hide Features</option>
+        </select>
+        <label>Features</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6 type-select">
+        <select materialize="material_select" name="campus_id" #show_room>
+          <option value="show" selected>Show Rooms</option>
+          <option value="hide">Hide Rooms</option>
+        </select>
+        <label>Rooms</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6 type-select">
+        <select materialize="material_select" name="campus_id" #show_students>
+          <option value="show" selected>Show Students</option>
+          <option value="hide">Hide Students</option>
+        </select>
+        <label>Room Students</label>
+      </div>
+
+      <div class="col offset-l1 l11 m12 s12 radio-btn-group">
+          <span class="radio-1">
+             <input materialize class="with-gap" name="show_avail_room" type="radio" id="show_avail" [(ngModel)]="show_avail_room" [value]="'show'" checked/>
+             <label for="show_avail">Show Number of Available Room</label>
+          </span>
+        <span class="radio-2">
+             <input materialize class="with-gap" name="show_avail_room" type="radio" id="hide_avail" [(ngModel)]="show_avail_room" [value]="'hide'"/>
+             <label for="hide_avail">Hide Number of Available Room</label>
+          </span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.download_res_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="downloadResData()" class="waves-effect waves-black btn-flat save-btn">Download</a>
+  </div>
+</div>
+<!-- </editor-fold>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

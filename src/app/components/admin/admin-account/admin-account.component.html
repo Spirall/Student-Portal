@@ -1,0 +1,259 @@
+<section class="admin-account">
+  <div class="articles-header grey lighten-2">
+    <p class="page-title">Admin Account</p>
+  </div>
+
+  <section class="row margin-0 account-content" *ngIf="!account_loading">
+    <!-- ## <editor-fold description="Other Admin accounts">  ## --->
+        <div class="col l4 m6 s12 no-padding other-admin-section">
+          <div class="card white margin-top-0">
+            <div class="card-content main-card-content">
+              <div class="row margin-0 title-content">
+                <p class="admins-section-title">Administrators
+                  <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                     data-position="left" data-delay="20" style="margin-top: 4px;margin-right: 17px;"
+                     data-tooltip="Add new admin" (click)="openAddOtherAdminModal()" *ngIf="my_data.admin_level === 1">add</i>
+                </p>
+              </div>
+
+              <section *ngIf="admins_data.length > 0; else adminsEmpty">
+                <div  class="card white admins-card" *ngFor="let admin  of admins_data">
+                  <div class="card-content">
+                    <p class="room-details-block">
+                      <span class="room-no">{{admin.admin_fname + ' ' + admin.admin_lname}} </span>
+                      <i *ngIf="my_data.admin_level === 1" class="material-icons right waves-effect waves-black"
+                         (click)="openDeleteAdmin(admin)">delete_forever</i>
+                      <i class="material-icons right waves-effect waves-black" (click)="openEditAdminModal(admin)">visibility</i>
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <ng-template #adminsEmpty>
+                <div class="card white admins-card">
+                  <div class="card-content">
+                    <p><span class="admin-title">No administrator found!</span>
+                      <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                         data-position="left" data-delay="20"
+                         data-tooltip="Add new admin" (click)="openAddOtherAdminModal()">add</i>
+                    </p>
+                  </div>
+                </div>
+              </ng-template>
+
+            </div>
+          </div>
+        </div>
+    <!-- ## </editor-fold> ## -->
+
+    <!-- ## <editor-fold description="Other Admin accounts">  ## --->
+      <div class="col l8 m6 s12 my-admin-section">
+        <div class="card white margin-top-0">
+          <div class="card-content main-card-content">
+            <div class="row margin-0 title-content">
+              <p class="admin-title">My Account</p>
+            </div>
+            <app-preloader-intermediate *ngIf="is_updatingMyDetails"></app-preloader-intermediate>
+            <section class="row my-details-section">
+
+              <div class="input-field col s12 m6 l6">
+                <input placeholder="" name="fname" id="fname" [(ngModel)]="my_data.admin_fname" class="validate" required>
+                <label class="active" for="fname">First Name *</label>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <input placeholder="" name="lname" id="lname"  [(ngModel)]="my_data.admin_lname" class="validate"  required>
+                <label class="active" for="lname">Last Name *</label>
+              </div>
+
+              <div class="input-field col l6 m6 s12">
+                <select materialize="material_select" name="gender" [(ngModel)]="my_data.admin_gender" required>
+                  <option value="M">Male</option>
+                  <option value="F">Female</option>
+                </select>
+                <label>Gender</label>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <input type="email" placeholder="" name="acc_lat" id="admin_email" [(ngModel)]="my_data.admin_email" class="validate"  required>
+                <label class="active" for="admin_email">Email *</label>
+              </div>
+
+              <div class="input-field col s12 m6 l6">
+                <input type="tel" placeholder=""  name="cell_no" id="cell_no" [(ngModel)]="my_data.admin_cellno" class="validate" required>
+                <label class="active" for="cell_no">Cell Number *</label>
+              </div>
+
+              <div class="input-field col s12 m6 l6">
+                <input type="password" placeholder=""  name="pwd_1" id="pwd_1" [(ngModel)]="new_pwd.new_pwd_1" class="validate" autocomplete="off">
+                <label class="active" for="pwd_1">New Password</label>
+              </div>
+              <div class="input-field col s12 m6 l6">
+                <input type="password" placeholder="" name="pwd_2" id="pwd_2"  [(ngModel)]="new_pwd.new_pwd_2" class="validate" autocomplete="off">
+                <label class="active" for="pwd_2">Confirm New Password</label>
+              </div>
+
+              <section class="col l12 m12 s12 btn-section">
+                <a (click)="saveMyDetails(my_data, new_pwd)" class="waves-effect waves-black btn-flat save-btn">Save My Details</a>
+              </section>
+            </section>
+          </div>
+        </div>
+      </div>
+    <!-- ## </editor-fold> ## -->
+  </section>
+
+  <div class="account_loader_section" *ngIf="account_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>
+
+
+<!-- ########  <editor-fold description="This is the add new admin modal">  ######## -->
+<div class="modal modal-fixed-footer add-admin-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="add_admin_modalActions">
+  <app-preloader-intermediate *ngIf="is_updatingOtherAdminDetails"></app-preloader-intermediate>
+  <form name="admin_login_form" [formGroup]="new_admin_form" (ngSubmit)="submitNewOtherAdmin(new_admin_form.value, new_admin_form.valid)">
+    <div class="modal-content">
+      <h4 class="modal-title">Add New Administrator</h4>
+        <div class="row margin-0">
+
+          <div class="input-field col s12 m6 l6">
+            <input placeholder="" name="nw_fname" id="nw_fname"  formControlName="admin_fname" class="validate" required>
+            <label class="active" for="nw_fname">First Name</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input placeholder="" name="nw_lname" id="nw_lname"   formControlName="admin_lname" class="validate" required>
+            <label class="active" for="nw_lname">Last Name</label>
+          </div>
+
+          <div class="input-field col l6 m6 s12">
+            <select materialize="material_select" name="nw_gender"  #Gender>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+            <label>Gender</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input type="email" placeholder="" name="nw_acc_lat" id="nw_admin_email" formControlName="admin_email" class="validate" required>
+            <label class="active" for="admin_email">Email</label>
+          </div>
+
+          <div class="input-field col s12 m6 l6">
+            <input type="tel" placeholder=""  name="cell_no" id="nw_cell_no" formControlName="admin_cellno" class="validate" required>
+            <label class="active" for="nw_cell_no">Cell Number</label>
+          </div>
+          <div class="col l6 m6 s12 radio-btn-group">
+              <span class="radio-1">
+                <input materialize class="with-gap" name="admin_level" formControlName="admin_level" type="radio" id="admin_level_2" value="0"/>
+                <label for="admin_level_2">Normal Admin</label>
+              </span>
+              <span class="radio-2">
+                <input materialize class="with-gap" name="admin_level" formControlName="admin_level" type="radio" id="admin_level_1" value="1"/>
+                <label for="admin_level_1">Super Admin</label>
+              </span>
+          </div>
+
+          <div class="input-field col s12 m6 l6">
+            <input type="password" placeholder=""  name="pwd_1" id="nw_pwd_1" formControlName="new_pwd_1" class="validate" autocomplete="off" required>
+            <label class="active" for="nw_pwd_1">New Password</label>
+          </div>
+          <div class="input-field col s12 m6 l6">
+            <input type="password" placeholder="" name="pwd_2" id="nw_pwd_2"  formControlName="new_pwd_2" class="validate" autocomplete="off" required>
+            <label class="active" for="nw_pwd_2">Confirm New Password</label>
+          </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <a (click)="this.add_admin_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+      <button type="submit" class="waves-effect waves-black btn-flat save-btn">Save</button>
+    </div>
+  </form>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="Delete Admin Modal">  ######## -->
+<div class="modal delete-admin-modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="delete_admin_modalActions">
+  <app-preloader-intermediate *ngIf="is_deliting"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Delete Administrator</h4>
+    <p class="delete-message">Are you sure to delete {{deleting_adminData?.admin_fname + ' ' + deleting_adminData?.admin_lname}} ?</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.delete_admin_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="deleteAdminData(deleting_adminData)" class="waves-effect waves-black btn-flat save-btn">Yes</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="Edit other Admin Modal">  ######## -->
+<div class="modal modal-fixed-footer edit-admin-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="editing_admin_modalActions">
+  <app-preloader-intermediate *ngIf="is_updatingOtherAdminDetails"></app-preloader-intermediate>
+  <form name="admin_login_form" [formGroup]="edit_admin_form" (ngSubmit)="submitEditOtherAdmin(edit_admin_form.value, edit_admin_form.valid)">
+    <div class="modal-content">
+      <h4 class="modal-title">Add New Administrator</h4>
+      <div class="row margin-0">
+
+        <div class="input-field col s12 m6 l6">
+          <input placeholder="" name="nw_fname" id="edit_fname"  formControlName="admin_fname" class="validate" required>
+          <label class="active" for="edit_fname">First Name</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <input placeholder="" name="nw_lname" id="edit_lname"   formControlName="admin_lname" class="validate" required>
+          <label class="active" for="edit_lname">Last Name</label>
+        </div>
+
+        <div class="input-field col l6 m6 s12">
+          <select materialize="material_select" name="nw_gender" formControlName="admin_gender" #Gender>
+            <option value="M">Male</option>
+            <option value="F">Female</option>
+          </select>
+          <label>Gender</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <input type="email" placeholder="" name="nw_acc_lat" id="edit_admin_email" formControlName="admin_email" class="validate" required>
+          <label class="active" for="edit_admin_email">Email</label>
+        </div>
+
+        <div class="input-field col s12 m6 l6">
+          <input type="tel" placeholder=""  name="cell_no" id="edit_cell_no" formControlName="admin_cellno" class="validate" required>
+          <label class="active" for="nw_cell_no">Cell Number</label>
+        </div>
+        <div class="col l6 m6 s12 radio-btn-group">
+              <span class="radio-1">
+                <input materialize class="with-gap" name="admin_level" formControlName="admin_level" type="radio" id="edit_admin_level_1" [value]="0"/>
+                <label for="edit_admin_level_1">Normal Admin</label>
+              </span>
+          <span class="radio-2">
+                <input materialize class="with-gap" name="admin_level" formControlName="admin_level" type="radio" id="edit_admin_level_2" [value]="1"/>
+                <label for="edit_admin_level_2">Super Admin</label>
+              </span>
+        </div>
+
+        <div class="input-field col s12 m6 l6">
+          <input type="password" placeholder=""  name="pwd_1" id="edit_pwd_1" formControlName="new_pwd_1" class="validate" autocomplete="off">
+          <label class="active" for="nw_pwd_1">New Password</label>
+        </div>
+        <div class="input-field col s12 m6 l6">
+          <input type="password" placeholder="" name="pwd_2" id="edit_pwd_2"  formControlName="new_pwd_2" class="validate" autocomplete="off">
+          <label class="active" for="nw_pwd_2">Confirm New Password</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a (click)="this.editing_admin_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+      <button type="submit" class="waves-effect waves-black btn-flat save-btn">Save</button>
+    </div>
+  </form>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+
+
+
+
+
+
+
+
+
+
+
+

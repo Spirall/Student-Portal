@@ -1,0 +1,118 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-account {
+  overflow-y: hidden;
+  margin-bottom: 60px; }
+  @media only screen and (min-width: 993px) {
+    .admin-account {
+      margin-left: 300px; } }
+  .admin-account .articles-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-account .articles-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-account .articles-header .page-title {
+          margin: auto 0px; } }
+  .admin-account .account-content .other-admin-section .card {
+    height: 550px; }
+    .admin-account .account-content .other-admin-section .card .card-content {
+      height: 550px;
+      overflow: scroll;
+      padding: 0px; }
+      .admin-account .account-content .other-admin-section .card .card-content .title-content {
+        padding: 14px;
+        background-color: #fff0dc !important; }
+        .admin-account .account-content .other-admin-section .card .card-content .title-content .admins-section-title {
+          text-align: center;
+          font-family: 'Raleway', sans-serif;
+          font-size: 24px; }
+      .admin-account .account-content .other-admin-section .card .card-content .admins-card {
+        height: 60px;
+        margin: 15px; }
+        .admin-account .account-content .other-admin-section .card .card-content .admins-card .card-content {
+          padding: 18px;
+          height: 60px;
+          overflow: hidden; }
+          .admin-account .account-content .other-admin-section .card .card-content .admins-card .card-content .admin-title {
+            font-family: ABeeZee, sans-serif;
+            font-size: 15px; }
+  .admin-account .account-content .my-admin-section {
+    padding: 0px 0px 0px 20px; }
+    @media only screen and (max-width: 599px) {
+      .admin-account .account-content .my-admin-section {
+        padding-left: 0px; } }
+    .admin-account .account-content .my-admin-section .card {
+      height: 550px; }
+      .admin-account .account-content .my-admin-section .card .card-content {
+        height: 550px;
+        overflow: hidden;
+        padding: 0px; }
+        .admin-account .account-content .my-admin-section .card .card-content .title-content {
+          padding: 14px;
+          background-color: #fff0dc !important; }
+          .admin-account .account-content .my-admin-section .card .card-content .title-content .admin-title {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px; }
+        .admin-account .account-content .my-admin-section .card .card-content .my-details-section {
+          padding: 20px 10px; }
+          .admin-account .account-content .my-admin-section .card .card-content .my-details-section .btn-section {
+            text-align: center;
+            margin-top: 20px; }
+            .admin-account .account-content .my-admin-section .card .card-content .my-details-section .btn-section .save-btn {
+              background-color: #ed6400 !important;
+              color: #fff; }
+  .admin-account .account_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+.add-admin-modal, .edit-admin-modal {
+  top: 10% !important; }
+  .add-admin-modal .modal-content .modal-title, .edit-admin-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .add-admin-modal .modal-content .radio-btn-group, .edit-admin-modal .modal-content .radio-btn-group {
+    margin: 28px 0px;
+    text-align: center; }
+    .add-admin-modal .modal-content .radio-btn-group .radio-1, .edit-admin-modal .modal-content .radio-btn-group .radio-1 {
+      padding-right: 20px; }
+    .add-admin-modal .modal-content .radio-btn-group .radio-2, .edit-admin-modal .modal-content .radio-btn-group .radio-2 {
+      padding-left: 20px; }
+  .add-admin-modal .modal-footer, .edit-admin-modal .modal-footer {
+    padding: 4px 20px; }
+    .add-admin-modal .modal-footer .save-btn, .edit-admin-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .add-admin-modal .modal-footer .save-btn:hover, .edit-admin-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .add-admin-modal .modal-footer .dismiss-btn:hover, .edit-admin-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.delete-admin-modal {
+  top: 20% !important; }
+  .delete-admin-modal .modal-content {
+    padding-bottom: 0px; }
+    .delete-admin-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .delete-admin-modal .modal-content .delete-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 400;
+      font-size: 20px; }
+  .delete-admin-modal .modal-footer {
+    padding: 4px 20px; }
+    .delete-admin-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .delete-admin-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .delete-admin-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=admin-account.component.css.map */

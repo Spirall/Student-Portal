@@ -1,0 +1,17 @@
+@import url(../../../shared/styles/mixin.css);
+.side-nav.admin-side-menu {
+  overflow: hidden;
+  padding-bottom: 120px; }
+  .side-nav.admin-side-menu .user-view {
+    margin-bottom: 0px; }
+    .side-nav.admin-side-menu .user-view .background {
+      background: #ed6400 !important; }
+  .side-nav.admin-side-menu .divider {
+    margin: 0; }
+  .side-nav.admin-side-menu li a {
+    height: 60px;
+    line-height: 60px; }
+    .side-nav.admin-side-menu li a i {
+      margin: 6px 12px 0px 0px; }
+
+/*# sourceMappingURL=side-menu.component.css.map */

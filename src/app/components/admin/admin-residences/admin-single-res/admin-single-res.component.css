@@ -1,0 +1,349 @@
+@import url(../../../../shared/styles/mixin.css);
+.admin-single-residence {
+  overflow-y: hidden;
+  margin-bottom: 50px; }
+  @media only screen and (min-width: 993px) {
+    .admin-single-residence {
+      margin-left: 300px; } }
+  .admin-single-residence .residence-header {
+    height: 55px;
+    padding: 0px 20px 0px 0px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-single-residence .residence-header .back-btn {
+      background: transparent;
+      height: 100%;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      border-radius: 0px; }
+      .admin-single-residence .residence-header .back-btn i {
+        font-size: 50px;
+        color: #ed6400 !important; }
+      .admin-single-residence .residence-header .back-btn:hover {
+        background-color: #c7c7c7; }
+    .admin-single-residence .residence-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 599px) {
+        .admin-single-residence .residence-header .page-title {
+          font-size: 16px; } }
+  .admin-single-residence .single-residence-content .res-contain-section {
+    padding-bottom: 30px; }
+    @media only screen and (max-width: 991px) {
+      .admin-single-residence .single-residence-content .res-contain-section {
+        margin-bottom: 0px;
+        padding-bottom: 0px; } }
+    .admin-single-residence .single-residence-content .res-contain-section .chart-details {
+      margin-top: 25px;
+      padding-left: 15px; }
+      .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1,
+      .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2,
+      .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 {
+        font-size: 20px;
+        font-family: "OpenSans", sans-serif;
+        margin: 0px 0px 7px 0px; }
+        @media only screen and (max-width: 599px) {
+          .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1,
+          .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2,
+          .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 {
+            font-size: 14px; } }
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1 .capacity-title,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2 .capacity-title,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 .capacity-title {
+          text-align: center; }
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1 .capacity,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2 .capacity,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 .capacity {
+          background: #ff9d55;
+          padding: 1px 5px 0px 5px;
+          width: 100%;
+          text-align: center; }
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1 .avail-title,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2 .avail-title,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 .avail-title {
+          text-align: center; }
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1 .avail,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2 .avail,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 .avail {
+          background: #6cc765;
+          padding: 1px 5px 0px 5px;
+          cursor: pointer;
+          width: 100%;
+          text-align: center; }
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1 .taken-title,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2 .taken-title,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 .taken-title {
+          text-align: center; }
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-1 .taken,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-2 .taken,
+        .admin-single-residence .single-residence-content .res-contain-section .chart-details .chart-label-3 .taken {
+          background: #d21137;
+          padding: 1px 5px 0px 5px;
+          cursor: pointer;
+          width: 100%;
+          text-align: center; }
+    .admin-single-residence .single-residence-content .res-contain-section .materialize-textarea {
+      padding-bottom: 1px; }
+    .admin-single-residence .single-residence-content .res-contain-section .save-res-btn-section {
+      text-align: center;
+      margin-bottom: 10px; }
+      .admin-single-residence .single-residence-content .res-contain-section .save-res-btn-section .save-res-btn {
+        background-color: #ed6400 !important;
+        height: 41px;
+        width: 200px;
+        line-height: 40px; }
+  .admin-single-residence .single-residence-content .room-list-section .main-card-large-screen {
+    height: 550px;
+    overflow-y: scroll; }
+    .admin-single-residence .single-residence-content .room-list-section .main-card-large-screen .main-card-content {
+      padding: 24px 24px 0px 24px; }
+    .admin-single-residence .single-residence-content .room-list-section .main-card-large-screen .room-card .card-content {
+      padding: 16px; }
+      .admin-single-residence .single-residence-content .room-list-section .main-card-large-screen .room-card .card-content .room-details-block {
+        position: relative; }
+      .admin-single-residence .single-residence-content .room-list-section .main-card-large-screen .room-card .card-content .room-no {
+        font-family: ABeeZee, sans-serif;
+        font-size: 15px; }
+      .admin-single-residence .single-residence-content .room-list-section .main-card-large-screen .room-card .card-content .room-type {
+        font-family: ABeeZee, sans-serif;
+        font-size: 11px;
+        position: absolute;
+        left: 40px;
+        top: 3px; }
+  .admin-single-residence .single-residence-content .room-list-section .main-card-md-sm-screen .main-card-content {
+    padding: 24px; }
+    @media only screen and (max-width: 991px) {
+      .admin-single-residence .single-residence-content .room-list-section .main-card-md-sm-screen .main-card-content {
+        padding-top: 15px;
+        padding-bottom: 50px; } }
+  .admin-single-residence .single-residence-content .room-list-section .main-card-md-sm-screen .room-card .card-content {
+    padding: 16px; }
+    .admin-single-residence .single-residence-content .room-list-section .main-card-md-sm-screen .room-card .card-content .room-details-block {
+      position: relative; }
+    .admin-single-residence .single-residence-content .room-list-section .main-card-md-sm-screen .room-card .card-content .room-no {
+      font-family: ABeeZee, sans-serif;
+      font-size: 15px; }
+    .admin-single-residence .single-residence-content .room-list-section .main-card-md-sm-screen .room-card .card-content .room-type {
+      font-family: ABeeZee, sans-serif;
+      font-size: 11px;
+      position: absolute;
+      left: 40px;
+      top: 3px; }
+  .admin-single-residence .single-residence-content .residence-images {
+    margin-top: -6px; }
+    .admin-single-residence .single-residence-content .residence-images .first-card {
+      padding: 0px 0px 10px 0px; }
+    .admin-single-residence .single-residence-content .residence-images .res-images-cart-title .card-content {
+      padding: 15px; }
+      .admin-single-residence .single-residence-content .residence-images .res-images-cart-title .card-content .img-cart-title {
+        text-align: center;
+        font-family: "OpenSans", sans-serif; }
+        .admin-single-residence .single-residence-content .residence-images .res-images-cart-title .card-content .img-cart-title i {
+          margin-right: 35px;
+          background-color: #ED9D2E !important; }
+    .admin-single-residence .single-residence-content .residence-images .images-card {
+      margin: 20px; }
+      .admin-single-residence .single-residence-content .residence-images .images-card .card-image {
+        height: 200px;
+        max-height: 200px;
+        overflow: hidden; }
+      .admin-single-residence .single-residence-content .residence-images .images-card .card-action {
+        text-align: center; }
+        .admin-single-residence .single-residence-content .residence-images .images-card .card-action .btn {
+          background: #ed6400 !important; }
+    .admin-single-residence .single-residence-content .residence-images .no-img-found {
+      margin: 25px; }
+      .admin-single-residence .single-residence-content .residence-images .no-img-found .card-content {
+        text-align: center;
+        font-family: "OpenSans", sans-serif;
+        padding: 15px;
+        background-color: #fff0dc !important; }
+  .admin-single-residence .fixed-action-btn {
+    bottom: 35px;
+    z-index: 22222; }
+    .admin-single-residence .fixed-action-btn .menu-btn {
+      background-color: #ed6400 !important; }
+
+.add-room-modal {
+  height: 410px !important;
+  top: 20% !important; }
+  .add-room-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .add-room-modal .modal-content .room-type-select input.select-dropdown {
+    font-family: 'OpenSans', sans-serif;
+    border-bottom: 1px solid #9e9e9e !important; }
+  .add-room-modal .modal-content .room-type-select ul.dropdown-content {
+    max-height: 300px !important; }
+    .add-room-modal .modal-content .room-type-select ul.dropdown-content li span {
+      color: #ed6400 !important;
+      font-family: 'OpenSans', sans-serif; }
+  .add-room-modal .modal-content .image-upload-input .btn {
+    padding: 0px 37px 0px 10px;
+    width: 30px;
+    background-color: #ed6400 !important; }
+    .add-room-modal .modal-content .image-upload-input .btn .material-icons {
+      font-size: 25px; }
+  .add-room-modal .modal-footer {
+    padding: 4px 20px; }
+    .add-room-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .add-room-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .add-room-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.delete-room-modal {
+  top: 20% !important; }
+  .delete-room-modal .modal-content {
+    padding-bottom: 0px; }
+    .delete-room-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .delete-room-modal .modal-content .delete-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 400;
+      font-size: 20px; }
+  .delete-room-modal .modal-footer {
+    padding: 4px 20px; }
+    .delete-room-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .delete-room-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .delete-room-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.edit-res-modal {
+  height: 69% !important;
+  top: 10% !important; }
+  .edit-res-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+    @media only screen and (max-width: 599px) {
+      .edit-res-modal .modal-content .modal-title {
+        font-size: 25px; } }
+  .edit-res-modal .modal-content .campus-select input.select-dropdown {
+    font-family: 'OpenSans', sans-serif;
+    border-bottom: 1px solid #9e9e9e !important; }
+  .edit-res-modal .modal-content .campus-select ul.dropdown-content {
+    max-height: 150px !important; }
+    .edit-res-modal .modal-content .campus-select ul.dropdown-content li span {
+      color: #ed6400 !important;
+      font-family: 'OpenSans', sans-serif; }
+  .edit-res-modal .modal-content .image-upload-input .btn {
+    padding: 0px 37px 0px 10px;
+    width: 30px;
+    background-color: #ed6400 !important; }
+    .edit-res-modal .modal-content .image-upload-input .btn .material-icons {
+      font-size: 25px; }
+  .edit-res-modal .modal-content .chips-input {
+    margin-top: 0px; }
+    .edit-res-modal .modal-content .chips-input .chips .input {
+      width: 170px !important; }
+  .edit-res-modal .modal-footer {
+    padding: 4px 20px; }
+    .edit-res-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .edit-res-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .edit-res-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.add-img-modal {
+  height: 300px !important;
+  top: 20% !important; }
+  .add-img-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .add-img-modal .modal-content .image-upload-input .btn {
+    padding: 0px 37px 0px 10px;
+    width: 30px;
+    background-color: #ed6400 !important; }
+    .add-img-modal .modal-content .image-upload-input .btn .material-icons {
+      font-size: 25px; }
+  .add-img-modal .modal-footer {
+    padding: 4px 20px; }
+    .add-img-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .add-img-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .add-img-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.show-room-modal {
+  height: 410px !important;
+  top: 20% !important; }
+  .show-room-modal .modal-content .modal-title {
+    font-family: 'OpenSans', sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .show-room-modal .modal-content .student-details table tr {
+    font-family: 'OpenSans', sans-serif;
+    font-size: 15px; }
+  .show-room-modal .modal-content .student-details table thead th {
+    text-align: center; }
+  .show-room-modal .modal-content .student-details table .btn {
+    font-size: 12px;
+    background-color: #fff0dc !important; }
+    .show-room-modal .modal-content .student-details table .btn:hover {
+      background-color: rgba(166, 37, 32, 0.8) !important; }
+  .show-room-modal .modal-content .student-details .no-student-found {
+    padding: 10px;
+    font-size: 17px;
+    text-align: center;
+    font-family: 'Raleway', sans-serif; }
+  .show-room-modal .modal-content .show-room-loader {
+    text-align: center;
+    margin-top: 10%; }
+  .show-room-modal .modal-footer {
+    padding: 4px 20px; }
+    .show-room-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.download-res-modal {
+  top: 10% !important; }
+  .download-res-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .download-res-modal .modal-content .type-select input.select-dropdown {
+    font-family: 'OpenSans', sans-serif;
+    border-bottom: 1px solid #9e9e9e !important; }
+  .download-res-modal .modal-content .type-select ul.dropdown-content {
+    max-height: 150px !important; }
+    .download-res-modal .modal-content .type-select ul.dropdown-content li span {
+      color: #ed6400 !important;
+      font-family: 'OpenSans', sans-serif; }
+  .download-res-modal .modal-content .radio-btn-group {
+    margin-top: 28px;
+    margin-bottom: 28px; }
+    .download-res-modal .modal-content .radio-btn-group .radio-1 {
+      padding-right: 20px; }
+    .download-res-modal .modal-content .radio-btn-group .radio-2 {
+      padding-left: 20px; }
+      @media only screen and (max-width: 599px) {
+        .download-res-modal .modal-content .radio-btn-group .radio-2 {
+          padding-left: 0px; } }
+  .download-res-modal .modal-footer {
+    padding: 4px 20px; }
+    .download-res-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .download-res-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .download-res-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=admin-single-res.component.css.map */

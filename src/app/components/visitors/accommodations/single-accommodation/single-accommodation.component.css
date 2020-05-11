@@ -1,0 +1,126 @@
+@import url(../../../../shared/styles/mixin.css);
+.single-res-page {
+  margin-bottom: 70px; }
+  .single-res-page .residence-header {
+    height: 55px;
+    padding: 0px 20px 0px 0px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .single-res-page .residence-header .back-btn {
+      background: transparent;
+      height: 100%;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      border-radius: 0px; }
+      .single-res-page .residence-header .back-btn i {
+        font-size: 50px;
+        color: #ed6400 !important; }
+      .single-res-page .residence-header .back-btn:hover {
+        background-color: #c7c7c7; }
+    .single-res-page .residence-header .page-title {
+      margin: auto 0px;
+      padding-left: 10px;
+      font-size: 25px; }
+      @media only screen and (max-width: 599px) {
+        .single-res-page .residence-header .page-title {
+          font-size: 14px; } }
+  .single-res-page .carousel-section {
+    margin-top: -10px;
+    padding: 0px 18%;
+    min-height: 415px;
+    height: 415px; }
+    @media only screen and (max-width: 991px) {
+      .single-res-page .carousel-section {
+        padding: 0px 10%; } }
+    @media only screen and (max-width: 599px) {
+      .single-res-page .carousel-section {
+        padding: 0px 0px; } }
+    .single-res-page .carousel-section .carousel {
+      height: 415px; }
+      .single-res-page .carousel-section .carousel .carousel-item {
+        min-width: 350px;
+        top: -80px;
+        opacity: 1 !important; }
+    .single-res-page .carousel-section .carousel-loader-section {
+      text-align: center; }
+      .single-res-page .carousel-section .carousel-loader-section .carousel-loading {
+        position: absolute;
+        top: 20%;
+        transform: translate(-50%, -50%); }
+        @media only screen and (max-width: 599px) {
+          .single-res-page .carousel-section .carousel-loader-section .carousel-loading {
+            top: 15%; } }
+  .single-res-page .chart-details .chart-label-1,
+  .single-res-page .chart-details .chart-label-2 {
+    font-size: 20px;
+    font-family: "OpenSans", sans-serif;
+    margin: 0px 0px 7px 0px; }
+    @media only screen and (max-width: 599px) {
+      .single-res-page .chart-details .chart-label-1,
+      .single-res-page .chart-details .chart-label-2 {
+        font-size: 14px; } }
+    .single-res-page .chart-details .chart-label-1 .capacity-title,
+    .single-res-page .chart-details .chart-label-2 .capacity-title {
+      text-align: center; }
+    .single-res-page .chart-details .chart-label-1 .capacity,
+    .single-res-page .chart-details .chart-label-2 .capacity {
+      background: #ff9d55;
+      padding: 1px 5px 0px 5px;
+      width: 100%;
+      text-align: center; }
+    .single-res-page .chart-details .chart-label-1 .avail-title,
+    .single-res-page .chart-details .chart-label-2 .avail-title {
+      text-align: center; }
+    .single-res-page .chart-details .chart-label-1 .avail,
+    .single-res-page .chart-details .chart-label-2 .avail {
+      background: #6cc765;
+      padding: 1px 5px 0px 5px;
+      cursor: pointer;
+      width: 100%;
+      text-align: center; }
+  .single-res-page .single-res-details .collection .collection-header {
+    font-family: Raleway, sans-serif;
+    font-weight: 800;
+    font-size: 20px; }
+    @media only screen and (max-width: 991px) {
+      .single-res-page .single-res-details .collection .collection-header {
+        font-size: 18px; } }
+  .single-res-page .single-res-details .collection .collection-item {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    padding-left: 15px; }
+    @media only screen and (max-width: 991px) {
+      .single-res-page .single-res-details .collection .collection-item {
+        font-size: 15px; } }
+  .single-res-page .single-res-details .room-type .btn-apply {
+    background-color: #ed6400 !important;
+    font-family: OpenSans, sans-serif;
+    font-size: 13px;
+    height: 30px;
+    line-height: 28px; }
+    @media only screen and (max-width: 991px) {
+      .single-res-page .single-res-details .room-type .btn-apply {
+        width: 100%;
+        margin-top: 5px; } }
+    @media only screen and (max-width: 599px) {
+      .single-res-page .single-res-details .room-type .btn-apply {
+        margin-top: 0px; } }
+  .single-res-page .single-res-map {
+    height: 600px;
+    width: 100%; }
+    .single-res-page .single-res-map agm-map {
+      height: 600px;
+      width: 100%; }
+      .single-res-page .single-res-map agm-map .info-window-1 .agm-res-col-1 .agm-bed-icon {
+        font-size: 30px; }
+      .single-res-page .single-res-map agm-map .info-window-1 .agm-res-col-2 {
+        font-family: 'OpenSans', sans-serif;
+        font-weight: 800;
+        font-size: 13px;
+        padding: 5px 0px 0px 0px; }
+
+/*# sourceMappingURL=single-accommodation.component.css.map */

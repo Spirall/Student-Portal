@@ -1,0 +1,119 @@
+<!-- ########  <editor-fold description="Single Residence body page">  ######## --->
+<section class="admin-single-article">
+  <!-- ## <editor-fold description="Page title and back button">  ## --->
+  <div class="residence-header grey lighten-2">
+    <a  [routerLink]="['../']" class="waves-effect waves-black btn back-btn z-depth-0">
+      <i class="material-icons">arrow_back</i>
+    </a>
+    <p class="page-title">{{(!article_title) ? 'Article Title' : article_title}}</p>
+  </div>
+  <!-- ## </editor-fold> ## -->
+
+  <!-- ## <editor-fold description="Page Main content">  ## --->
+
+  <section class="row single-article-content">
+    <!-- ## <editor-fold description="Article Title input section">  ## --->
+      <div class="row article-title">
+        <div class="input-field col offset-l1 l6 offset-m1 m6 s12">
+          <i class="material-icons prefix">description</i>
+          <input [(ngModel)]="article_title" name="article_title" id="article_title" class="validate" placeholder="" autofocus/>
+          <label class="active" for="article_title">Article Title</label>
+        </div>
+        <div class="col l4 m4 s12 radio-btn-group">
+              <span class="radio-1">
+                <input materialize class="with-gap" name="article_type" type="radio" [(ngModel)]="article_type" id="article_type1" [value]="1"/>
+                <label for="article_type1">Public</label>
+              </span>
+          <span class="radio-2">
+                <input materialize class="with-gap" name="article_type" type="radio" [(ngModel)]="article_type" id="article_type2" [value]="0"/>
+                <label for="article_type2">Private</label>
+              </span>
+        </div>
+      </div>
+    <!-- ## </editor-fold> ## -->
+
+    <div class="row">
+      <!-- ## <editor-fold description="Article Image Block section">  ## --->
+      <div class="col l6 m12 s12">
+        <div class="row art-img-block">
+          <div class="file-field input-field col offset-l2 l8 offset-m3 m6 s12 image-upload-input">
+            <div class="btn">
+              <span><i class="material-icons">add_a_photo</i></span>
+              <input type="file" accept="image/*" #NewArticleImage (change)="fileImgChanged($event)">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" #NewArticleImageCopy >
+            </div>
+          </div>
+          <img src="{{(!article_img) ? 'http://via.placeholder.com/450x250' : article_img }}" materialize="materialbox" class="article-img materialboxed">
+        </div>
+      </div>
+      <!-- ## </editor-fold> ## -->
+
+      <!-- ## <editor-fold description="Article editor block section">  ## --->
+      <div class="col l6 m12 s12 no-padding">
+        <div class="editor-section">
+          <ckeditor
+                  [(ngModel)]="ckeditorContent"
+                  [config]="{uiColor: '#FF8957'}"
+                  [readonly]="false"
+                  debounce="500">
+          </ckeditor>
+        </div>
+      </div>
+      <!-- ## </editor-fold> ## -->
+    </div>
+
+    <!-- ## <editor-fold description="Save Article button Section">  ## --->
+    <div class="row save-btn-block">
+      <div class="col s12 save-res-btn-section">
+        <a class="waves-effect waves-light btn save-article-btn"
+           (click)="saveArticle()" *ngIf="!is_an_update">
+          <i class="material-icons left">save</i>Save details
+        </a>
+        <a class="waves-effect waves-light btn save-article-btn"
+           (click)="updateArticle()" *ngIf="is_an_update">
+          <i class="material-icons left">save</i>Update details
+        </a>
+      </div>
+    </div>
+    <!-- ## </editor-fold> ## -->
+    <app-preloader-intermediate *ngIf="is_updating"></app-preloader-intermediate>
+  </section>
+  <!-- ## </editor-fold> ## -->
+</section>
+<!-- ######## </editor-fold>  ######## -->
+
+
+<!-- ########  <editor-fold description="Delete Admin Modal">  ######## -->
+<div class="modal article-added-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="addedSuccessfully_modalActions">
+  <div class="modal-content">
+    <h4 class="modal-title">Added successfully</h4>
+    <p class="art-message">The article was added with success</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="goBack()" class="waves-effect waves-black btn-flat save-btn">Go back to articles</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

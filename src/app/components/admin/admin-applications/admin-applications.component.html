@@ -1,0 +1,209 @@
+<section class="admin-application">
+  <div class="application-header grey lighten-2">
+    <p class="page-title">Students Application</p>
+  </div>
+  <section class="application-content"  *ngIf="!application_loading">
+
+    <section class="row select-and-search-block">
+      <div class="input-field col l4 m4 s12">
+        <select materialize="material_select" name="res_name" [(ngModel)]="applic_type">
+          <option value="" selected>All</option>
+          <option value="0">Pending</option>
+          <option value="1">Accepted</option>
+          <option value="2">Rejected</option>
+        </select>
+        <label>Application Status</label>
+      </div>
+
+      <div class="input-field col l4 m4 s12">
+        <input id="search_application" name="search_application" [(ngModel)]="search_application" class="validate" placeholder="">
+        <label class="active" for="search_application">Student Number or Name</label>
+      </div>
+
+      <div class="input-field col l4 m4 s12">
+        <select materialize="material_select" name="res_name" [(ngModel)]="res_no">
+          <option value="" selected>All</option>
+          <option *ngFor="let res of application_data.residences" [value]="res.acc_id">{{res.acc_name}}</option>
+        </select>
+        <label>Residence Name</label>
+      </div>
+    </section>
+
+    <section class="row table-content">
+
+      <table class="responsive-table bordered striped">
+        <thead>
+          <tr>
+            <th>Full Name</th>
+            <th>Student Number</th>
+            <th>ID Number</th>
+            <th>Email Address</th>
+            <th>Gender</th>
+            <th>Residence</th>
+            <th>Room Type</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let application of application_data.applications
+                    | filter:search_application:['full_name', 'app_stLname', 'app_stNo', 'app_stNo']
+                    | filter:res_no:['acc_id']
+                    | filter:applic_type:['app_status']" (click)="showApplication(application)">
+          <td>{{application.full_name}}</td>
+          <td>{{application.app_stNo}}</td>
+          <td>{{application.app_stID}}</td>
+          <td>{{application.app_stEmail}}</td>
+          <td>{{ (application.app_stGender == 'M') ? 'Male' : 'Female' }}</td>
+          <td>{{application.acc_name}}</td>
+          <td>{{application.r_type_name}}</td>
+          <td>{{loadStatus(application.app_status)}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </section>
+  <div class="application_loader_section" *ngIf="application_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>
+
+
+<!-- This is the show application modal -->
+<div class="modal modal-fixed-footer st-application-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="show_application_modalActions">
+  <app-preloader-intermediate *ngIf="is_UpdatingApplication"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Student Application</h4>
+    <div class="row margin-0">
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="res_name" id="st_fullname"  [value]="st?.full_name" class="validate"  disabled>
+        <label class="active" for="st_fullname">Full Name</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="res_capacity" id="st_id" [value]="st?.app_stID" class="validate" disabled>
+        <label class="active" for="st_id">ID / Passport</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="-26.183742"  name="res_lat" id="st_no" [value]="st?.app_stNo" type="number" class="validate" disabled>
+        <label class="active" for="st_no">Student Number</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="res_name" id="st_gender" [value]=" (st?.app_stGender == 'M') ? 'Male' : 'Female'" class="validate"  disabled>
+        <label class="active" for="st_gender">Gender</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="st_cell" id="st_cell" [value]="st?.app_stCellno"  class="validate" disabled>
+        <label class="active" for="st_cell">Cell number</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="st_email" id="st_email" [value]="st?.app_stEmail" class="validate" disabled>
+        <label class="active" for="st_email">Email</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="st_year" id="st_year" [value]="loadStudentYear(st?.app_stYear)" class="validate" disabled>
+        <label class="active" for="st_year">Current Year of Studying</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="res_name" id="res_name" [value]="st?.acc_name" class="validate" disabled>
+        <label class="active" for="res_name">Residence Name</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="room_type" id="room_type" [value]="st?.r_type_name" class="validate" disabled>
+        <label class="active" for="room_type">Room Type</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder=""  name="res_lat" id="appl_status" [value]="loadStatus(st?.app_status)" class="validate" disabled>
+        <label class="active" for="appl_status">Application Status</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="appl_data" id="appl_date" [value]="st?.app_dateTime | date:'EEEE, dd-M-y H:mm'" class="validate" disabled>
+        <label class="active" for="appl_date">Date</label>
+      </div>
+
+      <div class="input-field col s12 m6 l6">
+        <input placeholder="" name="current_room" id="current_room" [value]=" (st?.room_no) ? st.room_no : 'Not Assigned' " class="validate" disabled>
+        <label class="active" for="current_room">Room No</label>
+      </div>
+
+      <div class="input-field col s12 m6 l12">
+        <input placeholder="" name="appl_data" id="st_addr" [value]="st?.app_stAddress" class="validate" disabled>
+        <label class="active" for="st_addr">Full Address</label>
+      </div>
+
+      <div class=" col s12 m6 l12">
+          <div *ngIf="st?.proof_ext !== 'pdf' && st?.proof_link">
+            <p style="text-align: center;">
+              <a href="{{st?.proof_link}}" target="_blank" class="waves-effect waves-black btn-flat deep-orange white-text">
+                Open This file in new tab
+              </a>
+            </p>
+            <img [src]="st?.proof_link"
+                   style="width: 100%; height: 100%">
+          </div>
+          <div *ngIf="st?.proof_ext === 'pdf'" style="text-align: center;">
+            <p style="text-align: center;">
+              <a href="{{pdf_link}}" target="_blank" class="waves-effect waves-black btn-flat deep-orange white-text">
+                Open This file in new tab
+              </a>
+            </p>
+            <embed [src]="st?.proof_link"
+                   style="width: 80%; height: 600px"
+                   type='application/pdf'>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="modal-footer">
+    <button (click)="this.show_application_modalActions.emit({action: 'modal' , params:['close']})"
+       class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn" [disabled]="is_UpdatingApplication">Dismiss</button>
+    <button (click)="updateApplication(st, 'reject')"
+     class="waves-effect waves-black btn-flat reject-btn" [disabled]="is_UpdatingApplication || loadStatus(st?.app_status) !=='Pending'">Reject</button>
+    <button (click)="updateApplication(st, 'accept')"
+       class="waves-effect waves-black btn-flat accept-btn" [disabled]="is_UpdatingApplication || loadStatus(st?.app_status) !=='Pending'">Accept</button>
+  </div>
+</div>
+<!-- End add new residence modal -->
+
+<!-- This is the update application response modal -->
+<div  class="modal application-response-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="application_response_modalActions">
+  <app-preloader-intermediate *ngIf="is_sendingUnavailableEmail"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Residence Application</h4>
+
+    <p class="message" *ngIf="application_sent_type === 'accept'">
+      Application for {{st?.full_name}} has been updated successfully and has been assigned
+      to room number {{new_room_no}}. An email has been to {{st?.app_stEmail}}<br/>
+    </p>
+
+    <p class="message" *ngIf="application_sent_type === 'reject'">
+      Application for {{st?.full_name}} has been rejected successfully.
+      An email has been to {{st?.app_stEmail}}<br/>
+    </p>
+
+    <div class="message" *ngIf="application_room_notFound">
+         No {{st?.r_type_name}} available for {{st?.full_name}} at {{st?.acc_name}}
+        <br/><br/>
+        Send {{st?.full_name}} an email at {{st?.app_stEmail}} about the room unavailability?
+      <div style="text-align: center">
+          <a (click)="sendUnavailableEmail(st)" class="waves-effect waves-black btn-flat unavailable-email-btn">Send unavailable Email</a>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.application_response_modalActions.emit({action: 'modal' , params:['close']})"
+       class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Close</a>
+  </div>
+</div>
+<!-- End update application response modal -->

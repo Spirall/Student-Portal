@@ -1,0 +1,85 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-home {
+  overflow-y: hidden;
+  padding-bottom: 20px; }
+  @media only screen and (min-width: 993px) {
+    .admin-home {
+      margin-left: 300px; } }
+  .admin-home .home-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-home .home-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-home .home-header .page-title {
+          margin: auto 0px; } }
+  .admin-home .residence-chart-section .residence-select-input {
+    padding: 20px 25px 0px 25px;
+    margin-bottom: 0px; }
+    .admin-home .residence-chart-section .residence-select-input input.select-dropdown {
+      font-family: 'Open Sans', sans-serif; }
+    .admin-home .residence-chart-section .residence-select-input ul.dropdown-content {
+      max-height: 300px !important; }
+      .admin-home .residence-chart-section .residence-select-input ul.dropdown-content li span {
+        color: #ed6400 !important;
+        font-family: 'Open Sans', sans-serif; }
+  .admin-home .residence-chart-section .residence-chart {
+    margin-bottom: 0px;
+    justify-content: center;
+    align-items: center;
+    display: flex; }
+  .admin-home .residence-notifications {
+    padding-top: 15px; }
+  .admin-home .cart-column {
+    padding: 0px 5px; }
+    .admin-home .cart-column .report-cart .card-content .card-title {
+      margin-bottom: 0px;
+      font-size: 40px;
+      text-align: center;
+      font-family: 'Open Sans', sans-serif; }
+      .admin-home .cart-column .report-cart .card-content .card-title .material-icons {
+        font-size: 55px;
+        position: relative; }
+      .admin-home .cart-column .report-cart .card-content .card-title .notification {
+        font-size: 20px;
+        position: absolute;
+        top: 5px;
+        margin-left: -15px;
+        background: red;
+        border-radius: 50%;
+        padding: 4px;
+        height: 40px;
+        width: 40px;
+        font-family: 'Arial Rounded MT', sans-serif;
+        font-style: initial; }
+        .admin-home .cart-column .report-cart .card-content .card-title .notification span {
+          margin-left: -1px; }
+    .admin-home .cart-column .report-cart .card-content-padding {
+      padding-bottom: 5px; }
+    .admin-home .cart-column .report-cart .card-action {
+      text-align: center;
+      font-size: 15px;
+      padding: 10px; }
+      .admin-home .cart-column .report-cart .card-action a {
+        margin-right: 0px !important; }
+  .admin-home .bus-maps {
+    padding: 10px;
+    margin-bottom: 20px; }
+    .admin-home .bus-maps .bus-maps-title {
+      font-family: 'Open Sans', sans-serif;
+      font-size: 30px;
+      margin-bottom: 7px; }
+    .admin-home .bus-maps agm-map {
+      height: 600px;
+      width: 100%; }
+      .admin-home .bus-maps agm-map .info-window .agm-driver-col-1 .agm-driver-img {
+        width: 52px; }
+  .admin-home .home_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+/*# sourceMappingURL=admin-home.component.css.map */

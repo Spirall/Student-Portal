@@ -1,0 +1,101 @@
+@import url(../../../../shared/styles/mixin.css);
+.admin-single-article {
+  overflow-y: hidden;
+  margin-bottom: 50px; }
+  @media only screen and (min-width: 993px) {
+    .admin-single-article {
+      margin-left: 300px; } }
+  .admin-single-article .residence-header {
+    height: 55px;
+    padding: 0px 20px 0px 0px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-single-article .residence-header .back-btn {
+      background: transparent;
+      height: 100%;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      border-radius: 0px; }
+      .admin-single-article .residence-header .back-btn i {
+        font-size: 50px;
+        color: #ed6400 !important; }
+      .admin-single-article .residence-header .back-btn:hover {
+        background-color: #c7c7c7; }
+    .admin-single-article .residence-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 599px) {
+        .admin-single-article .residence-header .page-title {
+          font-size: 16px; } }
+  .admin-single-article .single-article-content {
+    margin-bottom: 10px; }
+    .admin-single-article .single-article-content .article-title {
+      margin-bottom: 5px;
+      margin-top: 30px; }
+      .admin-single-article .single-article-content .article-title i {
+        top: 8px;
+        width: 2rem;
+        left: 8px; }
+      .admin-single-article .single-article-content .article-title i.prefix.active {
+        color: #ff8957 !important; }
+      .admin-single-article .single-article-content .article-title #search_res:focus {
+        border-bottom: 1px solid #ff8957 !important;
+        box-shadow: 0px 1px 0px 0px #ff8957 !important; }
+        .admin-single-article .single-article-content .article-title #search_res:focus + label {
+          color: #ff8957 !important; }
+      .admin-single-article .single-article-content .article-title .radio-btn-group {
+        margin: 25px 0px;
+        text-align: center; }
+        .admin-single-article .single-article-content .article-title .radio-btn-group .radio-1 {
+          padding-right: 20px; }
+        .admin-single-article .single-article-content .article-title .radio-btn-group .radio-2 {
+          padding-left: 20px; }
+    .admin-single-article .single-article-content .art-img-block {
+      text-align: center;
+      padding-top: 18px; }
+      .admin-single-article .single-article-content .art-img-block .article-img {
+        width: 100%; }
+      .admin-single-article .single-article-content .art-img-block .image-upload-input {
+        margin-top: 0px; }
+        .admin-single-article .single-article-content .art-img-block .image-upload-input .btn {
+          padding: 0px 37px 0px 10px;
+          width: 30px;
+          background-color: #ed6400 !important; }
+          .admin-single-article .single-article-content .art-img-block .image-upload-input .btn .material-icons {
+            font-size: 25px; }
+    .admin-single-article .single-article-content .editor-section {
+      padding: 20px; }
+    .admin-single-article .single-article-content .save-btn-block {
+      text-align: center;
+      margin: 25px 0px; }
+      .admin-single-article .single-article-content .save-btn-block .save-article-btn {
+        background-color: #ed6400 !important;
+        height: 41px;
+        width: 235px;
+        line-height: 40px; }
+
+.article-added-modal {
+  top: 20% !important; }
+  .article-added-modal .modal-content {
+    padding-bottom: 0px; }
+    .article-added-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .article-added-modal .modal-content .art-messagee {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 400;
+      font-size: 20px; }
+  .article-added-modal .modal-footer {
+    padding: 4px 20px; }
+    .article-added-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .article-added-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+
+/*# sourceMappingURL=admin-single-article.component.css.map */

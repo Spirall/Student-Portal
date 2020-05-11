@@ -1,0 +1,30 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.css";
+
+.side-nav.admin-side-menu {
+  overflow: hidden;
+  padding-bottom: 120px;
+  .user-view {
+    margin-bottom: 0px;
+    .background {
+      background: $primary-color;
+    }
+  }
+
+  .divider {
+    margin: 0;
+  }
+
+  li {
+    a {
+      height: 60px;
+      line-height: 60px;
+      i {
+        margin: 6px 12px 0px 0px;
+      }
+    }
+  }
+}
+
+

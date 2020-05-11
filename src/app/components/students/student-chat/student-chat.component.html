@@ -1,0 +1,100 @@
+<div class="intro-header grey lighten-2">
+  <a  [routerLink]="['/ujres-student']" class="waves-effect waves-black btn back-btn z-depth-0">
+    <i class="material-icons">arrow_back</i>
+  </a>
+  <p class="page-title">CHATS</p>
+</div>
+<section class="chat-section row">
+  <div class="col offset-l1 l10 m12 s12">
+    <div class="card white">
+      <div class="row card-section">
+
+<!--<editor-fold Description='Online Students'>-->
+          <div class="col l3 m4 card-column-left hide-on-small-only">
+            <section *ngIf="online_student.length > 0; else busEmpty">
+              <div  class="card white online-st-card" *ngFor="let st of online_student">
+                <div class="card-content">
+                  <div class="row margin-0">
+                    <div class="col l3 m2 icon-block active">
+                        <i [class]="(st.gender === 'M') ? 'fa fa-male' : 'fa fa-female'" aria-hidden="true"></i>
+                    </div>
+                    <div class="col l9 m10 st-name-block"> {{st.fname}} </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <ng-template #busEmpty>
+              <div class="card white online-st-card">
+                <div class="card-content">
+                  <div class="row margin-0">
+                    <div class="col l3 m2 icon-block">
+                       <i class="material-icons left">sentiment_very_dissatisfied</i>
+                    </div>
+                    <div class="col l9 m10 st-name-block">
+                       No one is online
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-template>
+          </div>
+<!--</editor-fold>-->
+
+          <div class="col l9 m8 s12 card-column-right">
+              <div class="chat-msg-area" #chat_ms_area>
+              <!--<editor-fold Description='Messages'>-->
+                  <section *ngFor="let chat of chat_messages">
+                    <div class="left-chatter-block" *ngIf="chat.destination !==  student_data_short.st_id">
+                        <div class="row margin-0">
+                          <div class="col l2 m2 s2 chatter-icon">
+                            <i [class]="(chat.gender === 'M') ? 'fa fa-male' : 'fa fa-female'" aria-hidden="true"></i>
+                          </div>
+                          <div class="col l10 m10 s9">
+                             <div class="bubble-msg you">
+                                <div class="user_name">~{{chat.fname}}~</div>
+                                {{chat.msg}}
+                             </div>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="row margin-0" *ngIf="chat.destination === student_data_short.st_id">
+                      <div class="right-chatter-block">
+                        <div class="row margin-0">
+                          <div class="col l10 m10 offset-s1 s9">
+                            <div class="bubble-msg me">
+                              <div class="user_name">~{{chat.fname}}~</div>
+                              {{chat.msg}}
+                            </div>
+                          </div>
+                          <div class="col l2 m2 s2 chatter-icon">
+                            <i [class]="(chat.gender === 'M') ? 'fa fa-male' : 'fa fa-female'" aria-hidden="true"></i>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </section>
+              <!--</editor-fold>-->
+              </div>
+              <!--<editor-fold Description='Text Messages area'>-->
+              <div class="chatTextArea">
+                <div class="row margin-0">
+                  <div class="col l11 m10 s10 no-padding">
+                     <textarea name="msg" id="msg"
+                               [(ngModel)]="chat_text"
+                               class="materialize-textarea msg-textArea"
+                               placeholder="Type message..." required autofocus (keyup.enter)="sendMessage()"></textarea>
+                  </div>
+                  <div class="col l1 m2 s2 no-padding">
+                    <button class="waves-effect waves-light btn send-msg-btn z-depth-0" (click)="sendMessage()">
+                      <i class="material-icons">send</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <!--</editor-fold>-->
+          </div>
+
+      </div>
+    </div>
+  </div>
+</section>

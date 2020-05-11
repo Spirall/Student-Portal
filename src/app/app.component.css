@@ -1,0 +1,64 @@
+@import url(./shared/styles/mixin.css);
+.footer {
+  height: 60px;
+  margin: 0px;
+  line-height: 60px;
+  font-family: 'Baloo Bhaina', cursive;
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1000; }
+
+.select-dropdown li img {
+  height: 25px;
+  width: 25px;
+  margin: 13px 15px; }
+
+/** ==========================================================================================================================
+== CHAT Bubble DESIGN CODE
+**  =========================================================================================================================== */
+.bubble-msg {
+  background-color: #F2F2F2;
+  border-radius: 5px;
+  box-shadow: 0 0 6px #B2B2B2;
+  display: inline-block;
+  padding: 7px 18px 10px 18px;
+  position: relative;
+  vertical-align: top;
+  font-family: 'OpenSans', sans-serif; }
+
+.bubble-msg::before {
+  background-color: #F2F2F2;
+  content: "\00a0";
+  display: block;
+  height: 16px;
+  position: absolute;
+  top: 12px;
+  transform: rotate(29deg) skew(-35deg);
+  -moz-transform: rotate(29deg) skew(-35deg);
+  -ms-transform: rotate(29deg) skew(-35deg);
+  -o-transform: rotate(29deg) skew(-35deg);
+  -webkit-transform: rotate(29deg) skew(-35deg);
+  width: 20px; }
+
+.you {
+  float: left;
+  margin: 0px; }
+
+.you::before {
+  box-shadow: -2px 2px 2px 0 rgba(178, 178, 178, 0.4);
+  left: -9px; }
+
+.me {
+  float: right;
+  margin: 0px;
+  background-color: #ed6400 !important; }
+
+.me::before {
+  box-shadow: 2px -2px 2px 0 rgba(178, 178, 178, 0.4);
+  right: -9px;
+  background-color: #ed6400 !important; }
+
+/*# sourceMappingURL=app.component.css.map */

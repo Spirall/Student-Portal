@@ -1,0 +1,66 @@
+<!-- Header -->
+<app-login-header></app-login-header>
+<!--End  Header -->
+<section class="admin-login">
+    <div class="row">
+      <div class="col offset-l3 offset-m1 l6 m10 s12">
+        <div class="card grey lighten-5">
+          <div class="card-content white-text grey lighten-2">
+            <span class="card-title">Admin Sign In</span>
+          </div>
+          <app-preloader-intermediate *ngIf="login_loading" ></app-preloader-intermediate>
+          <div class="card-inputs">
+            <form name="admin_login_form" [formGroup]="admin_form" (ngSubmit)="onSubmitLogin(admin_form.value, admin_form.valid)">
+                <div class="row">
+                  <div class="input-field col offset-l3 offset-m2 l6 m8 s12">
+                    <input type="email"  name="admin_email" id="admin_email" formControlName="admin_email" class="validate" placeholder="" required>
+                    <label for="admin_email" class="active">Admin Email</label>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="input-field col offset-l3 offset-m2 l6 m8 s12">
+                    <input type="password"  name="admin_pwd" id="admin_pwd" formControlName="admin_pwd" class="validate" placeholder="" required>
+                    <label for="admin_pwd" class="active">Password</label>
+                  </div>
+                </div>
+                <div class="row center margin-0">
+                  <div class="row btn-signIn-section">
+                    <button type="submit" class="waves-effect waves-light btn btn-signIn">Sign in</button>
+                  </div>
+
+                  <div class="row right btn-forgotPassword-section">
+                    <a class="waves-effect waves-light btn-forgotPassword" (click)="openForgetPasswordModal()">Forgot Password</a>
+                 </div>
+              </div>
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section id="modal1" class="modal bottom-sheet" materialize="modal"
+         [materializeParams]="[{dismissible: true}]" [materializeActions]="modalAction">
+  <app-preloader-intermediate *ngIf="forgotPwd_loading"></app-preloader-intermediate>
+  <div class="modal-content padding-bottom-0">
+
+    <div style="margin-bottom: 30px">
+      <h4>FORGOT PASSWORD</h4>
+      <p>Did you forget your password? no problem, enter your UJ Email Address here</p>
+    </div>
+
+    <div class="row">
+      <div class="input-field col offset-l4 offset-l4  offset-m2 l4 m4 s12">
+        <input type="email"  name="st_email" id="st_email" class="validate" placeholder="" required #emailPwd>
+        <label for="st_email" class="active">UJ Admin Email Address</label>
+      </div>
+    </div>
+    <div class="row center margin-0">
+      <a class="waves-effect waves-light btn" (click)="onSubmitForgetPwd(emailPwd)">Submit</a>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+  </div>
+</section>

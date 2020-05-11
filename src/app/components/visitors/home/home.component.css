@@ -1,0 +1,102 @@
+.home-first-section {
+  margin-bottom: 0px !important; }
+  .home-first-section .home-slider {
+    height: 660px !important;
+    width: 100%; }
+    .home-first-section .home-slider .slides .slide:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)); }
+    .home-first-section .home-slider .slides .slide .slider-descr {
+      font-family: 'ABeeZee', cursive;
+      font-size: 30px; }
+    .home-first-section .home-slider .slides .caption {
+      left: 5%;
+      top: 30%; }
+    .home-first-section .home-slider .slider-nav-btn {
+      position: absolute;
+      top: 42%;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      justify-content: space-between; }
+      .home-first-section .home-slider .slider-nav-btn .slider-btn-left {
+        background-color: transparent !important; }
+        .home-first-section .home-slider .slider-nav-btn .slider-btn-left i {
+          font-size: 3.3rem !important; }
+      .home-first-section .home-slider .slider-nav-btn .slider-btn-right {
+        background-color: transparent !important; }
+        .home-first-section .home-slider .slider-nav-btn .slider-btn-right i {
+          font-size: 3.3rem !important; }
+
+.home-second-section {
+  margin: 0px; }
+  .home-second-section .intro-section {
+    background-color: #efefef;
+    padding: 50px 5px 40px 0px;
+    margin: 0px; }
+    .home-second-section .intro-section .intro-title {
+      margin: 0px;
+      font-family: 'Baloo Bhaina', cursive; }
+    .home-second-section .intro-section .intro-subtitle {
+      padding: 0px 5%;
+      font-family: "Open Sans", sans-serif; }
+    .home-second-section .intro-section .download-row {
+      padding: 0px 5%;
+      margin-bottom: 0px; }
+      .home-second-section .intro-section .download-row .collapsible-header {
+        font-family: "Arial", sans-serif;
+        color: #888888; }
+  @media only screen and (max-width: 991px) {
+    .home-second-section .parallax-container {
+      height: 350px; } }
+  @media only screen and (max-width: 599px) {
+    .home-second-section .parallax-container {
+      height: 300px; } }
+  .home-second-section .news-section {
+    background-color: #efefef;
+    margin: 0px;
+    min-height: 500px;
+    padding: 5% 30px; }
+    @media only screen and (max-width: 599px) {
+      .home-second-section .news-section .story-slider .slider {
+        height: 635px !important; } }
+    .home-second-section .news-section .story-slider .article-slides {
+      background-color: transparent; }
+      @media only screen and (max-width: 599px) {
+        .home-second-section .news-section .story-slider .article-slides {
+          height: 635px !important; } }
+    .home-second-section .news-section .story-slider .story-text .article-title {
+      font-family: "Open Sans", sans-serif;
+      padding: 10px 0px 0px 0px;
+      font-size: 30px;
+      text-align: center; }
+    .home-second-section .news-section .story-slider .story-text .article-msg {
+      overflow: scroll;
+      height: 283px;
+      padding: 10px 0px; }
+      @media only screen and (max-width: 599px) {
+        .home-second-section .news-section .story-slider .story-text .article-msg {
+          height: 183px; } }
+    .home-second-section .news-section .story-slider .story-slider-btn {
+      margin-top: 21px;
+      margin-bottom: 40px; }
+      @media only screen and (max-width: 599px) {
+        .home-second-section .news-section .story-slider .story-slider-btn {
+          margin-bottom: 65px; } }
+      .home-second-section .news-section .story-slider .story-slider-btn a {
+        background-color: transparent; }
+        .home-second-section .news-section .story-slider .story-slider-btn a i {
+          font-size: 2.9em !important;
+          color: #000000; }
+    .home-second-section .news-section .article-loader-section {
+      position: absolute;
+      left: 50%;
+      bottom: 10%;
+      transform: translate(-50%); }
+
+/*# sourceMappingURL=home.component.css.map */

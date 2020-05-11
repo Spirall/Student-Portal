@@ -1,0 +1,148 @@
+<!-- Header -->
+<app-main-header></app-main-header>
+<!--End  Header -->
+
+<section class="row home-first-section">
+      <section class="slider home-slider" materialize="slider" [materializeActions]="sliderNavActions" [materializeParams]="sliderOptions">
+        <ul class="slides">
+          <li  *ngFor="let img of sliderImgArr" class="slide">
+            <img [src]="img.img"> <!-- random image -->
+            <div class="caption left-align">
+              <!--<h3>This is our big Tagline!</h3>-->
+              <h5 class="light white-text text-lighten-1 slider-descr">{{ img.descr }}</h5>
+            </div>
+          </li>
+        </ul>
+        <section class="slider-nav-btn">
+            <a (click)="slide('prev')" class="btn-floating btn-large waves-effect waves-light slider-btn-left z-depth-0"><i class="material-icons">arrow_back</i></a>
+            <a (click)="slide('next')" class="btn-floating btn-large waves-effect waves-light slider-btn-right z-depth-0"><i class="material-icons">arrow_forward</i></a>
+        </section>
+      </section>
+</section>
+
+<section class="row home-second-section">
+    <div class="row s12 intro-section">
+        <div class="col offset-l1 l10 m12">
+            <h3 class="center intro-title">Student Accommodation and Residence Life​</h3>
+            <p class="intro-subtitle">
+              Student Accommodation and Residence Life division is mainly responsible for
+              the accommodation of approximately 19000 students in both university owned and managed
+              residences as well as off-campus accredited privately owned accommodation.
+              <br /><br />
+              Off-campus accommodation's accredited properties are within 2 km of each campus and where they are beyond the prescribed radius,
+              the set condition is that service providers are obliged to provide transport. Additionally,
+              intercampus transportation is provided for all students residing in off-campus residences and houses.
+              The university offers to all students, a list of accredited off-campus accommodation.
+            </p>
+            <div class="center row download-row">
+              <div class="col l12 m12 s12 no-padding">
+                <ul materialize="collapsible" class="collapsible z-depth-0" data-collapsible="accordion">
+                  <li>
+                    <div class="collapsible-header active">
+                        <i class="material-icons">file_download</i>
+                        To All UJ Students/Parents and Sponsors
+                    </div>
+                    <div class="collapsible-body">
+                      <a href="https://www.uj.ac.za/studyatUJ/Student-Accommodation-Residence-Life/Documents/Off-Campus%20Accommodation%20letter%208%2011%2016.pdf" class="waves-effect waves-light btn orange darken-3" target="_blank">
+                        Download
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">file_download</i>
+                      UJ Student Regulations
+                    </div>
+                    <div class="collapsible-body">
+                      <a href="https://www.uj.ac.za/studyatUJ/Student-Accommodation-Residence-Life/Documents/UJ%20STUDENT%20REGULATIONS%20approved%20by%20Council.pdf" class="waves-effect waves-light btn orange darken-3" target="_blank">
+                        Download
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">file_download</i>
+                      UJ Regulations for student discipline
+                    </div>
+                    <div class="collapsible-body">
+                      <a href="https://www.uj.ac.za/studyatUJ/Student-Accommodation-Residence-Life/Documents/UJ%20REGULATIONS%20FOR%20STUDENT%20DISCIPLINE%20approved%20Council%20November%202010.pdf" class="waves-effect waves-light btn orange darken-3" target="_blank">
+                        Download
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">file_download</i>
+                      2017 Subscribing POSA updated list
+                    </div>
+                    <div class="collapsible-body">
+                      <a href="https://www.uj.ac.za/studyatUJ/Student-Accommodation-Residence-Life/PublishingImages/Pages/default/2017%20Subscribing%20POSA%20updated%20list.pdf" class="waves-effect waves-light btn orange darken-3" target="_blank">
+                        Download
+                      </a>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="collapsible-header">
+                      <i class="material-icons">file_download</i>
+                      Policy on Privately-Owned Student Accommodation
+                    </div>
+                    <div class="collapsible-body">
+                      <a href="https://www.uj.ac.za/studyatUJ/Student-Accommodation-Residence-Life/PublishingImages/Pages/default/Policy%20on%20Privately-Owned%20Student%20Accommodation.pdf" class="waves-effect waves-light btn orange darken-3" target="_blank">
+                        Download
+                      </a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+        </div>
+    </div>
+
+
+
+  <div class="parallax-container">
+    <div materialize="parallax" class="parallax"><img src="./assets/img/sliders_imgs/apk3.jpg"></div>
+  </div>
+
+  <div class="row news-section">
+      <div class="col offset-l1 l10 m12 s12">
+          <div class="story-slider" *ngIf="!article_loading">
+
+            <section class="slider"
+                     materialize="slider"
+                     [materializeActions]="articleSliderNavActions"
+                     [materializeParams]="articleSliderOptions" >
+                  <ul class="slides article-slides">
+                    <li *ngFor="let art of articles_data" class="slide">
+                      <div class="row">
+                        <div class="col l5 m6 s12 center no-padding" style="margin-bottom: 25px;">
+                          <img src="{{article_src + art.article_img}}" style="width: 80%" >
+                        </div>
+                        <div class="col l7 m6 s12 no-padding story-text">
+                          <div class="article-title" >
+                            {{art.article_title}}
+                          </div>
+                          <div class="article-msg" [innerHtml]="art.article_msg"></div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+            </section>
+
+            <div class="row story-slider-btn">
+              <div class="col l12 m12 s12 right-align">
+                <a (click)="storySlide('prev')" class="btn-floating btn-large waves-effect waves-black slider-btn-left z-depth-0"><i class="material-icons">keyboard_arrow_left</i></a>
+                <a (click)="storySlide('next')" class="btn-floating btn-large waves-effect waves-black slider-btn-right z-depth-0"><i class="material-icons">keyboard_arrow_right</i></a>
+              </div>
+            </div>
+
+          </div>
+      </div>
+      <section class="article-loader-section">
+        <app-preloader-circle *ngIf="article_loading" [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+      </section>
+  </div>
+</section>
+
+
+

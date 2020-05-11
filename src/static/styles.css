@@ -1,0 +1,62 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: ArialRoundedMtBold;
+  src: local("Arial Rounded MT Bold"), url("./assets/fonts/roboto/Roboto-Regular.woff2"); }
+@font-face {
+  font-family: ArialRoundedMTRegular;
+  src: local("Arial Rounded MT Regular"); }
+@font-face {
+  font-family: LearningCurveDashed;
+  src: local("Learning Curve Dashed"), url("//db.onlinewebfonts.com/t/5e5f28ce478d699af1f9a2aed5fefd06.eot"), url("//db.onlinewebfonts.com/t/5e5f28ce478d699af1f9a2aed5fefd06.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/5e5f28ce478d699af1f9a2aed5fefd06.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/5e5f28ce478d699af1f9a2aed5fefd06.woff") format("woff"), url("//db.onlinewebfonts.com/t/5e5f28ce478d699af1f9a2aed5fefd06.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/5e5f28ce478d699af1f9a2aed5fefd06.svg#Learning Curve Dashed Pro") format("svg"); }
+html {
+  min-height: 100%;
+  position: relative; }
+
+.slider .indicators {
+  bottom: 55px !important;
+  z-index: 10; }
+  .slider .indicators .indicator-item {
+    margin: 0px 6px !important;
+    border-radius: 0% !important; }
+  .slider .indicators .active {
+    background-color: #ed6400 !important; }
+
+.select-wrapper input.select-dropdown {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none; }
+
+input:focus, textarea:focus, .chips.focus {
+  border-bottom: 1px solid #ff8957 !important;
+  box-shadow: 0px 1px 0px 0px #ff8957 !important; }
+  input:focus + label, textarea:focus + label, .chips.focus + label {
+    color: #ff8957 !important; }
+
+.chips .chip.selected {
+  background-color: #ff8957 !important; }
+
+.input-field .prefix.active {
+  color: #ed6400 !important; }
+
+.select-wrapper .select-dropdown li span {
+  color: #ed6400 !important; }
+.select-wrapper .select-dropdown li.disabled span {
+  color: rgba(0, 0, 0, 0.3) !important; }
+.select-wrapper .select-dropdown li.optgroup span {
+  color: #00a69d !important; }
+
+ul.dropdown-content {
+  max-height: 300px !important; }
+
+#materialbox-overlay {
+  z-index: 1001 !important; }
+
+.materialboxed.initialized.active {
+  z-index: 1001 !important; }
+
+b, strong {
+  font-weight: bold !important; }
+
+/*# sourceMappingURL=styles.css.map */

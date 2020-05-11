@@ -1,0 +1,87 @@
+.accom-first-section {
+  margin-bottom: 0px !important; }
+  .accom-first-section .parallax-container {
+    height: 350px;
+    width: 100%; }
+    .accom-first-section .parallax-container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); }
+    .accom-first-section .parallax-container .page-title {
+      color: #ed6400;
+      position: absolute;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "LearningCurveDashed", sans-serif;
+      font-weight: 500;
+      font-size: 8em;
+      width: 100%;
+      text-align: center; }
+      @media only screen and (max-width: 599px) {
+        .accom-first-section .parallax-container .page-title {
+          font-size: 1.5em;
+          font-family: "Open Sans", sans-serif; } }
+
+.accom-second-section {
+  margin-bottom: 5%;
+  padding: 30px 20px 20px 20px; }
+  .accom-second-section .accom-campuses-row {
+    margin: 0px; }
+    .accom-second-section .accom-campuses-row .card {
+      margin-bottom: 30px; }
+      .accom-second-section .accom-campuses-row .card .card-image {
+        cursor: default;
+        max-height: 110px;
+        height: 110px;
+        overflow: hidden; }
+        .accom-second-section .accom-campuses-row .card .card-image .card-title {
+          font-size: 18px;
+          padding: 15px;
+          font-family: "OpenSans", sans-serif; }
+        .accom-second-section .accom-campuses-row .card .card-image:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); }
+      .accom-second-section .accom-campuses-row .card .card-action {
+        padding: 8px 24px 8px 0px; }
+        .accom-second-section .accom-campuses-row .card .card-action a {
+          color: #ed6400; }
+        .accom-second-section .accom-campuses-row .card .card-action i {
+          margin-top: 7px; }
+      .accom-second-section .accom-campuses-row .card .card-reveal {
+        padding: 20px; }
+        .accom-second-section .accom-campuses-row .card .card-reveal .card-title {
+          font-size: 17px;
+          font-family: "OpenSans", sans-serif;
+          font-weight: 400;
+          margin-top: -10px; }
+          .accom-second-section .accom-campuses-row .card .card-reveal .card-title i {
+            font-size: 30px;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            color: #ed6400; }
+        .accom-second-section .accom-campuses-row .card .card-reveal .res_descr {
+          margin: 10px 0px 0px 0px;
+          font-family: 'Raleway', sans-serif;
+          font-weight: 600; }
+    .accom-second-section .accom-campuses-row .search-input {
+      margin-bottom: 10px; }
+      .accom-second-section .accom-campuses-row .search-input i {
+        top: 8px;
+        width: 2rem;
+        left: 8px; }
+  .accom-second-section .residence_loader_section {
+    margin-top: 2%;
+    text-align: center; }
+
+/*# sourceMappingURL=accommodation.component.css.map */

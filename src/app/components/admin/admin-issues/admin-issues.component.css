@@ -1,0 +1,81 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-issues {
+  overflow-y: hidden;
+  margin-bottom: 60px; }
+  @media only screen and (min-width: 993px) {
+    .admin-issues {
+      margin-left: 300px; } }
+  .admin-issues .residence-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-issues .residence-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-issues .residence-header .page-title {
+          margin: auto 0px; } }
+  .admin-issues .table-content {
+    padding: 0px 25px; }
+    .admin-issues .table-content .select-and-search-block {
+      padding-top: 20px; }
+    .admin-issues .table-content table thead tr {
+      font-family: 'OpenSans', sans-serif; }
+    .admin-issues .table-content table tbody tr {
+      font-family: 'OpenSans', sans-serif;
+      cursor: pointer; }
+      .admin-issues .table-content table tbody tr:hover {
+        background-color: #bdbdbd !important; }
+    .admin-issues .table-content .no-issue-found {
+      padding: 10px;
+      font-size: 17px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif; }
+  .admin-issues .issue_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+.read-issue-modal .modal-content {
+  padding-bottom: 0px; }
+  .read-issue-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .read-issue-modal .modal-content .details {
+    font-family: "OpenSans", sans-serif;
+    font-weight: 200;
+    font-size: 15px; }
+    .read-issue-modal .modal-content .details .last {
+      text-align: right; }
+  .read-issue-modal .modal-content .message {
+    font-family: "OpenSans", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    margin: 20px;
+    background: #fff0dc !important;
+    padding: 10px; }
+  .read-issue-modal .modal-content .img-block {
+    height: 400px;
+    max-height: 400px;
+    padding: 10px 10px 0px 10px;
+    text-align: center; }
+    .read-issue-modal .modal-content .img-block .img {
+      height: 350px; }
+  .read-issue-modal .modal-content .message-text-area {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    outline: 0;
+    border-bottom-color: #000 !important; }
+.read-issue-modal .modal-footer {
+  padding: 4px 20px; }
+  .read-issue-modal .modal-footer .dismiss-btn:hover {
+    background-color: rgba(166, 37, 32, 0.3); }
+  .read-issue-modal .modal-footer .submit-btn {
+    background-color: #ff8957 !important; }
+    .read-issue-modal .modal-footer .submit-btn:hover {
+      background-color: #ed6400 !important; }
+
+/*# sourceMappingURL=admin-issues.component.css.map */

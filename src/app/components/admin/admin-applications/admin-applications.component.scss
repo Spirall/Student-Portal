@@ -1,0 +1,123 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.css";
+
+.admin-application {
+  overflow-y: hidden;
+  margin-bottom: 60px;
+  min-height: 80vh;
+  @include media-to(desktop_and_lager_desktop) {  margin-left: 300px; }
+  .application-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    .page-title {
+      margin: auto;
+      font-size: 25px;
+      @include media-to(tablet) { margin: auto 0px; }
+    }
+  }
+  .application-content {
+
+    .select-and-search-block {
+      padding: 20px;
+    }
+    .table-content {
+      padding: 0px 25px;
+      table {
+        thead {
+          tr {
+            font-family: 'OpenSans', sans-serif;
+          }
+        }
+        tbody{
+          tr {
+            font-family: 'OpenSans', sans-serif;
+            cursor: pointer;
+            &:hover {
+              background-color: $dark-grey-1-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .application_loader_section{
+    margin-top: 15%;
+    text-align: center;
+  }
+}
+
+
+.st-application-modal {
+  //height: 410px !important;
+  top: 10% !important;
+  .modal-content {
+    .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+  }
+  .modal-footer {
+    padding: 4px 20px;
+    .accept-btn {
+      background-color: $primary-color;
+      margin-left: 10px;
+      color: #fff;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+    .reject-btn {
+      background-color: rgba(166, 37, 32, .3);
+      margin-left: 10px;
+      color: #fff;
+      &:hover {
+        background-color: rgba(166, 37, 32, 1);
+      }
+    }
+    .dismiss-btn{
+      //margin: 0px 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+      &:hover {
+        background-color: rgba(115, 76, 79, 0.3);
+      }
+    }
+  }
+}
+
+.application-response-modal {
+  top: 20% !important;
+  .modal-content {
+    padding-bottom: 0px;
+    .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 20px;
+    }
+    .unavailable-email-btn {
+      background-color: $primary-color;
+      color: #fff;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+  }
+  .modal-footer {
+    padding: 4px 20px;
+    .dismiss-btn{
+      &:hover {
+        background-color: rgba(166, 37, 32, .3);
+      }
+    }
+  }
+}
+

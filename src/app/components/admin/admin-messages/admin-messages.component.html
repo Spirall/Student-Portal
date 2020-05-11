@@ -1,0 +1,77 @@
+<section class="admin-msg">
+  <div class="msg-header grey lighten-2">
+    <p class="page-title">Email Messages</p>
+  </div>
+
+  <section class="row table-content" *ngIf="!messages_loading">
+
+    <section class="row select-and-search-block">
+      <div class="input-field col l4 m4 s12">
+        <select materialize="material_select" name="message_type" [(ngModel)]="message_type">
+          <option value="" selected>All</option>
+          <option value="0">Pending</option>
+          <option value="1">Answered</option>
+        </select>
+        <label>Message Status</label>
+      </div>
+    </section>
+
+    <table class="responsive-table bordered striped">
+      <thead>
+        <tr>
+          <th>Full Name</th>
+          <th>Email Address</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let message of messages|filter:message_type:['enq_status'] " (click)="respondMsg(message)">
+        <td>{{message.enq_fullname}}</td>
+        <td>{{message.enq_email}}</td>
+        <td>{{message.enq_dateTime | date}}</td>
+        <td>{{ (message.enq_status === 0) ? 'Pending': 'Answered'}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <div *ngIf="messages.length == 0" class="no-student-found">
+       No messages Found
+    </div>
+  </section>
+
+  <div class="message_loader_section" *ngIf="messages_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>
+
+<!-- This is the show message modal -->
+  <div  class="modal modal-fixed-footer read-message-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="show_message_modalActions">
+    <app-preloader-intermediate *ngIf="is_sendingEmail"></app-preloader-intermediate>
+    <div class="modal-content">
+      <h4 class="modal-title">Message</h4>
+
+      <div class="row details">
+        <div class="col l6 m6 s12 first">
+          From: {{clicked_message?.enq_fullname}}
+        </div>
+         <div class="col l6 m6 s12 last">
+          {{clicked_message?.enq_dateTime | date}}
+         </div>
+      </div>
+      <p class="message">
+        {{clicked_message?.enq_msg}}
+      </p>
+      <div class="reply-box">
+        <textarea [disabled]="clicked_message?.enq_status === 1"
+                  class="message-text-area browser-default" name="reply_messageText"
+                  [(ngModel)]="reply_messageText"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a (click)="this.show_message_modalActions.emit({action: 'modal' , params:['close']})"
+         class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+
+      <a (click)="responseEmail(clicked_message)" *ngIf="clicked_message?.enq_status != 1"
+         class="waves-effect waves-black btn-flat submit-btn">Submit</a>
+    </div>
+  </div>

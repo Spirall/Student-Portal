@@ -1,0 +1,71 @@
+<nav class="z-depth-4">
+  <div class="nav-wrapper">
+    <!--On Tabs and Mobile-->
+    <div class="col offset-m4 offset-s3 m2 s3 no-padding hide-on-large-only show-on-medium-and-down left-align btn-menu-section">
+      <a class="waves-effect waves-black btn btn-menu z-depth-0"
+         materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions"
+         data-activates="sideNavMenu">
+        <i class="material-icons">menu</i>
+      </a>
+    </div>
+    <!--On Large screen only-->
+    <ul class="right hide-on-med-and-down">
+      <li>
+        <a class="logoutBtn" [routerLink]="['./login', 'out' ]">
+          <i class="material-icons">power_settings_new</i>
+        </a>
+      </li>
+     </ul>
+  </div>
+</nav>
+
+<ul id="sideNavMenu" class="side-nav">
+  <li>
+    <div class="user-view">
+      <a href=""><img class="circle grey lighten-2" [src]="user_profile"></a>
+    </div>
+  </li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Menu Options</a></li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [href]="'/ujres-admin'" class="waves-effect nav-item">
+      <i class="material-icons">dashboard</i> Dashboard
+    </a>
+  </li>
+  <li>
+    <a href="ujres-admin/residences"  class="waves-effect nav-item">
+      <i class="material-icons">hotel</i> Residences
+    </a>
+  </li>
+  <li>
+    <a href="ujres-admin/applications" class="waves-effect nav-item">
+      <i class="material-icons">folder_shared</i> Applications
+    </a>
+  </li>
+  <li>
+    <a href="ujres-admin/articles" class="waves-effect nav-item">
+      <i class="material-icons">description</i> Articles
+    </a>
+  </li>
+  <li>
+    <a href="ujres-admin/messages" class="waves-effect nav-item">
+      <i class="material-icons">mail</i> Messages
+    </a>
+  </li>
+  <li>
+    <a href="ujres-admin/buses" class="waves-effect nav-item">
+      <i class="material-icons">directions_bus</i> Buses
+    </a>
+  </li>
+  <li>
+    <a href="ujres-admin/account" class="waves-effect nav-item">
+      <i class="material-icons">settings</i> Account
+    </a>
+  </li>
+  <li>
+    <a href="ujres-admin/login/out" class="waves-effect nav-item">
+      <i class="material-icons">power_settings_new</i> Log out
+    </a>
+  </li>
+</ul>

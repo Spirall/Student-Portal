@@ -1,0 +1,60 @@
+<ul class="side-nav fixed admin-side-menu">
+  <li>
+    <div class="user-view">
+      <div class="background"></div>
+      <a href="#"><img class="circle grey lighten-2" [src]="user_profile"></a>
+      <span class="white-text name">{{user_data.admin_fname + ' ' + user_data.admin_lname  }}</span>
+      <span class="white-text email">{{ user_data.admin_email}}</span>
+    </div>
+  </li>
+  <li>
+    <a [routerLink]="['./']" >
+      <i class="material-icons">dashboard</i> Dashboard
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [routerLink]=" ['./residences']">
+      <i class="material-icons">hotel</i> Residences
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [routerLink]=" ['./applications']">
+      <i class="material-icons">folder_shared</i> Applications
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [routerLink]=" ['./articles']">
+      <i class="material-icons">description</i> Articles
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [routerLink]=" ['./messages']">
+      <i class="material-icons">mail</i> Messages
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [routerLink]=" ['./issues']">
+      <i class="material-icons">report_problem</i> Issues
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [routerLink]=" ['./buses']">
+      <i class="material-icons">directions_bus</i> Buses
+    </a>
+  </li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [routerLink]=" ['./account']">
+      <i class="material-icons">settings</i> Account
+    </a>
+  </li>
+  <li>
+
+  </li>
+</ul>

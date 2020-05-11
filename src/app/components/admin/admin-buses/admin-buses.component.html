@@ -1,0 +1,243 @@
+<section class="admin-buses">
+  <div class="buses-header grey lighten-2">
+    <p class="page-title">Buses</p>
+  </div>
+
+  <section class="row margin-0 buses-content" *ngIf="!buses_loading">
+    <!-- ## <editor-fold description="Buses Details">  ## -->
+      <div class="col l3 m12 s12 no-padding buses-section">
+        <div class="card white margin-top-0">
+          <div class="card-content main-card-content">
+            <div class="row margin-0 title-content">
+              <p class="admins-section-title">Buses
+                <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                   data-position="left" data-delay="20" style="margin-top: 4px;margin-right: 17px;"
+                   data-tooltip="Add new bus" (click)="openAddBusModal()">add</i>
+              </p>
+            </div>
+
+            <section *ngIf="buses_data.length > 0; else busEmpty">
+              <div  class="card white admins-card" *ngFor="let bus of buses_data">
+                <div class="card-content">
+                  <p class="room-details-block">
+                    <span class="room-no">{{bus.bus_no}}</span>
+                    <i  class="material-icons right waves-effect waves-black"
+                       (click)="openDeleteBusModal(bus)">delete_forever</i>
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <ng-template #busEmpty>
+              <div class="card white admins-card">
+                <div class="card-content">
+                  <p><span class="admin-title">No Bus found!</span>
+                    <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                       data-position="left" data-delay="20"
+                       data-tooltip="Add new bus" (click)="openAddBusModal()">add</i>
+                  </p>
+                </div>
+              </div>
+            </ng-template>
+
+          </div>
+        </div>
+      </div>
+    <!-- ## </editor-fold> ## -->
+
+    <!-- ## <editor-fold description="Google Maps">  ## -->
+    <div class="col l6 m12 no-padding">
+        <agm-map
+              [latitude]="coord.lat"
+              [longitude]="coord.long"
+              [disableDefaultUI]="false"
+              [zoom]="zoom"
+              [scrollwheel]="false"
+              style="width: 100%;height: 600px">
+
+        <agm-marker [latitude]="lat_1" [longitude]="lng_1" [iconUrl]="busIcon">
+          <agm-info-window [isOpen]="false">
+            <div class="row margin-bottom-0 info-window">
+              <div class="col l4 m4 s4 agm-driver-col-1">
+                <img src="../../../../assets/img/default_profile/woman_profile.png" class="agm-driver-img" />
+              </div>
+              <div class="col l8 m8 s8 agm-driver-col-2">
+                <strong>Bus: 011</strong><br>
+                <strong>Thabo Buthelezi</strong><br>
+                <strong>Cell: 0712868041</strong><br>
+                <strong>To: APB</strong>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+        <agm-marker [latitude]="lat_2" [longitude]="lng_2" [iconUrl]="busIcon" >
+          <agm-info-window [isOpen]="false">
+            <div class="row margin-bottom-0 info-window">
+              <div class="col l4 m4 s4 agm-driver-col-1">
+                <img src="../../../../assets/img/default_profile/male_profile.png" class="agm-driver-img" />
+              </div>
+              <div class="col l8 m8 s8 agm-driver-col-2">
+                <strong>Bus: 012</strong><br>
+                <strong>Percy Mthembu</strong><br>
+                <strong>Cell: 0742858044</strong><br>
+                <strong>To: APK</strong>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+    <!-- ## </editor-fold> ## -->
+
+    <!-- ## <editor-fold description="Drivers Details">  ## -->
+      <div class="col l3 m12 s12 no-padding buses-section">
+          <div class="card white margin-top-0">
+            <div class="card-content main-card-content">
+              <div class="row margin-0 title-content">
+                <p class="admins-section-title">
+                  <span>Drivers</span>
+                  <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                     data-position="left" data-delay="20" style="margin-top: 4px;margin-right: 17px;"
+                     data-tooltip="Add new Driver" (click)="openAddDriversModal()">add</i>
+                </p>
+              </div>
+
+              <section *ngIf="drivers_data.length > 0; else driverEmpty">
+                <div  class="card white admins-card" *ngFor="let driver of drivers_data">
+                  <div class="card-content">
+                    <p class="room-details-block">
+                      <span class="room-no">{{driver.driver_fname + ' ' + driver.driver_lname}}</span>
+                      <i  class="material-icons right waves-effect waves-black"
+                          style="position: absolute;right: 5px; top: 50%;transform: translate(1%, -50%);"
+                          (click)="openDeleteDriverModal(driver)">delete_forever</i>
+                    </p>
+                  </div>
+                </div>
+              </section>
+
+              <ng-template #driverEmpty>
+                <div class="card white admins-card">
+                  <div class="card-content">
+                    <p><span class="admin-title">No Driver found!</span>
+                      <i class="material-icons right waves-effect waves-black" materialize="tooltip"
+                         data-position="left" data-delay="20"
+                         data-tooltip="Add new driver" (click)="openAddDriversModal()">add</i>
+                    </p>
+                  </div>
+                </div>
+              </ng-template>
+
+            </div>
+          </div>
+    </div>
+    <!-- ## </editor-fold> ## -->
+  </section>
+
+  <div class="buses_loader_section" *ngIf="buses_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>
+
+<!-- ########  <editor-fold description="This is the add new bus modal">  ######## -->
+<div class="modal add-bus-modal" materialize="modal" [materializeParams]="[{ dismissible: false }]" [materializeActions]="show_addBus_modalActions">
+  <app-preloader-intermediate *ngIf="is_addingBus"></app-preloader-intermediate>
+    <div class="modal-content">
+      <h4 class="modal-title">Add New Bus</h4>
+      <div class="row margin-0">
+
+        <div class="input-field col s12 m12 l12">
+          <input placeholder="" name="bus_no" id="bus_no" [(ngModel)]="add_bus.bus_no" class="validate" required>
+          <label class="active" for="bus_no">Bus Number *</label>
+        </div>
+
+        <div class="input-field col s12 m12 l12">
+          <input placeholder="" name="bus_mark" id="bus_mark" [(ngModel)]="add_bus.bus_mark" class="validate" required>
+          <label class="active" for="bus_mark">Mark *</label>
+        </div>
+
+        <div class="input-field col s12 m12 l6">
+          <input placeholder="" name="bus_model" id="bus_model" [(ngModel)]="add_bus.bus_model" class="validate" required>
+          <label class="active" for="bus_model">Bus Model *</label>
+        </div>
+
+        <div class="input-field col s12 m12 l6">
+          <input type="number" placeholder="" name="bus_noseat" [(ngModel)]="add_bus.bus_noseat" id="bus_noseat" class="validate" required>
+          <label class="active" for="bus_noseat">Number of seat *</label>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <a (click)="this.show_addBus_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+      <button (click)="addNewBus(add_bus)" class="waves-effect waves-black btn-flat save-btn">Save</button>
+    </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="This is the add new driver modal">  ######## -->
+<div class="modal add-driver-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="show_addDriver_modalActions">
+  <app-preloader-intermediate *ngIf="is_addingDriver"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Add New Driver</h4>
+    <div class="row margin-0">
+
+      <div class="input-field col s12 m12 l6">
+        <input placeholder="" name="driver_fname" id="driver_fname" [(ngModel)]="add_driver.driver_fname" class="validate" required>
+        <label class="active" for="driver_fname">First Name</label>
+      </div>
+      <div class="input-field col s12 m12 l6">
+        <input placeholder="" name="driver_lname" id="driver_lname" [(ngModel)]="add_driver.driver_lname" class="validate" required>
+        <label class="active" for="driver_lname">Last Name</label>
+      </div>
+
+      <div class="input-field col s12 m12 l6">
+        <input type="email" placeholder="" name="driver_email" id="driver_email" [(ngModel)]="add_driver.driver_email" class="validate" required>
+        <label class="active" for="driver_email">Email number</label>
+      </div>
+      <div class="input-field col s12 m12 l6">
+        <input placeholder="" name="driver_cellno" id="driver_cellno" [(ngModel)]="add_driver.driver_cellno" class="validate" required>
+        <label class="active" for="driver_cellno">Cell number</label>
+      </div>
+
+      <div class="input-field col l6 m6 s12">
+        <select materialize="material_select" name="nw_gender"  #Gender>
+          <option value="M" selected>Male</option>
+          <option value="F">Female</option>
+        </select>
+        <label>Gender</label>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.show_addDriver_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <button (click)="addNewDriver(add_driver)" class="waves-effect waves-black btn-flat save-btn">Save</button>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="Delete Driver Modal">  ######## -->
+<div class="modal delete-driver-modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="delete_driver_modalActions">
+  <app-preloader-intermediate *ngIf="is_deleting_driverOrBus"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Delete Driver</h4>
+    <p class="delete-message">Are you sure to delete driver {{deleted_driver?.fname}} ?</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.delete_driver_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="deleteDriverData()" class="waves-effect waves-black btn-flat save-btn">Yes</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->
+
+<!-- ########  <editor-fold description="Delete Bus Modal">  ######## -->
+<div class="modal delete-bus-modal" materialize="modal" [materializeParams]="[{dismissible: true}]" [materializeActions]="delete_bus_modalActions">
+  <app-preloader-intermediate *ngIf="is_deleting_driverOrBus"></app-preloader-intermediate>
+  <div class="modal-content">
+    <h4 class="modal-title">Delete Bus</h4>
+    <p class="delete-message">Are you sure to delete bus {{deleted_bus?.bus_no}} ?</p>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.delete_bus_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+    <a (click)="deleteBusData()" class="waves-effect waves-black btn-flat save-btn">Yes</a>
+  </div>
+</div>
+<!-- ######## </editor-fold>  ######## -->

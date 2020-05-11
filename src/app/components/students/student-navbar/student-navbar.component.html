@@ -1,0 +1,56 @@
+<nav class="z-depth-4">
+  <div class="nav-wrapper">
+      <div class="col offset-m4 offset-s3 m2 s3 no-padding left-align btn-menu-section">
+        <a class="waves-effect waves-black btn btn-menu z-depth-0"
+           materialize="sideNav" [materializeParams]="sidenavParams" [materializeActions]="sidenavActions"
+           data-activates="sideNavMenu">
+          <i class="material-icons">menu</i>
+        </a>
+        <ul class="right">
+          <li>
+            <a class="logoutBtn" [routerLink]="['/resident-student']">
+              <i class="material-icons">power_settings_new</i>
+            </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>
+
+<ul id="sideNavMenu" class="side-nav">
+  <li>
+    <div class="user-view">
+      <a href="">
+        <img class="circle grey lighten-2" src="{{student_profile}}">
+      </a>
+    </div>
+  </li>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">{{st_fullname}}</a></li>
+  <li><div class="divider"></div></li>
+  <li>
+    <a [href]="'ujres-student'" class="waves-effect nav-item">
+      <i class="material-icons">dashboard</i> Dashboard
+    </a>
+  </li>
+  <li>
+    <a href="ujres-student/issues"  class="waves-effect nav-item">
+      <i class="material-icons">report_problem</i> Report Issue
+    </a>
+  </li>
+  <li>
+    <a href="ujres-student/track-bus" class="waves-effect nav-item">
+      <i class="material-icons">directions_bus</i> Track Buses
+    </a>
+  </li>
+  <li>
+    <a href="ujres-student/chat-room" class="waves-effect nav-item">
+      <i class="material-icons">chat</i> Chat Room
+    </a>
+  </li>
+  <li>
+    <a href="ujres-student/articles-news" class="waves-effect nav-item">
+      <i class="material-icons">description</i> Article and News
+    </a>
+  </li>
+</ul>

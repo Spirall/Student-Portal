@@ -1,0 +1,48 @@
+<!-- Header -->
+<app-main-header></app-main-header>
+<!--End  Header -->
+
+<section class="row accom-first-section">
+  <div class="parallax-container">
+    <div materialize="parallax" class="parallax"><img src="./assets/img/sliders_imgs/apk2.jpg"></div>
+    <h4 class="page-title">Choose your Accommodation</h4>
+  </div>
+</section>
+
+<section class="accom-second-section">
+
+  <div class="row accom-campuses-row" *ngIf="!residences_loading">
+    <div class="row search-input">
+      <div class="input-field col l4 m6 s12">
+        <i class="material-icons prefix">search</i>
+        <input type="text" [(ngModel)]="search_res" name="search_res" id="search_res" class="validate" placeholder="" />
+        <label for="search_res">Search Residence</label>
+      </div>
+    </div>
+    <div class="col s12 m6 l3" *ngFor="let res of residences_data | filter:search_res:['acc_name', 'campus_name_alias']">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light activator">
+          <!--<img src="./assets/img/sliders_imgs/apk1.jpg">-->
+          <!--<img src="http://via.placeholder.com/350x150">-->
+          <img [src]="(res.acc_img ? res_mainImgUrl + res.acc_img : 'http://via.placeholder.com/350x120')">
+          <span class="card-title">{{res.campus_name_alias}} <br> {{res.acc_name}}</span>
+        </div>
+        <div class="card-action">
+          <a (click)="gotToResidence(res)" class="waves-effect waves-black btn transparent z-depth-0">View</a>
+          <span class="card-title activator grey-text text-darken-4"><i class="material-icons right waves-effect waves-black">more_vert</i></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4">
+            {{res.campus_name_alias}} <br> {{res.acc_name}}
+            <i class="material-icons right waves-effect waves-black">close</i>
+          </span>
+          <p class="res_descr">{{res.acc_descr}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="residence_loader_section" *ngIf="residences_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>

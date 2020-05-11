@@ -1,0 +1,83 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-application {
+  overflow-y: hidden;
+  margin-bottom: 60px;
+  min-height: 80vh; }
+  @media only screen and (min-width: 993px) {
+    .admin-application {
+      margin-left: 300px; } }
+  .admin-application .application-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-application .application-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-application .application-header .page-title {
+          margin: auto 0px; } }
+  .admin-application .application-content .select-and-search-block {
+    padding: 20px; }
+  .admin-application .application-content .table-content {
+    padding: 0px 25px; }
+    .admin-application .application-content .table-content table thead tr {
+      font-family: 'OpenSans', sans-serif; }
+    .admin-application .application-content .table-content table tbody tr {
+      font-family: 'OpenSans', sans-serif;
+      cursor: pointer; }
+      .admin-application .application-content .table-content table tbody tr:hover {
+        background-color: #bdbdbd !important; }
+  .admin-application .application_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+.st-application-modal {
+  top: 10% !important; }
+  .st-application-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .st-application-modal .modal-footer {
+    padding: 4px 20px; }
+    .st-application-modal .modal-footer .accept-btn {
+      background-color: #ed6400 !important;
+      margin-left: 10px;
+      color: #fff; }
+      .st-application-modal .modal-footer .accept-btn:hover {
+        background-color: #FF4D1C !important; }
+    .st-application-modal .modal-footer .reject-btn {
+      background-color: rgba(166, 37, 32, 0.3);
+      margin-left: 10px;
+      color: #fff; }
+      .st-application-modal .modal-footer .reject-btn:hover {
+        background-color: #a62520; }
+    .st-application-modal .modal-footer .dismiss-btn {
+      background-color: rgba(0, 0, 0, 0.3); }
+      .st-application-modal .modal-footer .dismiss-btn:hover {
+        background-color: rgba(115, 76, 79, 0.3); }
+
+.application-response-modal {
+  top: 20% !important; }
+  .application-response-modal .modal-content {
+    padding-bottom: 0px; }
+    .application-response-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .application-response-modal .modal-content .message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 20px; }
+    .application-response-modal .modal-content .unavailable-email-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .application-response-modal .modal-content .unavailable-email-btn:hover {
+        background-color: #FF4D1C !important; }
+  .application-response-modal .modal-footer {
+    padding: 4px 20px; }
+    .application-response-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=admin-applications.component.css.map */

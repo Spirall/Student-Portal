@@ -1,0 +1,100 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-articles {
+  overflow-y: hidden;
+  margin-bottom: 60px; }
+  @media only screen and (min-width: 993px) {
+    .admin-articles {
+      margin-left: 300px; } }
+  .admin-articles .articles-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-articles .articles-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-articles .articles-header .page-title {
+          margin: auto 0px; } }
+  .admin-articles .article-contain .search-input {
+    margin-bottom: 5px;
+    margin-top: 30px; }
+    .admin-articles .article-contain .search-input i {
+      top: 8px;
+      width: 2rem;
+      left: 8px; }
+    .admin-articles .article-contain .search-input i.prefix.active {
+      color: #ff8957 !important; }
+    .admin-articles .article-contain .search-input #search_res:focus {
+      border-bottom: 1px solid #ff8957 !important;
+      box-shadow: 0px 1px 0px 0px #ff8957 !important; }
+      .admin-articles .article-contain .search-input #search_res:focus + label {
+        color: #ff8957 !important; }
+  .admin-articles .article-contain .card .card-image {
+    max-height: 220px;
+    overflow: hidden;
+    background-color: #000; }
+    .admin-articles .article-contain .card .card-image img {
+      opacity: 0.5; }
+    .admin-articles .article-contain .card .card-image .card-title {
+      font-size: 18px;
+      padding: 15px;
+      font-family: "OpenSans", sans-serif;
+      margin: 0px; }
+    .admin-articles .article-contain .card .card-image .art-date {
+      font-size: 13px;
+      font-family: "OpenSans", sans-serif; }
+  .admin-articles .article-contain .card .card-content {
+    padding: 18px;
+    max-height: 115px;
+    height: 115px;
+    overflow: scroll;
+    font-family: 'OpenSans', sans-serif; }
+    .admin-articles .article-contain .card .card-content p {
+      max-height: 110px;
+      overflow: hidden; }
+  .admin-articles .article-contain .card .card-action {
+    padding: 15px 0px; }
+    .admin-articles .article-contain .card .card-action .view-art-btn {
+      background: rgba(235, 98, 0, 0.7);
+      width: 120px; }
+      .admin-articles .article-contain .card .card-action .view-art-btn:hover {
+        background: #eb6200; }
+    .admin-articles .article-contain .card .card-action .delete-art-btn {
+      background: rgba(227, 0, 17, 0.7);
+      width: 120px; }
+      .admin-articles .article-contain .card .card-action .delete-art-btn:hover {
+        background: #e30011; }
+  .admin-articles .article-contain .fixed-action-btn {
+    bottom: 35px;
+    z-index: 22222; }
+    .admin-articles .article-contain .fixed-action-btn .menu-btn {
+      background-color: #ed6400 !important; }
+  .admin-articles .article_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+.delete-art-modal {
+  top: 20% !important; }
+  .delete-art-modal .modal-content {
+    padding-bottom: 0px; }
+    .delete-art-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .delete-art-modal .modal-content .delete-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 20px; }
+  .delete-art-modal .modal-footer {
+    padding: 4px 20px; }
+    .delete-art-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .delete-art-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .delete-art-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=admin-articles.component.css.map */

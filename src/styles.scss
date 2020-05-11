@@ -1,0 +1,81 @@
+/* You can add global styles to this file, and also import other style files */
+@import "app/shared/styles/_variables.scss";
+@import "app/shared/styles/media-queries";
+@import "./assets/css/app";
+
+html { min-height: 100%;  position: relative; }
+
+.slider {
+  .indicators {
+    bottom: 55px !important;
+    z-index: 10;
+    .indicator-item {
+      margin: 0px 6px !important;
+      border-radius: 0% !important;
+    }
+    .active {
+      background-color: $primary-color;
+    }
+  }
+}
+
+.select-wrapper input.select-dropdown{
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  -o-user-select:none; // latest Opera versions support -webkit-
+  user-select:none;
+}
+
+input:focus, textarea:focus, .chips.focus {
+  border-bottom: 1px solid $third-color;
+  box-shadow: 0px 1px 0px 0px $third-color;
+  + label {
+    color: $third-color;
+  }
+}
+.chips .chip.selected {
+ background-color: $third-color;
+}
+
+.input-field{
+  .prefix.active {
+    color: $primary-color;
+  }
+}
+
+.select-wrapper {
+  .select-dropdown {
+    li{
+      span {
+        color: $primary-color;
+      }
+    }
+    li.disabled{
+        span {
+          color: rgba(0, 0, 0, 0.3) !important;
+        }
+    }
+    li.optgroup {
+        span {
+          color: #00a69d !important;
+        }
+    }
+  }
+}
+
+ul.dropdown-content {
+  max-height: 300px !important;
+}
+
+#materialbox-overlay {
+  z-index: 1001 !important;
+}
+.materialboxed.initialized.active {
+  z-index: 1001 !important;
+}
+
+b, strong {
+  font-weight: bold !important;
+}
+

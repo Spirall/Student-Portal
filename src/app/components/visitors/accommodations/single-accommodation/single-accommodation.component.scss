@@ -1,0 +1,142 @@
+@import "../../../../shared/styles/media-queries";
+@import "../../../../shared/styles/_variables.scss";
+@import "../../../../shared/styles/mixin.css";
+
+.single-res-page {
+  margin-bottom: 70px;
+  .residence-header {
+    height: 55px;
+    padding: 0px 20px 0px 0px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    .back-btn {
+      background: transparent;
+      height: 100%;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      border-radius: 0px;
+      i {
+        font-size: 50px;
+        color: $primary-color;
+      }
+      &:hover {
+        background-color: #c7c7c7;
+      }
+    };
+    .page-title {
+      margin: auto 0px;
+      padding-left: 10px;
+      font-size: 25px;
+      @include media-to(mobile){ font-size: 14px; }
+    }
+  }
+  .carousel-section {
+    margin-top: -10px;
+    padding: 0px 18%;
+    min-height: 415px;
+    height: 415px;
+    @include media-to(tablet){  padding: 0px 10%; }
+    @include media-to(mobile){  padding: 0px 0px; }
+    .carousel {
+       height: 415px;
+      .carousel-item {
+        min-width: 350px;
+        top: -80px;
+        opacity: 1 !important;
+      }
+    }
+    .carousel-loader-section {
+      text-align: center;
+      .carousel-loading{
+        position: absolute;
+        top: 20%;
+        transform: translate(-50%,-50%);
+        @include media-to(mobile){ top: 15%; }
+      }
+    }
+  }
+  .chart-details {
+    .chart-label-1,
+    .chart-label-2{
+      font-size: 20px;
+      font-family: "OpenSans", sans-serif;
+      margin: 0px 0px 7px 0px;
+      @include media-to(mobile){ font-size: 14px; }
+      .capacity-title{ text-align: center };
+      .capacity {
+        background: #ff9d55;
+        padding: 1px 5px 0px 5px;
+        width: 100%;
+        text-align: center;
+      }
+      .avail-title{ text-align: center };
+      .avail{
+        background: #6cc765;
+        padding: 1px 5px 0px 5px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+      }
+    }
+  }
+  .single-res-details {
+    .collection {
+      .collection-header {
+        font-family: Raleway, sans-serif;
+        font-weight: 800;
+        font-size: 20px;
+        @include media-to(tablet){ font-size: 18px; }
+      }
+      .collection-item {
+        font-family: 'Raleway', sans-serif;
+        font-size: 16px;
+        padding-left: 15px;
+        @include media-to(tablet){ font-size: 15px; }
+      }
+    }
+    .room-type {
+        .btn-apply{
+          background-color: $primary-color;
+          font-family: OpenSans, sans-serif;
+          font-size: 13px;
+          height: 30px;
+          line-height: 28px;
+          @include media-to(tablet){
+            width: 100%;
+            margin-top: 5px;
+          }
+          @include media-to(mobile){
+            margin-top: 0px;
+          }
+        }
+    }
+  }
+  .single-res-map {
+    height: 600px;
+    width: 100%;
+    agm-map {
+      height: 600px;
+      width: 100%;
+      .info-window-1 {
+        .agm-res-col-1 {
+          .agm-bed-icon {
+            font-size: 30px;
+          }
+        }
+        .agm-res-col-2 {
+          font-family: 'OpenSans', sans-serif;
+          font-weight: 800;
+          font-size: 13px;
+          padding: 5px 0px 0px 0px;
+        }
+      }
+    }
+  }
+}
+
+
+

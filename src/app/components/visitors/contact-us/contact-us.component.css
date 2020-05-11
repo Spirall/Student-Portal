@@ -1,0 +1,75 @@
+.contact-first-section {
+  margin-bottom: 0px !important; }
+  .contact-first-section .parallax-container {
+    height: 350px;
+    width: 100%; }
+    .contact-first-section .parallax-container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); }
+    .contact-first-section .parallax-container .page-title {
+      color: #ed6400;
+      position: absolute;
+      top: 43%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "LearningCurveDashed", sans-serif;
+      font-weight: 500;
+      font-size: 8em;
+      width: 100%;
+      text-align: center; }
+      @media only screen and (max-width: 599px) {
+        .contact-first-section .parallax-container .page-title {
+          font-size: 1.5em;
+          font-family: "Open Sans", sans-serif; } }
+
+.contact-form-section .card {
+  margin-top: -6em;
+  margin-bottom: 80px; }
+  .contact-form-section .card .card-content {
+    padding: 24px 0px; }
+    .contact-form-section .card .card-content .card-title {
+      color: rgba(42, 34, 37, 0.54);
+      text-transform: uppercase;
+      text-align: center; }
+  .contact-form-section .card .card-inputs {
+    padding: 45px 20px 0px 20px; }
+    .contact-form-section .card .card-inputs .btn-signIn-section .btn-signIn {
+      width: 200px;
+      background-color: #ed6400 !important; }
+    .contact-form-section .card .card-inputs .btn-forgotPassword-section .btn-forgotPassword {
+      color: #ed6400 !important;
+      text-decoration: underline; }
+    .contact-form-section .card .card-inputs .msg-textArea {
+      resize: none;
+      height: 135px;
+      padding-top: 0px;
+      margin-left: 12px; }
+
+.contactUs-modal {
+  top: 20% !important; }
+  .contactUs-modal .modal-content {
+    padding-bottom: 0px; }
+    .contactUs-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .contactUs-modal .modal-content .message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 20px; }
+  .contactUs-modal .modal-footer {
+    padding: 4px 20px; }
+    .contactUs-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .contactUs-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .contactUs-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=contact-us.component.css.map */

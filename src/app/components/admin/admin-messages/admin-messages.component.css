@@ -1,0 +1,75 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-msg {
+  overflow-y: hidden;
+  margin-bottom: 50px;
+  min-height: 60vh; }
+  @media only screen and (min-width: 993px) {
+    .admin-msg {
+      margin-left: 300px; } }
+  .admin-msg .msg-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-msg .msg-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-msg .msg-header .page-title {
+          margin: auto 0px; } }
+  .admin-msg .table-content {
+    padding: 0px 25px; }
+    .admin-msg .table-content .select-and-search-block {
+      padding-top: 20px; }
+    .admin-msg .table-content table thead tr {
+      font-family: 'OpenSans', sans-serif; }
+    .admin-msg .table-content table tbody tr {
+      font-family: 'OpenSans', sans-serif;
+      cursor: pointer; }
+      .admin-msg .table-content table tbody tr:hover {
+        background-color: #bdbdbd !important; }
+    .admin-msg .table-content .no-student-found {
+      padding: 10px;
+      font-size: 17px;
+      text-align: center;
+      font-family: 'Raleway', sans-serif; }
+  .admin-msg .message_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+.read-message-modal .modal-content {
+  padding-bottom: 0px; }
+  .read-message-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .read-message-modal .modal-content .details {
+    font-family: "OpenSans", sans-serif;
+    font-weight: 200;
+    font-size: 15px; }
+    .read-message-modal .modal-content .details .last {
+      text-align: right; }
+  .read-message-modal .modal-content .message {
+    font-family: "OpenSans", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    margin: 20px;
+    background: #fff0dc !important;
+    padding: 10px; }
+  .read-message-modal .modal-content .message-text-area {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    outline: 0;
+    border-bottom-color: #000 !important; }
+.read-message-modal .modal-footer {
+  padding: 4px 20px; }
+  .read-message-modal .modal-footer .dismiss-btn:hover {
+    background-color: rgba(166, 37, 32, 0.3); }
+  .read-message-modal .modal-footer .submit-btn {
+    background-color: #ff8957 !important; }
+    .read-message-modal .modal-footer .submit-btn:hover {
+      background-color: #ed6400 !important; }
+
+/*# sourceMappingURL=admin-messages.component.css.map */

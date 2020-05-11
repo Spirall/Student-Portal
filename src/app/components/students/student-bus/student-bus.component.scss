@@ -1,0 +1,39 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.css";
+
+.intro-header{
+  .location-btn{
+    background: transparent;
+    height: 100%;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+    border-radius: 0px;
+    i {
+      font-size: 40px;
+      color: $primary-color;
+    }
+    &:hover {
+      background-color: #c7c7c7;
+    }
+  }
+}
+
+.bus-sections {
+  padding: 1px 2px;
+  margin-bottom: 60px;
+  agm-map {
+    height: 600px;
+    width: 100%;
+    .info-window {
+      .agm-driver-col-1 {
+        .agm-driver-img {
+          width: 52px;
+        }
+      }
+    }
+  }
+}

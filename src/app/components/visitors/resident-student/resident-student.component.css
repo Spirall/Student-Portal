@@ -1,0 +1,49 @@
+.resStud-first-section {
+  margin-bottom: 0px !important; }
+  .resStud-first-section .parallax-container {
+    height: 350px;
+    width: 100%; }
+    .resStud-first-section .parallax-container:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)); }
+    .resStud-first-section .parallax-container .page-title {
+      color: #ed6400;
+      position: absolute;
+      top: 43%;
+      left: 50%;
+      margin: 0px;
+      transform: translate(-50%, -50%);
+      font-family: "LearningCurveDashed", sans-serif;
+      font-weight: 500;
+      font-size: 8em;
+      width: 100%;
+      text-align: center; }
+      @media only screen and (max-width: 599px) {
+        .resStud-first-section .parallax-container .page-title {
+          font-size: 1.5em;
+          font-family: "Open Sans", sans-serif; } }
+
+.resStud-loginform-section .card {
+  margin-top: -9em;
+  margin-bottom: 80px; }
+  .resStud-loginform-section .card .card-content {
+    padding: 24px 0px; }
+    .resStud-loginform-section .card .card-content .card-title {
+      color: rgba(42, 34, 37, 0.54);
+      text-transform: uppercase;
+      text-align: center; }
+  .resStud-loginform-section .card .card-inputs {
+    padding: 45px 20px 0px 20px; }
+    .resStud-loginform-section .card .card-inputs .btn-signIn-section .btn-signIn {
+      width: 200px;
+      background: #ed6400 !important; }
+    .resStud-loginform-section .card .card-inputs .btn-forgotPassword-section .btn-forgotPassword {
+      color: #ed6400 !important;
+      text-decoration: underline; }
+
+/*# sourceMappingURL=resident-student.component.css.map */

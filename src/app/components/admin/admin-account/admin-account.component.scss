@@ -1,0 +1,161 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.css";
+
+.admin-account {
+  overflow-y: hidden;
+  @include media-to(desktop_and_lager_desktop) {  margin-left: 300px; }
+  margin-bottom: 60px;
+  .articles-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    .page-title {
+      margin: auto;
+      font-size: 25px;
+      @include media-to(tablet) { margin: auto 0px; }
+    }
+  }
+
+  .account-content {
+    .other-admin-section {
+      .card {
+        height: 550px;
+        .card-content {
+          height: 550px;
+          overflow: scroll;
+          padding: 0px;
+          .title-content{
+            padding: 14px;
+            background-color: $firth-color;
+            .admins-section-title {
+              text-align: center;
+              font-family: 'Raleway', sans-serif;
+              font-size: 24px;
+            }
+          }
+          .admins-card {
+            height: 60px;
+            margin: 15px;
+            .card-content {
+              padding: 18px;
+              height: 60px;
+              overflow: hidden;
+              .admin-title {
+                font-family: ABeeZee, sans-serif;
+                font-size: 15px;
+              }
+            }
+          }
+        }
+      }
+    }
+    .my-admin-section {
+      padding: 0px 0px 0px 20px;
+      @include media-to(mobile){ padding-left: 0px}
+      .card {
+        height: 550px;
+        .card-content {
+          height: 550px;
+          overflow: hidden;
+          padding: 0px;
+          .title-content{
+            padding: 14px;
+            background-color: $firth-color;
+            .admin-title {
+              text-align: center;
+              font-family: 'Raleway', sans-serif;
+              font-size: 24px;
+            }
+          }
+          .my-details-section {
+            padding: 20px 10px;
+            .btn-section{
+              text-align: center;
+              margin-top: 20px;
+              .save-btn {
+                background-color: $primary-color;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .account_loader_section {
+    margin-top: 15%;
+    text-align: center;
+  }
+}
+.add-admin-modal, .edit-admin-modal {
+  top: 10% !important;
+  .modal-content {
+    .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .radio-btn-group {
+      margin: 28px 0px;
+      text-align: center;
+      .radio-1{
+        padding-right: 20px;
+      }
+      .radio-2 {
+        padding-left: 20px;
+      }
+    }
+  }
+  .modal-footer {
+    padding: 4px 20px;
+    .save-btn {
+      background-color: $primary-color;
+      color: #fff;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+    .dismiss-btn{
+
+      &:hover {
+        background-color: rgba(166, 37, 32, .3);
+      }
+    }
+  }
+}
+
+.delete-admin-modal {
+  top: 20% !important;
+  .modal-content {
+    padding-bottom: 0px;
+    .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .delete-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 400;
+      font-size: 20px;
+    }
+  }
+
+  .modal-footer {
+    padding: 4px 20px;
+    .save-btn {
+      background-color: $primary-color;
+      color: #fff;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+    .dismiss-btn{
+      &:hover {
+        background-color: rgba(166, 37, 32, .3);
+      }
+    }
+  }
+}

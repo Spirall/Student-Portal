@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-side-menu></app-side-menu>
+<app-admin-navbar></app-admin-navbar>
+
+<router-outlet (deactivate)="onDeactivate()" (activate)="onActivate()"></router-outlet>
+
+<!--<editor-fold Description="emergency modal"> -->
+<div id="modal1" class="modal admin-emergency-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="emergency_modalActions">
+    <app-preloader-intermediate></app-preloader-intermediate>
+    <div class="modal-content">
+        <h4 class="modal-title">Emergency Alert</h4>
+        <p class="emergency-message">There is an Emergency from a student staying at
+            <br>Residence: <b>{{student_data?.acc_name | uppercase }}</b>
+            <br>Room No: <b>{{student_data?.room_no}}</b>
+        </p>
+        <p class="emergency-message">Student Details
+            <br> Full Name: <b>{{student_data?.first_name + ' ' + student_data?.last_name}}</b>
+            <br> Student No: <b>{{student_data?.st_no}}</b>
+            <br> Student ID: <b>{{student_data?.st_id}}</b>
+            <br> Cell No: <b>{{student_data?.cellno}}</b>
+            <br> Email: <b>{{student_data?.email}}</b>
+        </p>
+        <p class="emergency-message">Student Current location
+            <br> Latitude: <b>{{student_data?.st_lat}}</b>
+            <br> Longitude: <b>{{student_data?.st_long}}</b>
+        </p>
+    </div>
+    <div class="modal-footer">
+        <a href="https://www.google.com/maps/?q={{student_data?.st_lat}},{{student_data?.st_long}}" target="_blank" class="waves-effect waves-green btn-flat dismiss-btn">View Location In Map</a>
+        <button (click)="isProcessed(student_data)" class="waves-effect waves-black btn-flat save-btn">Seen and been processed</button>
+    </div>
+</div>
+<!-- </editor-fold>-->
+
+<!--<editor-fold description="Background audio alert">-->
+
+<!--</editor-fold>-->

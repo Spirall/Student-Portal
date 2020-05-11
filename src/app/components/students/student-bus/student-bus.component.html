@@ -1,0 +1,72 @@
+<div class="intro-header grey lighten-2">
+  <a  [routerLink]="['/ujres-student']" class="waves-effect waves-black btn back-btn z-depth-0">
+    <i class="material-icons">arrow_back</i>
+  </a>
+  <p class="page-title">BUSES</p>
+  <a  (click)="getStudentLocation()" class="waves-effect waves-black btn location-btn z-depth-0 right">
+    <i class="material-icons">my_location</i>
+  </a>
+</div>
+<app-preloader-intermediate *ngIf="is_getting_location" style="position: absolute; z-index: 9999;width: 100%;"></app-preloader-intermediate>
+<section class="bus-sections">
+  <agm-map
+          [latitude]="coord.lat"
+          [longitude]="coord.long"
+          [disableDefaultUI]="false"
+          [zoom]="zoom"
+          [scrollwheel]="false"
+          [styles]="google_style"
+          style="width: 100%;height: 600px">
+
+    <agm-marker [latitude]="lat_1" [longitude]="lng_1" [iconUrl]="busIcon">
+      <agm-info-window [isOpen]="true">
+        <div class="row margin-bottom-0 info-window">
+          <div class="col l4 m4 s4 agm-driver-col-1">
+            <img src="../../../../assets/img/default_profile/woman_profile.png" class="agm-driver-img" />
+          </div>
+          <div class="col l8 m8 s8 agm-driver-col-2">
+            <strong>Prototype 1</strong><br>
+            <strong>To: APK</strong>
+          </div>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker [latitude]="lat_2" [longitude]="lng_2" [iconUrl]="busIcon" >
+      <agm-info-window [isOpen]="true">
+        <div class="row margin-bottom-0 info-window">
+          <div class="col l4 m4 s4 agm-driver-col-1">
+            <img src="../../../../assets/img/default_profile/male_profile.png" class="agm-driver-img" />
+          </div>
+          <div class="col l8 m8 s8 agm-driver-col-2">
+            <strong>Prototype 2</strong><br>
+            <strong>To: APK</strong>
+          </div>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker *ngFor="let driver of online_drivers" [latitude]="driver.lat" [longitude]="driver.long" [iconUrl]="busIcon" >
+      <agm-info-window [isOpen]="false">
+        <div class="row margin-bottom-0 info-window">
+          <div class="col l4 m4 s4 agm-driver-col-1">
+            <img src="../../../../assets/img/default_profile/male_profile.png" class="agm-driver-img" />
+          </div>
+          <div class="col l8 m8 s8 agm-driver-col-2">
+            <strong>{{driver.fname + ' ' + driver.lname}}</strong><br>
+            <strong>To: APK</strong>
+          </div>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+
+    <agm-marker [latitude]="st_lat" [longitude]="st_lng" [iconUrl]="studentIcon" >
+      <agm-info-window [isOpen]="false">
+        <div class="row margin-bottom-0 info-window">
+            <p><strong>You are here</strong></p>
+        </div>
+      </agm-info-window>
+    </agm-marker>
+
+  </agm-map>
+</section>

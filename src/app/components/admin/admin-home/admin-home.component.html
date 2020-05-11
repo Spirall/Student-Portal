@@ -1,0 +1,162 @@
+<section class="admin-home">
+  <section class="home-header grey lighten-2">
+      <p class="page-title">Dashboard</p>
+  </section>
+
+  <section class="row home-body" *ngIf="!home_loading">
+
+<!--<editor-fold description="Chart">-->
+    <div class="col l5 m6 s12 residence-chart-section">
+        <div class="row residence-select-input">
+          <div class="input-field col l12 m12 s12">
+            <select materialize="material_select" name="res_name" [ngModel]="res_name" (ngModelChange)="residenceHasChanged($event)">
+              <option *ngFor="let res of home_data.res_data" [value]="res.acc_id">{{res.acc_name}}</option>
+            </select>
+            <label>Residence Name</label>
+          </div>
+        </div>
+        <div class="residence-chart">
+          <ngx-charts-pie-chart
+            [view]="view" [scheme]="colorScheme"
+            [results]="chart_data" [legend]="false"
+            [explodeSlices]="true" [labels]="false"
+            [doughnut]="false" [gradient]="false"
+            (select)="onSelect($event)"></ngx-charts-pie-chart>
+        </div>
+    </div>
+<!--</editor-fold>-->
+
+    <div class="col l7 m6 s12 residence-notifications">
+      <div class="row">
+<!--<editor-fold description="Number of residences">-->
+        <div class="col s12 m12 l6 cart-column">
+          <div class="card blue-grey darken-1 report-cart">
+            <div class="card-content white-text">
+              <span class="card-title"> {{home_data.res_data.length}}</span>
+            </div>
+            <div class="card-action">
+              <a [routerLink]=" ['./residences']">Number of Residences</a>
+            </div>
+          </div>
+        </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold description="Number of Available residences">-->
+        <div class="col s12 m12 l6 cart-column">
+          <div class="card blue-grey darken-1 report-cart">
+            <div class="card-content white-text">
+              <span class="card-title">{{home_data.avail_res.length}}</span>
+            </div>
+            <div class="card-action">
+              <a [routerLink]=" ['./residences']">Available Residences</a>
+            </div>
+          </div>
+        </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold description="Number of New student Applications">-->
+        <div class="col s12 m12 l6 cart-column">
+          <div class="card blue-grey darken-1 report-cart">
+            <div class="card-content white-text card-content-padding">
+              <div class="card-title">
+                <i class="material-icons">folder_shared</i>
+                <i class="notification"><span>{{home_data.appl_count}}</span></i>
+              </div>
+            </div>
+            <div class="card-action">
+              <a [routerLink]=" ['./applications']">Student Application</a>
+            </div>
+          </div>
+        </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold description="Number of contact us emails">-->
+        <div class="col s12 m12 l6 cart-column">
+          <div class="card blue-grey darken-1 report-cart">
+            <div class="card-content white-text card-content-padding">
+              <span class="card-title">
+                <i class="material-icons">mail_outline</i>
+                <i class="notification"><span>{{home_data.contact_count}}</span></i>
+              </span>
+            </div>
+            <div class="card-action">
+              <a [routerLink]="['./messages']">Email Messages</a>
+            </div>
+          </div>
+        </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold description="Logged Issue">-->
+        <div class="col s12 m12 l6 cart-column">
+          <div class="card blue-grey darken-1 report-cart">
+            <div class="card-content white-text card-content-padding">
+              <span class="card-title">
+                <i class="material-icons">error</i>
+                <i class="notification"><span>{{home_data.issue_count}}</span></i>
+              </span>
+            </div>
+            <div class="card-action">
+              <a [routerLink]="['./issues']">Logged Issues</a>
+            </div>
+          </div>
+        </div>
+<!--</editor-fold>-->
+
+<!--<editor-fold description="Go To articles">-->
+        <div class="col s12 m12 l6 cart-column">
+          <div class="card blue-grey darken-1 report-cart">
+            <div class="card-content white-text card-content-padding">
+              <span class="card-title">
+                <i class="material-icons">comment</i>
+              </span>
+            </div>
+            <div class="card-action">
+              <a [routerLink]="['./articles']">Go to Articles</a>
+            </div>
+          </div>
+        </div>
+<!--</editor-fold>-->
+      </div>
+    </div>
+
+    <div class="bus-maps">
+      <p class="bus-maps-title">Bus Tracker</p>
+      <agm-map [latitude]="lat_default" [longitude]="lng_default" [disableDefaultUI]="false" [zoom]="zoom" [scrollwheel]="false">
+        <agm-marker [latitude]="lat_1" [longitude]="lng_1" [iconUrl]="busIcon">
+          <agm-info-window [isOpen]="true">
+            <div class="row margin-bottom-0 info-window">
+              <div class="col l4 m4 s4 agm-driver-col-1">
+                <img src="../../../../assets/img/default_profile/woman_profile.png" class="agm-driver-img" />
+              </div>
+              <div class="col l8 m8 s8 agm-driver-col-2">
+                <strong>Bus: 011</strong><br>
+                <strong>Thabo Buthelezi</strong><br>
+                <strong>Cell: 0712868041</strong><br>
+                <strong>To: APB</strong>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+        <agm-marker [latitude]="lat_2" [longitude]="lng_2" [iconUrl]="busIcon" >
+          <agm-info-window [isOpen]="true">
+            <div class="row margin-bottom-0 info-window">
+              <div class="col l4 m4 s4 agm-driver-col-1">
+                <img src="../../../../assets/img/default_profile/male_profile.png" class="agm-driver-img" />
+              </div>
+              <div class="col l8 m8 s8 agm-driver-col-2">
+                <strong>Bus: 012</strong><br>
+                <strong>Percy Mthembu</strong><br>
+                <strong>Cell: 0742858044</strong><br>
+                <strong>To: APK</strong>
+              </div>
+            </div>
+          </agm-info-window>
+        </agm-marker>
+      </agm-map>
+    </div>
+  </section>
+
+  <div class="home_loader_section" *ngIf="home_loading">
+    <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+  </div>
+</section>

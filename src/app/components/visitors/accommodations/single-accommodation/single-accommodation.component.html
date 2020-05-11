@@ -1,0 +1,134 @@
+<!-- Header -->
+<app-main-header></app-main-header>
+<!--End  Header -->
+<section class="single-res-page">
+  <div class="residence-header grey lighten-1">
+    <a  [routerLink]="['../']" class="waves-effect waves-black btn back-btn z-depth-0">
+      <i class="material-icons">arrow_back</i>
+    </a>
+    <p class="page-title">{{res_data.campus_name_alias + ' - ' + res_data.acc_name}}</p>
+  </div>
+
+<!--<editor-fold description= "carousel block"> -->
+  <section class="carousel-section">
+
+    <div materialize="carousel" class="carousel" [materializeParams]="sliderOptions" *ngIf="!is_dataLoading">
+      <div *ngIf="res_data.res_imgs.length > 0">
+        <div class="carousel-item" *ngFor="let img of res_data.res_imgs">
+          <img src="{{res_img_url + img.img_src}}" style="width: 350px;height: 350px;">
+        </div>
+        <div *ngIf="res_data.res_imgs.length == 1">
+          <div class="carousel-item"><img src="http://via.placeholder.com/450x450"></div>
+          <div class="carousel-item"><img src="http://via.placeholder.com/450x450"></div>
+        </div>
+        <div *ngIf="res_data.res_imgs.length == 2">
+          <div class="carousel-item"><img src="http://via.placeholder.com/450x450"></div>
+        </div>
+      </div>
+      <div *ngIf="res_data.res_imgs.length == 0">
+        <div class="carousel-item"><img src="http://via.placeholder.com/450x450"></div>
+        <div class="carousel-item"><img src="http://via.placeholder.com/450x450"></div>
+        <div class="carousel-item"><img src="http://via.placeholder.com/450x450"></div>
+      </div>
+    </div>
+    <div class="carousel-loader-section">
+      <app-preloader-circle
+              *ngIf="is_dataLoading"
+              [size]="'big'"
+              [width]="'70px'"
+              [border]="'4px'"
+              class="carousel-loading">
+      </app-preloader-circle>
+    </div>
+  </section>
+<!--</editor-fold>-->
+
+<!--<editor-fold description= "residence capacity detail block"> -->
+  <section class="row chart-details ">
+      <div class="col offset-l4 l2 offset-m4 m2 offset-s2 s4">
+        <div class="chart-label-1">
+          <div class="capacity-title">Capacity:</div>
+          <div class='capacity z-depth-1 waves-effect waves-black'>{{res_data.acc_capacity}}</div>
+        </div>
+      </div>
+      <div class="col l2 m2 s4">
+        <div class="chart-label-2">
+          <div class="avail-title">Available:</div>
+          <div class='avail z-depth-1 waves-effect waves-black'>{{res_data.rooms_data.length}}</div>
+        </div>
+      </div>
+  </section>
+<!--<editor-fold description= "carousel block"> -->
+
+  <section class="row single-res-details">
+    <div class="col l4 m4 s12 res-desc">
+      <ul class="collection with-header">
+        <li class="collection-header grey lighten-3 center">Description</li>
+        <li class="collection-item" *ngIf="res_data.acc_descr;else empty_desc">
+          {{res_data.acc_descr}}
+        </li>
+        <ng-template #empty_desc>
+          <li class="collection-item">
+            <i class="material-icons left">mood_bad</i>
+            No Feature found
+          </li>
+        </ng-template>
+      </ul>
+    </div>
+
+    <div class="col l4 m4 s12 res-feature">
+      <ul class="collection with-header"  *ngIf="res_data.res_features.length > 0; else empty_feature">
+        <li class="collection-header grey lighten-3 center">Features</li>
+        <li class="collection-item" *ngFor="let feature of res_data.res_features">
+          <i class="material-icons left">insert_emoticon</i>
+          {{feature.acc_f_name}}
+        </li>
+      </ul>
+      <ng-template #empty_feature>
+        <ul class="collection with-header">
+          <li class="collection-header grey lighten-3 center">Features</li>
+          <li class="collection-item">
+            <i class="material-icons left">mood_bad</i>
+            No Feature found
+          </li>
+        </ul>
+      </ng-template>
+    </div>
+
+    <div class="col l4 m4 s12 room-type">
+      <ul class="collection with-header">
+        <li class="collection-header grey lighten-3 center">Room types</li>
+        <li class="collection-item" *ngFor="let room_type of room_type">
+          <div class="row margin-0">
+            <div class="col l8 m12 s7">
+              <i class="fa fa-bed left" aria-hidden="true"></i>
+              {{room_type.name}} Avail: {{room_type.count}}
+            </div>
+
+            <div class="col l4 m12 s5 center" *ngIf="room_type.count > 0">
+              <a routerLink="/apply-now/{{res_data.acc_id}}/{{room_type.no}}" class="waves-effect waves-light btn btn-apply">Apply</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="row single-res-map">
+    <agm-map [latitude]="res_data.acc_lat" [longitude]="res_data.acc_long" [disableDefaultUI]="false" [zoom]="zoom" [scrollwheel]="false">
+      <agm-marker [latitude]="res_data.acc_lat" [longitude]="res_data.acc_long">
+        <agm-info-window [isOpen]="true">
+          <div class="row margin-bottom-0 info-window-1">
+            <div class="col l4 m4 s4 agm-res-col-1">
+              <i class="fa fa-bed agm-bed-icon left"></i>
+            </div>
+            <div class="col l8 m8 s8 agm-res-col-2">
+              {{res_data.acc_name}}<br>
+            </div>
+          </div>
+        </agm-info-window>
+      </agm-marker>
+    </agm-map>
+  </section>
+
+</section>

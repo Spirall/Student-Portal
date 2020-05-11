@@ -1,0 +1,185 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-residence {
+  overflow-y: hidden; }
+  @media only screen and (min-width: 993px) {
+    .admin-residence {
+      margin-left: 300px; } }
+  .admin-residence .residence-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-residence .residence-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-residence .residence-header .page-title {
+          margin: auto 0px; } }
+  .admin-residence .accom-list {
+    padding-bottom: 30px; }
+    .admin-residence .accom-list .search-input {
+      margin-bottom: 5px;
+      margin-top: 30px; }
+      .admin-residence .accom-list .search-input i {
+        top: 8px;
+        width: 2rem;
+        left: 8px; }
+      .admin-residence .accom-list .search-input i.prefix.active {
+        color: #ff8957 !important; }
+      .admin-residence .accom-list .search-input #search_res:focus {
+        border-bottom: 1px solid #ff8957 !important;
+        box-shadow: 0px 1px 0px 0px #ff8957 !important; }
+        .admin-residence .accom-list .search-input #search_res:focus + label {
+          color: #ff8957 !important; }
+    .admin-residence .accom-list .card-section {
+      padding: 0px 25px; }
+    .admin-residence .accom-list .card {
+      margin-bottom: 30px; }
+      .admin-residence .accom-list .card .card-image {
+        cursor: default;
+        max-height: 110px;
+        height: 110px;
+        overflow: hidden; }
+        .admin-residence .accom-list .card .card-image .card-title {
+          font-size: 18px;
+          padding: 15px;
+          font-family: "OpenSans", sans-serif; }
+        .admin-residence .accom-list .card .card-image:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-image: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)); }
+      .admin-residence .accom-list .card .card-action {
+        padding: 8px 24px 8px 0px; }
+        .admin-residence .accom-list .card .card-action a {
+          color: #ed6400; }
+        .admin-residence .accom-list .card .card-action i {
+          margin-top: 7px; }
+      .admin-residence .accom-list .card .card-reveal {
+        padding: 20px;
+        overflow-y: hidden; }
+        .admin-residence .accom-list .card .card-reveal .card-title {
+          font-size: 17px;
+          font-family: "OpenSans", sans-serif; }
+          .admin-residence .accom-list .card .card-reveal .card-title i {
+            font-size: 30px;
+            position: absolute;
+            right: 10px;
+            top: 5px;
+            color: #ed6400; }
+        .admin-residence .accom-list .card .card-reveal .res_descr {
+          margin: -10px 0px 0px 0px;
+          height: 132px;
+          overflow-y: scroll;
+          font-family: 'Raleway', sans-serif;
+          font-weight: 600; }
+  .admin-residence .fixed-action-btn {
+    bottom: 35px;
+    z-index: 22222; }
+    .admin-residence .fixed-action-btn .menu-btn {
+      background-color: #ed6400 !important; }
+  .admin-residence .residence_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+.add-res-modal {
+  top: 10% !important; }
+  .add-res-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .add-res-modal .modal-content .campus-select input.select-dropdown {
+    font-family: 'OpenSans', sans-serif;
+    border-bottom: 1px solid #9e9e9e !important; }
+  .add-res-modal .modal-content .campus-select ul.dropdown-content {
+    max-height: 150px !important; }
+    .add-res-modal .modal-content .campus-select ul.dropdown-content li span {
+      color: #ed6400 !important;
+      font-family: 'OpenSans', sans-serif; }
+  .add-res-modal .modal-content .res_type_select {
+    margin: 50px 0px; }
+    .add-res-modal .modal-content .res_type_select input.select-dropdown {
+      font-family: 'OpenSans', sans-serif;
+      border-bottom: 1px solid #9e9e9e !important; }
+    .add-res-modal .modal-content .res_type_select ul.dropdown-content {
+      max-height: 150px !important; }
+      .add-res-modal .modal-content .res_type_select ul.dropdown-content li span {
+        color: #ed6400 !important;
+        font-family: 'OpenSans', sans-serif; }
+  .add-res-modal .modal-content .image-upload-input .btn {
+    padding: 0px 37px 0px 10px;
+    width: 30px;
+    background-color: #ed6400 !important; }
+    .add-res-modal .modal-content .image-upload-input .btn .material-icons {
+      font-size: 25px; }
+  .add-res-modal .modal-footer {
+    padding: 4px 20px; }
+    .add-res-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .add-res-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .add-res-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.delete-res-modal {
+  top: 20% !important; }
+  .delete-res-modal .modal-content {
+    padding-bottom: 0px; }
+    .delete-res-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .delete-res-modal .modal-content .delete-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 20px; }
+  .delete-res-modal .modal-footer {
+    padding: 4px 20px; }
+    .delete-res-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .delete-res-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .delete-res-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.download-res-modal {
+  top: 10% !important; }
+  .download-res-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .download-res-modal .modal-content .res-type-select input.select-dropdown {
+    font-family: 'OpenSans', sans-serif;
+    border-bottom: 1px solid #9e9e9e !important; }
+  .download-res-modal .modal-content .res-type-select ul.dropdown-content {
+    max-height: 150px !important; }
+    .download-res-modal .modal-content .res-type-select ul.dropdown-content li span {
+      color: #ed6400 !important;
+      font-family: 'OpenSans', sans-serif; }
+  .download-res-modal .modal-content .radio-btn-group {
+    margin-top: 28px;
+    margin-bottom: 28px; }
+    .download-res-modal .modal-content .radio-btn-group .radio-1 {
+      padding-right: 20px; }
+    .download-res-modal .modal-content .radio-btn-group .radio-2 {
+      padding-left: 20px; }
+      @media only screen and (max-width: 599px) {
+        .download-res-modal .modal-content .radio-btn-group .radio-2 {
+          padding-left: 0px; } }
+  .download-res-modal .modal-footer {
+    padding: 4px 20px; }
+    .download-res-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .download-res-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .download-res-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=admin-residences.component.css.map */

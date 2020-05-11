@@ -1,0 +1,124 @@
+@import url(../../../shared/styles/mixin.css);
+.student-issue-body {
+  margin-bottom: 60px; }
+  .student-issue-body .my-issue-section {
+    padding-left: 0px; }
+    @media only screen and (max-width: 599px) {
+      .student-issue-body .my-issue-section {
+        padding-left: 11.2px; } }
+    .student-issue-body .my-issue-section .card {
+      height: 550px; }
+      .student-issue-body .my-issue-section .card .main-card-content {
+        height: 550px;
+        overflow: scroll;
+        padding: 0px; }
+        .student-issue-body .my-issue-section .card .main-card-content .title-content {
+          padding: 14px;
+          background-color: #fff0dc !important; }
+          .student-issue-body .my-issue-section .card .main-card-content .title-content .issue-section-title {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px; }
+        .student-issue-body .my-issue-section .card .main-card-content .issue-card {
+          height: 60px;
+          margin: 15px; }
+          .student-issue-body .my-issue-section .card .main-card-content .issue-card .card-content {
+            padding: 18px;
+            height: 60px;
+            overflow: hidden; }
+            .student-issue-body .my-issue-section .card .main-card-content .issue-card .card-content .issue-title {
+              font-family: ABeeZee, sans-serif;
+              font-size: 15px; }
+            .student-issue-body .my-issue-section .card .main-card-content .issue-card .card-content .issue-details-block {
+              height: 22px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis; }
+  @media only screen and (max-width: 599px) {
+    .student-issue-body .add-new-issue {
+      padding-top: 0px; } }
+  .student-issue-body .add-new-issue .card .card-content {
+    padding: 0px; }
+    .student-issue-body .add-new-issue .card .card-content .title-content {
+      padding: 14px;
+      background-color: #fff0dc !important; }
+      .student-issue-body .add-new-issue .card .card-content .title-content .issue-section-title {
+        text-align: center;
+        font-family: 'Raleway', sans-serif;
+        font-size: 24px; }
+    .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-img-block {
+      text-align: center;
+      padding-top: 18px; }
+      .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-img-block .article-img {
+        width: 100%; }
+      .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-img-block .image-upload-input {
+        margin-top: 0px; }
+        .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-img-block .image-upload-input .btn {
+          padding: 0px 37px 0px 10px;
+          width: 30px;
+          background-color: #ed6400 !important; }
+          .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-img-block .image-upload-input .btn .material-icons {
+            font-size: 25px; }
+      .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-img-block .img-section {
+        height: 282px;
+        overflow: hidden;
+        width: 100%; }
+    .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-msg-block {
+      margin-top: 17px; }
+      .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .issue-msg-block .msg-textArea {
+        resize: none;
+        padding-top: 0px; }
+    .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .btn-signIn-section {
+      margin-top: 34px;
+      margin-bottom: 30px; }
+      .student-issue-body .add-new-issue .card .card-content .add-new-issue-container .btn-signIn-section .btn-send {
+        width: 200px;
+        background-color: #ed6400 !important; }
+
+.issue-loader {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%); }
+  @media only screen and (max-width: 599px) {
+    .issue-loader {
+      transform: translate(-10%, -50%); } }
+
+.read-student-issue-modal .modal-content {
+  padding-bottom: 0px; }
+  .read-student-issue-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .read-student-issue-modal .modal-content .message {
+    font-family: "OpenSans", sans-serif;
+    font-weight: 200;
+    font-size: 16px;
+    margin: 20px;
+    background: #fff0dc !important;
+    padding: 10px; }
+  .read-student-issue-modal .modal-content .img-block {
+    height: 400px;
+    max-height: 400px;
+    padding: 10px 10px 0px 10px;
+    text-align: center; }
+    .read-student-issue-modal .modal-content .img-block .img {
+      height: 350px; }
+  .read-student-issue-modal .modal-content .admin-reply {
+    font-family: "OpenSans", sans-serif; }
+  .read-student-issue-modal .modal-content .message-text-area {
+    width: 100%;
+    height: 200px;
+    resize: none;
+    outline: 0;
+    border-bottom-color: #000 !important;
+    padding: 10px; }
+.read-student-issue-modal .modal-footer {
+  padding: 4px 20px; }
+  .read-student-issue-modal .modal-footer .dismiss-btn {
+    background-color: rgba(166, 37, 32, 0.2); }
+    .read-student-issue-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.6); }
+
+/*# sourceMappingURL=student-issues.component.css.map */

@@ -1,0 +1,73 @@
+<!-- Header -->
+<app-main-header></app-main-header>
+<!--End  Header -->
+
+<section class="row resStud-first-section">
+  <div class="parallax-container">
+    <div materialize="parallax" class="parallax"><img src="./assets/img/sliders_imgs/apk2.jpg"></div>
+    <h4 class="page-title">Current Residents</h4>
+  </div>
+</section>
+
+<section class="resStud-loginform-section grey lighten-3">
+  <div class="row">
+    <div class="col offset-l3 offset-m2 l6 m8 s12">
+      <div class="card grey lighten-5">
+        <div class="card-content white-text grey lighten-3">
+          <span class="card-title">Sign In</span>
+        </div>
+        <app-preloader-intermediate *ngIf="is_loggin"></app-preloader-intermediate>
+
+        <div class="card-inputs">
+          <div class="row">
+              <div class="input-field col offset-l3 offset-m2 l6 m8 s12">
+                <input type="text"  name="stNo" id="stNo"  class="validate" placeholder="" required #st_number>
+                <label for="stNo" class="active">Student Number</label>
+              </div>
+          </div>
+          <div class="row">
+            <div class="input-field col offset-l3 offset-m2 l6 m8 s12">
+              <input type="password"  name="st_pwd" id="st_pwd" class="validate" placeholder="" required #pwd>
+              <label for="st_pwd" class="active">Password</label>
+            </div>
+          </div>
+          <div class="row center margin-0">
+            <div class="row btn-signIn-section">
+              <a (click)="submitLogin(st_number, pwd)" class="waves-effect waves-light btn btn-signIn">Sign in</a>
+            </div>
+
+            <div class="row right btn-forgotPassword-section">
+              <a class="waves-effect waves-light btn-forgotPassword" (click)="openForgetPasswordModal()">Forgot Password</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="modal1" class="modal bottom-sheet" materialize="modal"
+        [materializeParams]="[{dismissible: true}]" [materializeActions]="modalAction">
+  <app-preloader-intermediate *ngIf="forgotPwd_loading"></app-preloader-intermediate>
+  <div class="modal-content padding-bottom-0">
+    <div style="margin-bottom: 30px">
+      <h4>FORGOT PASSWORD</h4>
+      <p>Did you forget your password? no problem, enter your UJ student number here</p>
+    </div>
+
+    <div class="row">
+      <div class="input-field col offset-l4 offset-l4  offset-m2 l4 m4 s12">
+        <input type="email"  name="st_no" id="st_no" class="validate" placeholder="" required #st_no>
+        <label for="st_no" class="active">UJ Student Number</label>
+      </div>
+    </div>
+    <div class="row center margin-0">
+      <a (click)="onSubmitForgetPwd(st_no)" class="waves-effect waves-light btn">Submit</a>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a class="waves-effect waves-green btn-flat" (click)="closeModal()">Close</a>
+  </div>
+</section>

@@ -1,0 +1,58 @@
+@import "../../../../shared/styles/media-queries";
+@import "../../../../shared/styles/variables";
+@import "../../../../shared/styles/mixin.css";
+
+nav {
+  padding: 0px 25px;
+  height: 64px;
+  line-height: 63px;
+  @include media-to(tablet_and_mobile) { padding: 0px 0px 0px 5px; }
+  .site-title{
+    margin: 5px 0px 0px 0px;
+    line-height: 0px;
+    .site-logo {
+      height: 50px;
+    }
+  }
+  .btn-option-section{
+    ul {     margin-left: -40px; }
+    justify-content: center !important;
+    display: flex !important;
+    align-items: center;
+    .btn-option {
+      font-size: 12px;
+      background-color: transparent;
+      height: 64px;
+      font-family: Arial, sans-serif;
+      font-weight: 600;
+      //width: 130px;
+      color: #9e9e9e;
+      &:hover{
+        color: #696969;
+        background-color: transparent;
+      }
+      &.active{
+        color: #000000;
+      }
+    }
+  }
+  .btn-apply {
+    font-size: 12px;
+    background-color: #ed6400;
+    &:hover{
+      background-color: #c15201;
+    }
+  }
+  .btn-menu-section {
+    line-height: 0px;
+    .btn-menu{
+      height: 64px;
+      background-color: transparent;
+      border-radius: 0px;
+      color: #ed6400;
+      &:hover{
+        background-color: transparent;
+      }
+    }
+  }
+}

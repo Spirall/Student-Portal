@@ -1,0 +1,54 @@
+@import url(../../../shared/styles/mixin.css);
+.student-home {
+  margin-bottom: 40px;
+  padding: 7% 20px; }
+  .student-home .options {
+    outline: none !important;
+    margin-bottom: 15px; }
+    .student-home .options .card {
+      cursor: pointer;
+      background-color: #fffefa; }
+      .student-home .options .card .card-content .option-icon {
+        text-align: center; }
+        .student-home .options .card .card-content .option-icon i {
+          font-size: 75px;
+          color: #ed6400 !important; }
+      .student-home .options .card .card-action {
+        text-align: center;
+        padding: 0px; }
+        .student-home .options .card .card-action .option-btn {
+          margin: 0px;
+          background-color: #ed6400 !important;
+          width: 100%;
+          border-radius: 0px;
+          padding: 25px 0px;
+          line-height: 5px;
+          font-family: 'OpenSans', sans-serif; }
+      .student-home .options .card:hover {
+        transform: scale(1.02); }
+
+.emergency-modal {
+  top: 20% !important; }
+  .emergency-modal .modal-content {
+    padding-bottom: 0px; }
+    .emergency-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+      color: #ff5e48;
+      text-align: center; }
+    .emergency-modal .modal-content .emergency-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 20px; }
+  .emergency-modal .modal-footer {
+    padding: 4px 20px; }
+    .emergency-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .emergency-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .emergency-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=student-home.component.css.map */

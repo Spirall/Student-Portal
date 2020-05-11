@@ -1,0 +1,35 @@
+@import "../../shared/styles/media-queries";
+@import "../../shared/styles/variables";
+@import "../../shared/styles/mixin.css";
+
+
+.intro-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    padding: 0px;
+    .back-btn {
+      background: transparent;
+      height: 100%;
+      width: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0px;
+      border-radius: 0px;
+      i {
+        font-size: 50px;
+        color: $primary-color;
+      }
+      &:hover {
+        background-color: #c7c7c7;
+      }
+    };
+    .page-title {
+           margin: auto;
+           font-size: 25px;
+       //@include media-to(tablet) { margin: auto 0px; }
+    }
+ }

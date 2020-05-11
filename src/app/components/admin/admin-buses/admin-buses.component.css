@@ -1,0 +1,123 @@
+@import url(../../../shared/styles/mixin.css);
+.admin-buses {
+  overflow-y: hidden;
+  margin-bottom: 60px; }
+  @media only screen and (min-width: 993px) {
+    .admin-buses {
+      margin-left: 300px; } }
+  .admin-buses .buses-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600; }
+    .admin-buses .buses-header .page-title {
+      margin: auto;
+      font-size: 25px; }
+      @media only screen and (max-width: 991px) {
+        .admin-buses .buses-header .page-title {
+          margin: auto 0px; } }
+  .admin-buses .buses-content .buses-section .card {
+    height: 550px; }
+    .admin-buses .buses-content .buses-section .card .card-content {
+      height: 550px;
+      overflow: scroll;
+      padding: 0px; }
+      .admin-buses .buses-content .buses-section .card .card-content .title-content {
+        padding: 14px;
+        background-color: #fff0dc !important; }
+        .admin-buses .buses-content .buses-section .card .card-content .title-content .admins-section-title {
+          text-align: center;
+          font-family: 'Raleway', sans-serif;
+          font-size: 24px; }
+      .admin-buses .buses-content .buses-section .card .card-content .admins-card {
+        height: 60px;
+        margin: 15px; }
+        .admin-buses .buses-content .buses-section .card .card-content .admins-card .card-content {
+          padding: 18px;
+          height: 60px;
+          overflow: hidden; }
+          .admin-buses .buses-content .buses-section .card .card-content .admins-card .card-content .admin-title {
+            font-family: ABeeZee, sans-serif;
+            font-size: 15px; }
+  .admin-buses .buses-content .my-admin-section {
+    padding: 0px 0px 0px 20px; }
+    @media only screen and (max-width: 599px) {
+      .admin-buses .buses-content .my-admin-section {
+        padding-left: 0px; } }
+    .admin-buses .buses-content .my-admin-section .card {
+      height: 550px; }
+      .admin-buses .buses-content .my-admin-section .card .card-content {
+        height: 550px;
+        overflow: hidden;
+        padding: 0px; }
+        .admin-buses .buses-content .my-admin-section .card .card-content .title-content {
+          padding: 14px;
+          background-color: #fff0dc !important; }
+          .admin-buses .buses-content .my-admin-section .card .card-content .title-content .admin-title {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px; }
+        .admin-buses .buses-content .my-admin-section .card .card-content .my-details-section {
+          padding: 20px 10px; }
+          .admin-buses .buses-content .my-admin-section .card .card-content .my-details-section .btn-section {
+            text-align: center;
+            margin-top: 20px; }
+            .admin-buses .buses-content .my-admin-section .card .card-content .my-details-section .btn-section .save-btn {
+              background-color: #ed6400 !important;
+              color: #fff; }
+  .admin-buses .buses-content agm-map {
+    height: 600px;
+    width: 100%; }
+    .admin-buses .buses-content agm-map .info-window .agm-driver-col-1 .agm-driver-img {
+      width: 52px; }
+  .admin-buses .buses_loader_section {
+    margin-top: 15%;
+    text-align: center; }
+
+.add-bus-modal, .add-driver-modal {
+  top: 10% !important; }
+  .add-bus-modal .modal-content .modal-title, .add-driver-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px; }
+  .add-bus-modal .modal-content .radio-btn-group, .add-driver-modal .modal-content .radio-btn-group {
+    margin: 28px 0px;
+    text-align: center; }
+    .add-bus-modal .modal-content .radio-btn-group .radio-1, .add-driver-modal .modal-content .radio-btn-group .radio-1 {
+      padding-right: 20px; }
+    .add-bus-modal .modal-content .radio-btn-group .radio-2, .add-driver-modal .modal-content .radio-btn-group .radio-2 {
+      padding-left: 20px; }
+  .add-bus-modal .modal-footer, .add-driver-modal .modal-footer {
+    padding: 4px 20px; }
+    .add-bus-modal .modal-footer .save-btn, .add-driver-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .add-bus-modal .modal-footer .save-btn:hover, .add-driver-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .add-bus-modal .modal-footer .dismiss-btn:hover, .add-driver-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+.delete-driver-modal, delete-bus-modal {
+  top: 20% !important; }
+  .delete-driver-modal .modal-content, delete-bus-modal .modal-content {
+    padding-bottom: 0px; }
+    .delete-driver-modal .modal-content .modal-title, delete-bus-modal .modal-content .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px; }
+    .delete-driver-modal .modal-content .delete-message, delete-bus-modal .modal-content .delete-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 400;
+      font-size: 20px; }
+  .delete-driver-modal .modal-footer, delete-bus-modal .modal-footer {
+    padding: 4px 20px; }
+    .delete-driver-modal .modal-footer .save-btn, delete-bus-modal .modal-footer .save-btn {
+      background-color: #ed6400 !important;
+      color: #fff; }
+      .delete-driver-modal .modal-footer .save-btn:hover, delete-bus-modal .modal-footer .save-btn:hover {
+        background-color: #FF4D1C !important; }
+    .delete-driver-modal .modal-footer .dismiss-btn:hover, delete-bus-modal .modal-footer .dismiss-btn:hover {
+      background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=admin-buses.component.css.map */

@@ -1,0 +1,109 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.css";
+
+.student-article{
+  padding: 20px;
+  margin-bottom: 60px;
+
+  .search-input {
+    margin-bottom: 5px;
+    margin-top: 10px;
+    i {
+      top: 8px;
+      width: 2rem;
+      left: 8px;
+    }
+    i.prefix.active{
+      color: $third-color;
+    }
+    #search_res:focus {
+      border-bottom: 1px solid $third-color;
+      box-shadow: 0px 1px 0px 0px $third-color;
+      + label {
+        color: $third-color;
+      }
+    }
+  }
+
+  .st-search-article-card {
+    .card-image {
+      max-height: 220px;
+      overflow: hidden;
+      background-color: #000;
+      img{
+        opacity: 0.5;
+      }
+      .card-title {
+        font-size: 18px;
+        padding: 15px;
+        font-family: "OpenSans", sans-serif;
+        margin: 0px;
+      }
+      .art-date {
+        font-size: 13px;
+        font-family: "OpenSans", sans-serif;
+      }
+    }
+    .card-content{
+      padding: 18px;
+      max-height: 115px;
+      height: 115px;
+      overflow: scroll;
+      font-family: 'OpenSans', sans-serif;
+      p {
+        max-height: 110px;
+        overflow: hidden;
+      }
+    }
+    .card-action {
+      padding: 0px;
+      .view-art-btn{
+        background: $primary-color;
+        width: 100%;
+        height: 45px;
+        padding-top: 3px;
+        border-radius: 0px;
+        &:hover{
+          background: $secondary-color;
+        }
+      }
+    }
+  }
+}
+
+.article_loader_section {
+  margin-top: 10%;
+  text-align: center;
+}
+
+.view-article-modal {
+  //height: 410px !important;
+  top: 10% !important;
+  .modal-content {
+    .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .img-section {
+      text-align: center;
+      img {
+        width: 400px;
+        @include media-to(tablet){
+          width: 100%;
+        }
+      }
+    }
+  }
+  .modal-footer {
+    padding: 4px 20px;
+    .dismiss-btn{
+      background-color: rgba(166, 37, 32, .1);
+      &:hover {
+        background-color: rgba(166, 37, 32, .5);
+      }
+    }
+  }
+}

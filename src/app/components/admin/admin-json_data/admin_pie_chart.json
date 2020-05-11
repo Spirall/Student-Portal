@@ -1,0 +1,43 @@
+{
+  "residence_list" : [
+  {"id": 1, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "​Magnolia​​​​ Residence", "campus": "APK", "descr": "Sofia", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 2, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Akani Day House", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 3, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Impumelelo Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176 },
+  {"id": 4, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Moshate Heights Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 5, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Lebone Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 6, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Karibu-Jamii Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 7, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Afslaan Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 8, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Maqhawe Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 9, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Cornerstone Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 10, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Oppierif Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 11, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Azania Day House", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 12, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Thomas Sankara Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 13, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Jabali Day House", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 14, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Gloucester Residence", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 15, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Falcons Day House", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+  {"id": 16, "img" : "./assets/img/res_thumbnails/apk1.jpg", "name": "Faranani Residence​", "campus": "APK", "descr": "", "capacity": null, "lat": -26.183619, "long": 27.997176},
+
+  {"id": 17, "img" : "http://via.placeholder.com/350x150", "name": "​Ikhayalethu Day House​", "campus": "APB", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 18, "img" : "http://via.placeholder.com/350x150", "name": "Goudstad Residence", "campus": "APB", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 19, "img" : "http://via.placeholder.com/350x150", "name": "Kilimanjaro ​Residence", "campus": "APB", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 20, "img" : "http://via.placeholder.com/350x150", "name": "Horizon Residence", "campus": "APB", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 21, "img" : "http://via.placeholder.com/350x150", "name": "Mayine Residence", "campus": "APB", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 22, "img" : "http://via.placeholder.com/350x150", "name": "Ndlovukazi Residence​", "campus": "APB", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+
+  {"id": 23, "img" : "http://via.placeholder.com/350x150", "name": "Abeillies​ Day House​", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 24, "img" : "http://via.placeholder.com/350x150", "name": "Gauta Residence", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 25, "img" : "http://via.placeholder.com/350x150", "name": "Lesedi Residence", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 26, "img" : "http://via.placeholder.com/350x150", "name": "Habitat Residence", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 27, "img" : "http://via.placeholder.com/350x150", "name": "Phumlani Residence", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 28, "img" : "http://via.placeholder.com/350x150", "name": "Robin Crest Residence​", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 29, "img" : "http://via.placeholder.com/350x150", "name": "Kopano House Residence​", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 30, "img" : "http://via.placeholder.com/350x150", "name": "Akanani Residence​", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 31, "img" : "http://via.placeholder.com/350x150", "name": "Takalani Residence​", "campus": "DFC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+
+  {"id": 32, "img" : "http://via.placeholder.com/350x150", "name": "Ulwazi Residence​", "campus": "SWC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 33, "img" : "http://via.placeholder.com/350x150", "name": "Pishon of Soweto Day House​", "campus": "SWC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 34, "img" : "./assets/img/res_thumbnails/hector_pieterson2_swc.jpg", "name": "Hector Pieterson Residence", "campus": "SWC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 35, "img" : "http://via.placeholder.com/350x150", "name": "YMCA Men's Residence ​Residence​", "campus": "SWC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176},
+  {"id": 36, "img" : "http://via.placeholder.com/350x150", "name": "YWCA Ladies Residencee​", "campus": "SWC", "descr": "", "capacity": null, "lat": -26.183619,"long": 27.997176}
+]
+}

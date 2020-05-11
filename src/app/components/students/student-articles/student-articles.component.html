@@ -1,0 +1,65 @@
+<!--<editor-fold Description="Header"> -->
+  <div class="intro-header grey lighten-2">
+    <a  [routerLink]="['/ujres-student']" class="waves-effect waves-black btn back-btn z-depth-0">
+      <i class="material-icons">arrow_back</i>
+    </a>
+    <p class="page-title">Articles</p>
+  </div>
+
+<section class="student-article" *ngIf="!article_loading">
+  <!--<editor-fold Description="Search articles input section"> -->
+    <div class="row search-input">
+      <div class="input-field col offset-l4 l4 offset-m4 m4 s12">
+        <i class="material-icons prefix">search</i>
+        <input [(ngModel)]="search_art" name="search_art" id="search_art" class="validate" placeholder="" autofocus/>
+        <label class="active" for="search_art">Search Article</label>
+      </div>
+    </div>
+  <!--</editor-fold> -->
+
+<!--<editor-fold Description="list card of articles section"> -->
+      <div class="row">
+        <div class="col s12 m6 l4" *ngFor="let art of article_data | filter:search_art:['article_title']">
+          <div class="card st-search-article-card">
+            <div class="card-image">
+              <img src="{{(art.article_img) ? img_src + art.article_img : 'http://via.placeholder.com/350x150'}}">
+              <p class="card-title">
+                <span class="art-date">{{art.article_dateTime | date}}</span>
+                <br />
+                {{art.article_title}}
+              </p>
+            </div>
+            <div class="card-content" [innerHTML]="art.article_msg"></div>
+            <div class="card-action">
+                <a (click)="openArticle(art)" class="waves-effect waves-light btn view-art-btn">Read Article</a>
+            </div>
+          </div>
+        </div>
+      </div>
+<!--</editor-fold> -->
+</section>
+
+<div class="article_loader_section" *ngIf="article_loading">
+  <app-preloader-circle [size]="'big'" [width]="'100px'" [border]="'4px'"></app-preloader-circle>
+</div>
+
+<!--<editor-fold Description="Read article modal"> -->
+<div class="modal modal-fixed-footer view-article-modal" materialize="modal" [materializeParams]="[{dismissible: false}]" [materializeActions]="read_article_modalActions">
+  <div class="modal-content">
+    <h4 class="modal-title">{{article_read?.article_title}}</h4>
+    <div class="row margin-0">
+
+      <div class="col l12 m12 s12 img-section">
+        <img src="{{(article_read?.article_img) ? img_src + article_read?.article_img : 'http://via.placeholder.com/350x150'}}">
+      </div>
+
+      <div class="col l12 m12 s12 radio-btn-group">
+          <div [innerHTML]="article_read?.article_msg"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a (click)="this.read_article_modalActions.emit({action: 'modal' , params:['close']})" class="modal-action modal-close waves-effect waves-green btn-flat dismiss-btn">Dismiss</a>
+  </div>
+</div>
+<!-- </editor-fold>-->

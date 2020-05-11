@@ -1,0 +1,24 @@
+@import url(../../shared/styles/mixin.css);
+.admin-emergency-modal .modal-content {
+  padding-bottom: 0px; }
+  .admin-emergency-modal .modal-content .modal-title {
+    font-family: Raleway, sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #ff5e48;
+    text-align: center; }
+  .admin-emergency-modal .modal-content .emergency-message {
+    font-family: "OpenSans", sans-serif;
+    font-weight: 200;
+    font-size: 16px; }
+.admin-emergency-modal .modal-footer {
+  padding: 4px 20px; }
+  .admin-emergency-modal .modal-footer .save-btn {
+    background-color: #ed6400 !important;
+    color: #fff; }
+    .admin-emergency-modal .modal-footer .save-btn:hover {
+      background-color: #FF4D1C !important; }
+  .admin-emergency-modal .modal-footer .dismiss-btn:hover {
+    background-color: rgba(166, 37, 32, 0.3); }
+
+/*# sourceMappingURL=admin.component.css.map */

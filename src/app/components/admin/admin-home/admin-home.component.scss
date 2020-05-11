@@ -1,0 +1,116 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/_variables.scss";
+@import "../../../shared/styles/mixin.css";
+
+.admin-home {
+  overflow-y: hidden;
+  padding-bottom: 20px;
+  @include media-to(desktop_and_lager_desktop) {  margin-left: 300px; }
+
+  .home-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    .page-title {
+      margin: auto;
+      font-size: 25px;
+      @include media-to(tablet) { margin: auto 0px; }
+    }
+  }
+
+  .residence-chart-section {
+    .residence-select-input {
+      padding: 20px 25px 0px 25px;
+      margin-bottom: 0px;
+      input.select-dropdown {
+        font-family: 'Open Sans', sans-serif;
+      }
+      ul.dropdown-content {
+        max-height: 300px !important;
+        li span {
+          color: $primary-color;
+          font-family: 'Open Sans', sans-serif;
+        }
+      }
+    }
+    .residence-chart {
+      margin-bottom: 0px;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+    }
+  }
+  .residence-notifications{ padding-top: 15px };
+  .cart-column{
+    padding: 0px 5px;
+    .report-cart {
+      .card-content {
+        .card-title {
+          margin-bottom: 0px;
+          font-size: 40px;
+          text-align: center;
+          font-family: 'Open Sans', sans-serif;
+          .material-icons {
+            font-size: 55px;
+            position: relative;
+          }
+          .notification {
+            font-size: 20px;
+            position: absolute;
+            top: 5px;
+            margin-left: -15px;
+            background: red;
+            border-radius: 50%;
+            padding: 4px;
+            height: 40px;
+            width: 40px;
+            font-family: 'Arial Rounded MT', sans-serif;
+            font-style: initial;
+            span {
+              margin-left: -1px;
+            }
+          }
+        }
+      }
+      .card-content-padding{ padding-bottom: 5px; };
+      .card-action {
+        text-align: center;
+        font-size: 15px;
+        padding: 10px;
+        a {
+          margin-right: 0px !important;
+        }
+      }
+    }
+  }
+
+  .bus-maps{
+    padding: 10px;
+    margin-bottom: 20px;
+    .bus-maps-title{
+      font-family: 'Open Sans', sans-serif;
+      font-size: 30px;
+      margin-bottom: 7px;
+    }
+    agm-map {
+      height: 600px;
+      width: 100%;
+      .info-window {
+        .agm-driver-col-1 {
+          .agm-driver-img {
+            width: 52px;
+          }
+        }
+      }
+
+    }
+  }
+  .home_loader_section {
+    margin-top: 15%;
+    text-align: center;
+  }
+}
+
+

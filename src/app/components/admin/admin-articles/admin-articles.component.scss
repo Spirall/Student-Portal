@@ -1,0 +1,135 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.css";
+
+.admin-articles {
+  overflow-y: hidden;
+  margin-bottom: 60px;
+  @include media-to(desktop_and_lager_desktop) {  margin-left: 300px; }
+
+  .articles-header {
+    height: 55px;
+    padding: 0px 20px;
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    .page-title {
+      margin: auto;
+      font-size: 25px;
+      @include media-to(tablet) { margin: auto 0px; }
+    }
+  }
+  .article-contain{
+    .search-input {
+      margin-bottom: 5px;
+      margin-top: 30px;
+      i {
+        top: 8px;
+        width: 2rem;
+        left: 8px;
+      }
+      i.prefix.active{
+        color: $third-color;
+      }
+      #search_res:focus {
+        border-bottom: 1px solid $third-color;
+        box-shadow: 0px 1px 0px 0px $third-color;
+        + label {
+          color: $third-color;
+        }
+      }
+    }
+    .card {
+      .card-image {
+        max-height: 220px;
+        overflow: hidden;
+        background-color: #000;
+        img{
+          opacity: 0.5;
+        }
+        .card-title {
+          font-size: 18px;
+          padding: 15px;
+          font-family: "OpenSans", sans-serif;
+          margin: 0px;
+        }
+        .art-date {
+          font-size: 13px;
+          font-family: "OpenSans", sans-serif;
+        }
+      }
+      .card-content{
+        padding: 18px;
+        max-height: 115px;
+        height: 115px;
+        overflow: scroll;
+        font-family: 'OpenSans', sans-serif;
+        p {
+          max-height: 110px;
+          overflow: hidden;
+        }
+      }
+      .card-action {
+        padding: 15px 0px;
+        .view-art-btn{
+          background: rgba(235, 98, 0, .7);
+          width: 120px;
+          &:hover{
+            background: rgba(235, 98, 0, 1);
+          }
+        }
+        .delete-art-btn{
+          background: rgba(227, 0, 17, .7);
+          width: 120px;
+          &:hover{
+            background: rgba(227, 0, 17, 1);
+          }
+        }
+      }
+    }
+    .fixed-action-btn {
+      bottom: 35px;
+      z-index: 22222;
+      .menu-btn{
+        background-color: $primary-color;
+      }
+    }
+  }
+  .article_loader_section {
+    margin-top: 15%;
+    text-align: center;
+  }
+}
+
+
+.delete-art-modal {
+  top: 20% !important;
+  .modal-content {
+    padding-bottom: 0px;
+    .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .delete-message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 20px;
+    }
+  }
+  .modal-footer {
+    padding: 4px 20px;
+    .save-btn {
+      background-color: $primary-color;
+      color: #fff;
+      &:hover {
+        background-color: $secondary-color;
+      }
+    }
+    .dismiss-btn{
+      &:hover {
+        background-color: rgba(166, 37, 32, .3);
+      }
+    }
+  }
+}

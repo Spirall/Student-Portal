@@ -1,0 +1,162 @@
+@import "../../../shared/styles/media-queries";
+@import "../../../shared/styles/variables";
+@import "../../../shared/styles/mixin.css";
+
+.student-issue-body{
+  margin-bottom: 60px;
+  .my-issue-section {
+    padding-left: 0px;
+    @include media-to(mobile){ padding-left: 11.2px; }
+    .card {
+      height: 550px;
+      .main-card-content {
+        height: 550px;
+        overflow: scroll;
+        padding: 0px;
+        .title-content{
+          padding: 14px;
+          background-color: $firth-color;
+          .issue-section-title {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+          }
+        }
+        .issue-card {
+          height: 60px;
+          margin: 15px;
+          .card-content {
+            padding: 18px;
+            height: 60px;
+            overflow: hidden;
+            .issue-title {
+              font-family: ABeeZee, sans-serif;
+              font-size: 15px;
+            }
+            .issue-details-block {
+              height: 22px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+            }
+          }
+        }
+      }
+    }
+  }
+  .add-new-issue {
+    @include media-to(mobile){ padding-top: 0px;};
+    .card {
+      .card-content {
+        padding: 0px;
+        .title-content{
+          padding: 14px;
+          background-color: $firth-color;
+          .issue-section-title {
+            text-align: center;
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+          }
+        }
+        .add-new-issue-container {
+          .issue-img-block {
+            text-align: center;
+            padding-top: 18px;
+            .article-img {
+              width: 100%;
+            }
+            .image-upload-input {
+              margin-top: 0px;
+              .btn {
+                padding: 0px 37px 0px 10px;
+                width: 30px;
+                background-color: $primary-color;
+                .material-icons {
+                  font-size: 25px;
+                }
+              }
+            }
+            .img-section{
+              height: 282px;
+              overflow: hidden;
+              width: 100%;
+            }
+          }
+          .issue-msg-block{
+            margin-top: 17px;
+            .msg-textArea {
+              resize: none;
+              padding-top: 0px;
+            }
+          }
+          .btn-signIn-section{
+            margin-top: 34px;
+            margin-bottom: 30px;
+            .btn-send{
+              width: 200px;
+              background-color: $primary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.issue-loader {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(0%, -50%);
+  @include media-to(mobile){
+    transform: translate(-10%, -50%);
+  }
+}
+
+
+.read-student-issue-modal {
+  .modal-content {
+    padding-bottom: 0px;
+    .modal-title {
+      font-family: Raleway, sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
+    .message {
+      font-family: "OpenSans", sans-serif;
+      font-weight: 200;
+      font-size: 16px;
+      margin: 20px;
+      background: $firth-color;
+      padding: 10px;
+    }
+    .img-block {
+      height: 400px;
+      max-height: 400px;
+      padding: 10px 10px 0px 10px;
+      text-align: center;
+      .img {
+        height: 350px;
+      }
+    }
+    .admin-reply{ font-family: "OpenSans", sans-serif; }
+    .message-text-area{
+      width: 100%;
+      height: 200px;
+      resize: none;
+      outline:0;
+      border-bottom-color: #000 !important;
+      padding: 10px;
+    }
+  }
+  .modal-footer {
+    padding: 4px 20px;
+    .dismiss-btn{
+      background-color: rgba(166, 37, 32, .2);
+      &:hover {
+        background-color: rgba(166, 37, 32, .6);
+      }
+    }
+  }
+}

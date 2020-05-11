@@ -1,0 +1,37 @@
+@import url(../../../shared/styles/mixin.css);
+nav {
+  background: #ed6400 !important;
+  height: 60px; }
+  nav .nav-wrapper .logoutBtn i {
+    font-size: 40px;
+    height: 60px;
+    line-height: 60px; }
+  nav .nav-wrapper .btn-menu-section {
+    line-height: 0px; }
+    nav .nav-wrapper .btn-menu-section .btn-menu {
+      height: 60px;
+      background-color: transparent;
+      border-radius: 0px; }
+      nav .nav-wrapper .btn-menu-section .btn-menu i {
+        height: 60px;
+        line-height: 60px; }
+      nav .nav-wrapper .btn-menu-section .btn-menu:hover {
+        background-color: transparent; }
+
+.side-nav {
+  z-index: 1999; }
+  .side-nav .user-view {
+    height: 176px;
+    background: #ed6400 !important;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px; }
+    .side-nav .user-view img {
+      height: 150px;
+      width: 150px; }
+  .side-nav .divider {
+    margin: 0px; }
+
+/*# sourceMappingURL=student-navbar.component.css.map */

@@ -1,0 +1,139 @@
+@import url(../../../shared/styles/mixin.css);
+.chat-section {
+  padding: 25px;
+  margin-bottom: 60px; }
+  @media only screen and (max-width: 599px) {
+    .chat-section {
+      padding: 25px 10px; } }
+  .chat-section .card {
+    height: 530px; }
+    .chat-section .card .card-section .card-column-left {
+      height: 530px;
+      overflow: scroll;
+      border: 2px solid #7d8575;
+      padding: 0px; }
+      .chat-section .card .card-section .card-column-left .online-st-card {
+        height: 40px;
+        margin: 10px; }
+        .chat-section .card .card-section .card-column-left .online-st-card .card-content {
+          padding: 0px;
+          height: 40px;
+          background-color: #f1f1f1; }
+          .chat-section .card .card-section .card-column-left .online-st-card .card-content .icon-block {
+            padding: 7px;
+            height: 40px;
+            background-color: #a6a439;
+            position: relative; }
+            .chat-section .card .card-section .card-column-left .online-st-card .card-content .icon-block i {
+              position: absolute;
+              left: 50%;
+              top: 50%;
+              transform: translate(-50%, -50%); }
+            .chat-section .card .card-section .card-column-left .online-st-card .card-content .icon-block.active {
+              background-color: #ed6400 !important; }
+              .chat-section .card .card-section .card-column-left .online-st-card .card-content .icon-block.active i {
+                font-size: 20px; }
+          .chat-section .card .card-section .card-column-left .online-st-card .card-content .st-name-block {
+            height: 40px;
+            padding-top: 8px;
+            font-family: ABeeZee, sans-serif;
+            font-size: 15px;
+            background-color: transparent;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis; }
+    .chat-section .card .card-section .card-column-right {
+      position: relative;
+      height: 530px;
+      border: 2px solid #ed6400 !important;
+      border-left: 0px solid !important;
+      padding: 0px; }
+      @media only screen and (max-width: 599px) {
+        .chat-section .card .card-section .card-column-right {
+          border: 0px solid !important; } }
+      .chat-section .card .card-section .card-column-right .chat-msg-area {
+        height: 466px;
+        overflow-y: scroll;
+        overflow-x: hidden; }
+        .chat-section .card .card-section .card-column-right .chat-msg-area .left-chatter-block {
+          font-family: 'Open Sans', sans-serif;
+          width: 45%;
+          margin: 20px; }
+          @media only screen and (max-width: 991px) {
+            .chat-section .card .card-section .card-column-right .chat-msg-area .left-chatter-block {
+              width: 100%;
+              margin: 20px 5px; } }
+          @media only screen and (max-width: 599px) {
+            .chat-section .card .card-section .card-column-right .chat-msg-area .left-chatter-block {
+              width: 100%;
+              margin: 20px 10px; } }
+          .chat-section .card .card-section .card-column-right .chat-msg-area .left-chatter-block .chatter-icon {
+            text-align: right; }
+            .chat-section .card .card-section .card-column-right .chat-msg-area .left-chatter-block .chatter-icon i {
+              font-size: 35px;
+              margin-top: 4px;
+              margin-right: 2px; }
+          .chat-section .card .card-section .card-column-right .chat-msg-area .left-chatter-block .user_name {
+            font-size: 12px;
+            margin-top: -6px;
+            margin-bottom: 2px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: bolder; }
+        .chat-section .card .card-section .card-column-right .chat-msg-area .right-chatter-block {
+          font-family: 'Open Sans', sans-serif;
+          width: 45%;
+          margin: 10px 20px 20px 20px;
+          float: right; }
+          @media only screen and (max-width: 991px) {
+            .chat-section .card .card-section .card-column-right .chat-msg-area .right-chatter-block {
+              width: 100%;
+              margin: 20px 5px; } }
+          @media only screen and (max-width: 599px) {
+            .chat-section .card .card-section .card-column-right .chat-msg-area .right-chatter-block {
+              width: 100%;
+              margin: 10px 0px; } }
+          .chat-section .card .card-section .card-column-right .chat-msg-area .right-chatter-block .chatter-icon {
+            text-align: left; }
+            .chat-section .card .card-section .card-column-right .chat-msg-area .right-chatter-block .chatter-icon i {
+              font-size: 35px;
+              margin-top: 4px;
+              margin-right: 2px; }
+          .chat-section .card .card-section .card-column-right .chat-msg-area .right-chatter-block .user_name {
+            font-size: 12px;
+            margin-top: -6px;
+            margin-bottom: 2px;
+            font-family: 'Raleway', sans-serif;
+            font-weight: bolder; }
+      .chat-section .card .card-section .card-column-right .chatTextArea {
+        position: absolute;
+        width: 100%;
+        bottom: 0px;
+        border-top: 2px solid #ed6400 !important;
+        max-height: 60px; }
+        .chat-section .card .card-section .card-column-right .chatTextArea .msg-textArea {
+          resize: none;
+          height: 48px !important;
+          min-height: 35px;
+          overflow: scroll;
+          padding: 10px 1% 0px 1%;
+          margin: 0px;
+          border: 0px !important;
+          box-shadow: none !important;
+          font-family: 'OpenSans', sans-serif;
+          width: 98%; }
+        .chat-section .card .card-section .card-column-right .chatTextArea .send-msg-btn {
+          width: 100%;
+          height: 58px;
+          border-radius: 0px;
+          background-color: #ed6400 !important;
+          padding: 0px; }
+          .chat-section .card .card-section .card-column-right .chatTextArea .send-msg-btn i {
+            font-size: 30px;
+            position: absolute;
+            left: 3px;
+            right: 0px;
+            margin: auto;
+            top: 9px;
+            bottom: 0px; }
+
+/*# sourceMappingURL=student-chat.component.css.map */
